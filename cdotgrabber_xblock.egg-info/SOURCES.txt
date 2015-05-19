@@ -1,0 +1,12 @@
+cdotgrabber/__init__.py
+cdotgrabber/cdotgrabber.py
+cdotgrabber/static/README.txt
+cdotgrabber/static/css/cdotgrabber.css
+cdotgrabber/static/html/cdotgrabber.html
+cdotgrabber/static/js/src/cdotgrabber.js
+cdotgrabber_xblock.egg-info/PKG-INFO
+cdotgrabber_xblock.egg-info/SOURCES.txt
+cdotgrabber_xblock.egg-info/dependency_links.txt
+cdotgrabber_xblock.egg-info/entry_points.txt
+cdotgrabber_xblock.egg-info/requires.txt
+cdotgrabber_xblock.egg-info/top_level.txt
