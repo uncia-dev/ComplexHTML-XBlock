@@ -1,18 +1,22 @@
 /* Javascript for CDOTgrabberXBlock. */
 function CDOTgrabberXBlock(runtime, element) {
 
-    function updateCount(result) {
-        $('.count', element).text(result.count);
-    }
+    // Record a click from a input object
+    $('input', element).click(function(eventObject) {
 
-    var handlerUrl = runtime.handlerUrl(element, 'increment_count');
+        // AJAX request sent to Django
 
-    $('p', element).click(function(eventObject) {
         $.ajax({
             type: "POST",
-            url: handlerUrl,
-            data: JSON.stringify({"hello": "world"}),
-            success: updateCount
+            url: runtime.handlerUrl(element, 'grab_data'),
+            data: JSON.stringify( // to be expanded
+                {
+                    "id": this.className,
+                    "action": this.type + "_click",
+                    "result": this.value
+                }
+            ),
+            success: console.log("- clicked on " + this.className)
         });
     });
 

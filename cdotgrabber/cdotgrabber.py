@@ -10,17 +10,9 @@ from xblock.fragment import Fragment
 
 class CDOTgrabberXBlock(XBlock):
     """
-    TO-DO: document what your XBlock does.
+    Simple XBlock that grabs
     """
 
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
-
-    # TO-DO: delete count, and define your own fields.
-    count = Integer(
-        default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
-    )
 
     grabbed = List(
         default=[], scope=Scope.user_state,
@@ -45,22 +37,29 @@ class CDOTgrabberXBlock(XBlock):
         frag.initialize_js('CDOTgrabberXBlock')
         return frag
 
-    # TO-DO: change this handler to perform your own actions.  You may need more
-    # than one handler, or you may not need any handlers at all.
+    '''
+    Grab all data passed from cdotgrabber.js and append it to self.grabbed.
+    '''
     @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
-        """
-        An example handler, which increments the data.
-        """
-        # Just to show data coming in...
-        assert data['hello'] == 'world'
+    def grab_data(self, data, suffix=''):
 
-        self.grabbed.append((str(datetime.datetime.now()), "stuff"))
+        content = {"time": str(datetime.datetime.now())}
+        chunk = []
 
-        print self.grabbed
+        for i in data: chunk.append((str(i), str(data[i])))
 
-        self.count += 1
-        return {"count": self.count}
+        if len(chunk) > 0:
+            self.grabbed.append((content["time"], chunk))
+            content["data"] = chunk
+
+        else:
+            self.grabbed.append((content["time"], "crickets"))
+            content["data"] = None
+
+        print "Grabbed data on " + self.grabbed[-1][0]
+        for i in self.grabbed[-1][1]: print "+--" + str(i)
+
+        return content
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
