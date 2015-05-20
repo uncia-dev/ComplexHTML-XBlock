@@ -13,6 +13,20 @@ class CDOTgrabberXBlock(XBlock):
     Simple XBlock that grabs
     """
 
+    header = String(
+        help="Title of the slide",
+        default="", scope=Scope.content
+    )
+
+    body_html = String(
+        help="HTML body of the slide",
+        default="", scope=Scope.content
+    )
+
+    body_js = String(
+        help="JS code for the slide",
+        default="", scope=Scope.content
+    )
 
     grabbed = List(
         default=[], scope=Scope.user_state,
@@ -20,28 +34,17 @@ class CDOTgrabberXBlock(XBlock):
     )
 
     def resource_string(self, path):
-        """Handy helper for getting resources from our kit."""
+        """
+        Handy helper for getting resources from our kit.
+        """
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    # TO-DO: change this view to display your data your own way.
-    def student_view(self, context=None):
-        """
-        The primary view of the CDOTgrabberXBlock, shown to students
-        when viewing courses.
-        """
-        html = self.resource_string("static/html/cdotgrabber.html")
-        frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/cdotgrabber.css"))
-        frag.add_javascript(self.resource_string("static/js/src/cdotgrabber.js"))
-        frag.initialize_js('CDOTgrabberXBlock')
-        return frag
-
-    '''
-    Grab all data passed from cdotgrabber.js and append it to self.grabbed.
-    '''
     @XBlock.json_handler
     def grab_data(self, data, suffix=''):
+        """
+        Grab all data passed from cdotgrabber.js and append it to self.grabbed.
+        """
 
         content = {"time": str(datetime.datetime.now())}
         chunk = []
@@ -60,6 +63,31 @@ class CDOTgrabberXBlock(XBlock):
         for i in self.grabbed[-1][1]: print "+--" + str(i)
 
         return content
+
+    # TO-DO: change this view to display your data your own way.
+    def student_view(self, context=None):
+        """
+        The student view
+        """
+        html = self.resource_string("static/html/cdotgrabber.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/cdotgrabber.css"))
+        frag.add_javascript(self.resource_string("static/js/cdotgrabber.js"))
+        frag.initialize_js('CDOTgrabberXBlock')
+        return frag
+
+
+    def studio_view(self, context=None):
+        """
+        The studio view
+        """
+        html = self.resource_string("static/html/cdotgrabber_studio.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/cdotgrabber_studio.css"))
+        frag.add_javascript(self.resource_string("static/js/cdotgrabber_studio.js"))
+        frag.initialize_js('CDOTgrabberXBlockStudio')
+        return frag
+
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.

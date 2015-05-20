@@ -3,7 +3,9 @@ cdotgrabber/cdotgrabber.py
 cdotgrabber/static/README.txt
 cdotgrabber/static/css/cdotgrabber.css
 cdotgrabber/static/html/cdotgrabber.html
-cdotgrabber/static/js/src/cdotgrabber.js
+cdotgrabber/static/html/cdotgrabber_studio.html
+cdotgrabber/static/js/cdotgrabber.js
+cdotgrabber/static/js/cdotgrabber_studio.js
 cdotgrabber_xblock.egg-info/PKG-INFO
 cdotgrabber_xblock.egg-info/SOURCES.txt
 cdotgrabber_xblock.egg-info/dependency_links.txt

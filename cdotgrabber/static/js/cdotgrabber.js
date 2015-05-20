@@ -5,6 +5,7 @@ function CDOTgrabberXBlock(runtime, element) {
     $('input', element).click(function(eventObject) {
 
         // AJAX request sent to Django
+        // Handy data: URL/Title, Time, What to grab and the data
 
         $.ajax({
             type: "POST",
