@@ -4,10 +4,10 @@ function CDOTgrabberXBlockStudio(runtime, element) {
     /* Update fields of the form to the current values */
     function formUpdate(data) {
 
-        $("#header").val(data.header);
-        $("#body_html").val(data.body_html);
-        $("#body_js").val(data.body_js);
-        $("#body_css").val(data.body_css);
+        $(".cdot_display_name").val(data.display_name);
+        $(".cdot_body_html").val(data.body_html);
+        $(".cdot_body_js").val(data.body_js);
+        $(".cdot_body_css").val(data.body_css);
 
     }
 
@@ -20,37 +20,22 @@ function CDOTgrabberXBlockStudio(runtime, element) {
                     $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
             );
 
-        /*
-        // Grab current values and update the fields
-        $.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(element, 'studio_submit'),
-            data: JSON.stringify({}),
-            success: formUpdate
-        });
-        */
-
         // Clicked Submit
         $('.btn_submit').click(function(eventObject) {
-
-            console.log($('#header').val());
-            console.log($('#body_html').val());
-            console.log($('#body_js').val());
-            console.log($('#body_css').val());
 
             $.ajax({
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "header": $('#header').val(),
-                    "body_html": $('#body_html').val(),
-                    "body_js": $('#body_js').val(),
-                    "body_css": $('#body_css').val()
+                    "display_name": $('.cdot_display_name').val(),
+                    "body_html": $('.cdot_body_html').val(),
+                    "body_js": $('.cdot_body_js').val(),
+                    "body_css": $('.cdot_body_css').val()
                 }),
                 success: formUpdate
             });
 
-            setTimeout(function(){location.reload();},1000)
+            setTimeout(function(){location.reload();},100);
 
         });
 

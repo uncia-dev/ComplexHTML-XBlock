@@ -16,15 +16,10 @@ class CDOTgrabberXBlock(XBlock):
     """
 
     display_name = String(
-        display_name="Web Slide",
+        display_name="CDOT Slide",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Web Slide"
-    )
-
-    header = String(
-        help="Title of the slide",
-        default="Untitled Slide", scope=Scope.content
+        default="CDOT Slide"
     )
 
     body_html = String(
@@ -121,20 +116,19 @@ class CDOTgrabberXBlock(XBlock):
 
         if len(data) > 0:
 
-            self.header = data["header"]
-            self.display_name = self.header
+            self.display_name = data["display_name"]
             self.body_html = data["body_html"]
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
             print("+ Submitted data")
-            print("+- Header: " + data["header"])
+            print("+- Display Name: " + data["display_name"])
             print("+- HTML: " + data["body_html"])
             print("+- JS: " + data["body_js"])
             print("+- CSS: " + data["body_css"])
 
         content = {
-            "header": self.header,
+            "display_name": self.display_name,
             "body_html": self.body_html,
             "body_js": self.body_js,
             "body_css": self.body_css
@@ -148,11 +142,7 @@ class CDOTgrabberXBlock(XBlock):
         return [
             ("CDOTgrabberXBlock",
              """<vertical_demo>
-                <cdotgrabber
-
-
-
-                />
+                <cdotgrabber/>
                 </vertical_demo>
              """),
         ]

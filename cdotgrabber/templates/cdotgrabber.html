@@ -5,8 +5,8 @@
 
     <h3 style="color: blue">FOR DEVELOPMENT - Content Data From Database</h3>
 
-    <h4>Header</h4>
-    <p>{{self.header}}</p>
+    <h4>Display Name</h4>
+    <p>{{self.display_name}}</p>
     <h4>HTML Code</h4>
     <p>{{self.body_html}}</p>
     <h4>JavaScript Code</h4>
@@ -20,11 +20,11 @@
 
     <form class="cdograbber_parameters">
 
-        <p>Header</p><textarea wrap="off" id="header" cols="80" rows="1"></textarea>
-        <p>HTML Code</p><textarea wrap="off" id="body_html" cols="80" rows="20"></textarea>
-        <p>JavaScript Code</p><textarea wrap="off" id="body_js" cols="80" rows="20"></textarea>
-        <p>CSS Code</p><textarea wrap="off" id="body_css" cols="80" rows="20"></textarea>
-        <h3 style="color: red">DO NOT CLICK THIS IN LMS AND CMS. USE ONLY XBLOCK-SDK!</h3>
+        <p>Display Name</p><textarea wrap="off" class="dev_display_name" cols="80" rows="1">{{ self.display_name }}</textarea>
+        <p>HTML Code</p><textarea wrap="off" class="dev_body_html" cols="80" rows="20">{{ self.body_html }}</textarea>
+        <p>JavaScript Code</p><textarea wrap="off" class="dev_body_js" cols="80" rows="20">{{ self.body_js }}</textarea>
+        <p>CSS Code</p><textarea wrap="off" class="dev_body_css" cols="80" rows="20">{{ self.body_css }}</textarea>
+        <h3 style="color: red">DO NOT CLICK THIS IN LMS AND CMS. USE ONLY IN THE XBLOCK-SDK!</h3>
         <p><input class="btn_submit" type="button" value="Submit & Reload"></p>
 
     </form>

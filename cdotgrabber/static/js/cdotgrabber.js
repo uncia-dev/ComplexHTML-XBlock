@@ -26,17 +26,15 @@ function CDOTgrabberXBlock(runtime, element) {
     /* FOR DEVELOPMENT - Update fields of the form to the current values */
     function formUpdate(data) {
 
-        $("#header").val(data.header);
-        $("#body_html").val(data.body_html);
-        $("#body_js").val(data.body_js);
-        $("#body_css").val(data.body_css);
+        $(".dev_display_name").val(data.display_name);
+        $(".dev_body_html").val(data.body_html);
+        $(".dev_body_js").val(data.body_js);
+        $(".dev_body_css").val(data.body_css);
 
     }
 
     /* Page is loaded. Do something. */
     $(function($) {
-
-
 
         /* FOR DEVELOPMENT */
 
@@ -46,14 +44,6 @@ function CDOTgrabberXBlock(runtime, element) {
                     $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
             );
 
-        // Grab current values and update the fields
-        $.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(element, 'studio_submit'),
-            data: JSON.stringify({}),
-            success: formUpdate
-        });
-
         // Clicked Submit
         $('.btn_submit').click(function(eventObject) {
 
@@ -61,17 +51,17 @@ function CDOTgrabberXBlock(runtime, element) {
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "header": $('#header').val(),
-                    "body_html": $('#body_html').val(),
-                    "body_js": $('#body_js').val(),
-                    "body_css": $('#body_css').val()
+                    "display_name": $('.dev_display_name').val(),
+                    "body_html": $('.dev_body_html').val(),
+                    "body_js": $('.dev_body_js').val(),
+                    "body_css": $('.dev_body_css').val()
                 }),
                 success: formUpdate
             });
 
-            setTimeout(function(){location.reload();},1000)
+            setTimeout(function(){location.reload();},2000); // intentional wait time to see the console
 
-        })
+        });
 
         /* FOR DEVELOPMENT */
 
