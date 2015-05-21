@@ -4,7 +4,7 @@ import pkg_resources
 import datetime
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, List
+from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
 
 
@@ -25,6 +25,11 @@ class CDOTgrabberXBlock(XBlock):
 
     body_js = String(
         help="JS code for the slide",
+        default="", scope=Scope.content
+    )
+
+    body_css = String(
+        help="CSS code for the slide",
         default="", scope=Scope.content
     )
 
@@ -76,11 +81,11 @@ class CDOTgrabberXBlock(XBlock):
         frag.initialize_js('CDOTgrabberXBlock')
         return frag
 
-
     def studio_view(self, context=None):
         """
         The studio view
         """
+
         html = self.resource_string("static/html/cdotgrabber_studio.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/cdotgrabber_studio.css"))
@@ -88,9 +93,33 @@ class CDOTgrabberXBlock(XBlock):
         frag.initialize_js('CDOTgrabberXBlockStudio')
         return frag
 
+    @XBlock.json_handler
+    def studio_submit(self, data, suffix=''):
 
-    # TO-DO: change this to create the scenarios you'd like to see in the
-    # workbench while developing your XBlock.
+        if len(data) > 0:
+
+            self.header = data["header"]
+            self.body_html = data["body_html"]
+            self.body_js = data["body_js"]
+            self.body_css = data["body_css"]
+
+            print("+ Submitted data")
+            print("+- Title: " + data["title"])
+            print("+- HTML: " + data["body_html"])
+            print("+- JS: " + data["body_js"])
+            print("+- CSS: " + data["body_css"])
+
+        content = {
+
+            "title": self.title,
+            "body_html": self.body_html,
+            "body_js": self.body_js,
+            "body_css": self.body_css
+
+        }
+
+        return content
+
     @staticmethod
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
