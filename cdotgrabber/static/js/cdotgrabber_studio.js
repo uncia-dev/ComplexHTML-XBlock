@@ -14,12 +14,13 @@ function CDOTgrabberXBlockStudio(runtime, element) {
     /* Page is loaded. Do something. */
     $(function($) {
 
-        // Hijack edX's button bar for the studio view
+        // Add personal save button
         $(".modal-actions")//.empty()
             .append(
                     $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
             );
 
+        /*
         // Grab current values and update the fields
         $.ajax({
             type: "POST",
@@ -27,9 +28,15 @@ function CDOTgrabberXBlockStudio(runtime, element) {
             data: JSON.stringify({}),
             success: formUpdate
         });
+        */
 
         // Clicked Submit
         $('.btn_submit').click(function(eventObject) {
+
+            console.log($('#header').val());
+            console.log($('#body_html').val());
+            console.log($('#body_js').val());
+            console.log($('#body_css').val());
 
             $.ajax({
                 type: "POST",

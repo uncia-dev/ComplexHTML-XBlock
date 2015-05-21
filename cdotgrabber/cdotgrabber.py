@@ -15,6 +15,13 @@ class CDOTgrabberXBlock(XBlock):
     Simple XBlock that grabs
     """
 
+    display_name = String(
+        display_name="Web Slide",
+        help="This name appears in the horizontal navigation at the top of the page",
+        scope=Scope.settings,
+        default="Web Slide"
+    )
+
     header = String(
         help="Title of the slide",
         default="Untitled Slide", scope=Scope.content
@@ -115,6 +122,7 @@ class CDOTgrabberXBlock(XBlock):
         if len(data) > 0:
 
             self.header = data["header"]
+            self.display_name = self.header
             self.body_html = data["body_html"]
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]

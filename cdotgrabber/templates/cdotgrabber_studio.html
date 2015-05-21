@@ -8,10 +8,10 @@
 
             <form class="cdograbber_parameters">
 
-                <p>Header</p><textarea wrap="off" id="header" cols="100" rows="1"></textarea>
-                <p>HTML Code</p><textarea wrap="off" id="body_html" cols="100" rows="20"></textarea>
-                <p>JavaScript Code</p><textarea wrap="off" id="body_js" cols="100" rows="20"></textarea>
-                <p>CSS Code</p><textarea wrap="off" id="body_css" cols="100" rows="20"></textarea>
+                <p>Header</p><textarea wrap="off" id="header" cols="100" rows="1">{{ self.header }}</textarea>
+                <p>HTML Code</p><textarea wrap="off" id="body_html" cols="100" rows="20">{{ self.body_html }}</textarea>
+                <p>JavaScript Code</p><textarea wrap="off" id="body_js" cols="100" rows="20">{{ self.body_js }}</textarea>
+                <p>CSS Code</p><textarea wrap="off" id="body_css" cols="100" rows="20">{{ self.body_css }}</textarea>
                 <!-- For debugging purposes -->
                 <!--<p><input class="btn_submit" type="button" value="Submit & Reload"></p>-->
 
