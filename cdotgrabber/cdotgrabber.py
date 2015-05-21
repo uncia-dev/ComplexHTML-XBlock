@@ -6,7 +6,7 @@ import datetime
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
-
+from .utils import render_template, load_resource
 
 class CDOTgrabberXBlock(XBlock):
     """
@@ -74,27 +74,32 @@ class CDOTgrabberXBlock(XBlock):
         """
         The student view
         """
-        html = self.resource_string("static/html/cdotgrabber.html")
-        frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/cdotgrabber.css"))
-        frag.add_javascript(self.resource_string("static/js/cdotgrabber.js"))
-        frag.initialize_js('CDOTgrabberXBlock')
-        return frag
+
+        fragment = Fragment()
+        fragment.add_content(render_template('templates/cdotgrabber.html', {'self': self}))
+        fragment.add_css(load_resource('static/css/cdotgrabber.css'))
+        fragment.add_javascript(load_resource('static/js/cdotgrabber.js'))
+        fragment.initialize_js('CDOTgrabberXBlock')
+
+        return fragment
 
     def studio_view(self, context=None):
         """
         The studio view
         """
 
-        html = self.resource_string("static/html/cdotgrabber_studio.html")
-        frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/cdotgrabber_studio.css"))
-        frag.add_javascript(self.resource_string("static/js/cdotgrabber_studio.js"))
-        frag.initialize_js('CDOTgrabberXBlockStudio')
-        return frag
+        fragment = Fragment()
+        fragment.add_content(render_template('templates/cdotgrabber_studio.html', {'self': self}))
+        fragment.add_css(load_resource('static/css/cdotgrabber_studio.css'))
+        fragment.add_javascript(load_resource('static/js/cdotgrabber_studio.js'))
+        fragment.initialize_js('CDOTgrabberXBlockStudio')
+
+        return fragment
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
+
+        print "Snatched input from Studio View"
 
         if len(data) > 0:
 
@@ -104,18 +109,16 @@ class CDOTgrabberXBlock(XBlock):
             self.body_css = data["body_css"]
 
             print("+ Submitted data")
-            print("+- Title: " + data["title"])
+            print("+- Header: " + data["header"])
             print("+- HTML: " + data["body_html"])
             print("+- JS: " + data["body_js"])
             print("+- CSS: " + data["body_css"])
 
         content = {
-
-            "title": self.title,
+            "header": self.header,
             "body_html": self.body_html,
             "body_js": self.body_js,
             "body_css": self.body_css
-
         }
 
         return content
@@ -126,7 +129,14 @@ class CDOTgrabberXBlock(XBlock):
         return [
             ("CDOTgrabberXBlock",
              """<vertical_demo>
-                <cdotgrabber/>
+                <cdotgrabber
+
+                    header="TEST HEADER"
+                    body_html="HTML code goes here"
+                    body_js="JS code goes here"
+                    body_css="CSS code goes here"
+
+                />
                 </vertical_demo>
              """),
         ]

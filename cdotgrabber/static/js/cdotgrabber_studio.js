@@ -1,12 +1,13 @@
 /* Javascript for CDOTgrabberXBlock. */
-function CDOTgrabberXBlock(runtime, element) {
+function CDOTgrabberXBlockStudio(runtime, element) {
 
     /* Update fields of the form to the current values */
     function formUpdate(data) {
 
-        $("#title").val(data.title);
+        $("#header").val(data.header);
         $("#body_html").val(data.body_html);
         $("#body_js").val(data.body_js);
+        $("#body_css").val(data.body_css);
 
     }
 
@@ -14,7 +15,7 @@ function CDOTgrabberXBlock(runtime, element) {
     $(function($) {
 
         // Hijack edX's button bar for the studio view
-        $(".modal-actions").empty()
+        $(".modal-actions")//.empty()
             .append(
                     $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
             );
@@ -34,9 +35,10 @@ function CDOTgrabberXBlock(runtime, element) {
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "title": $('#title').val(),
+                    "header": $('#header').val(),
                     "body_html": $('#body_html').val(),
-                    "body_js": $('#body_js').val()
+                    "body_js": $('#body_js').val(),
+                    "body_css": $('#body_css').val()
                 }),
                 success: formUpdate
             });
