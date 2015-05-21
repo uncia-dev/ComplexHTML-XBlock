@@ -8,6 +8,8 @@ from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
 from .utils import render_template, load_resource
 
+from django.template import Context, Template
+
 class CDOTgrabberXBlock(XBlock):
     """
     Simple XBlock that grabs
@@ -15,22 +17,22 @@ class CDOTgrabberXBlock(XBlock):
 
     header = String(
         help="Title of the slide",
-        default="", scope=Scope.content
+        default="Untitled Slide", scope=Scope.content
     )
 
     body_html = String(
         help="HTML body of the slide",
-        default="", scope=Scope.content
+        default="<p class=\"grabber_default\">Body of slide goes here...</p>", scope=Scope.content
     )
 
     body_js = String(
         help="JS code for the slide",
-        default="", scope=Scope.content
+        default="console.log(\"Your lack of JavaScript disturbs me.\")", scope=Scope.content
     )
 
     body_css = String(
         help="CSS code for the slide",
-        default="", scope=Scope.content
+        default=".grabber_default { color: red }", scope=Scope.content
     )
 
     grabbed = List(
@@ -76,10 +78,19 @@ class CDOTgrabberXBlock(XBlock):
         """
 
         fragment = Fragment()
-        fragment.add_content(render_template('templates/cdotgrabber.html', {'self': self}))
-        fragment.add_css(load_resource('static/css/cdotgrabber.css'))
-        fragment.add_javascript(load_resource('static/js/cdotgrabber.js'))
-        fragment.initialize_js('CDOTgrabberXBlock')
+        content = {'self': self}
+
+        # Add user input HTML, JS and CSS code
+        body_html = "<div class=\"cdotgrabber_block_dev\">" + self.body_html + "</div>"
+        fragment.add_content(Template(unicode(body_html)).render(Context(content)))
+        fragment.add_css(unicode(self.body_css))
+        fragment.add_javascript(unicode(self.body_js))
+
+        # Development stuff - to be repurposed later
+        fragment.add_content(render_template('templates/cdotgrabber.html', content))  # might not need later
+        fragment.add_css(load_resource('static/css/cdotgrabber.css'))  # might not need later
+        fragment.add_javascript(load_resource('static/js/cdotgrabber.js'))  # needed for recording student interaction
+        fragment.initialize_js('CDOTgrabberXBlock')  # needed for recording student interaction
 
         return fragment
 
@@ -131,10 +142,7 @@ class CDOTgrabberXBlock(XBlock):
              """<vertical_demo>
                 <cdotgrabber
 
-                    header="TEST HEADER"
-                    body_html="HTML code goes here"
-                    body_js="JS code goes here"
-                    body_css="CSS code goes here"
+
 
                 />
                 </vertical_demo>

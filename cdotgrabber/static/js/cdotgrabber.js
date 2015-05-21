@@ -21,7 +21,9 @@ function CDOTgrabberXBlock(runtime, element) {
         });
     });
 
-    /* Update fields of the form to the current values */
+
+
+    /* FOR DEVELOPMENT - Update fields of the form to the current values */
     function formUpdate(data) {
 
         $("#header").val(data.header);
@@ -33,6 +35,10 @@ function CDOTgrabberXBlock(runtime, element) {
 
     /* Page is loaded. Do something. */
     $(function($) {
+
+
+
+        /* FOR DEVELOPMENT */
 
         // Hijack edX's button bar for the studio view
         $(".modal-actions")//.empty()
@@ -66,6 +72,8 @@ function CDOTgrabberXBlock(runtime, element) {
             setTimeout(function(){location.reload();},1000)
 
         })
+
+        /* FOR DEVELOPMENT */
 
     })
 

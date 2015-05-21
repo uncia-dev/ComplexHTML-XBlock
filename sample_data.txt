@@ -1,0 +1,37 @@
+HTML
+====
+
+<p class="grabber_default">Body of slide goes below...</p>
+
+<div class="test_div">
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta diam vitae ante hendrerit fermentum. Maecenas consectetur risus odio, sed bibendum nisi varius eu. Curabitur vulputate, ligula pulvinar luctus maximus, lectus lacus varius felis, a elementum justo arcu vitae metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent at posuere orci. Cras viverra condimentum nibh, et tincidunt mauris. Fusce feugiat justo sed facilisis volutpat. Integer accumsan eros lectus, at hendrerit metus accumsan tincidunt. Cras ornare, augue eu porttitor vestibulum, sapien mauris elementum ipsum, eget laoreet felis velit eget ligula. Maecenas at maximus lacus. Ut sit amet ipsum non neque volutpat aliquet sit amet in eros. Cras eros nibh, sollicitudin et dolor ut, venenatis lobortis lacus. Praesent commodo vulputate lorem, at ullamcorper magna pretium vitae. Suspendisse accumsan mollis lacus, eget tristique ipsum rutrum sed. Aenean luctus libero iaculis odio elementum efficitur. Ut leo nunc, sodales at risus eu, molestie maximus ante.</p>
+<p>Duis accumsan turpis non velit consectetur viverra. Nullam vestibulum commodo sapien, quis posuere ex pretium a. Etiam cursus neque eu massa facilisis, at cursus diam consequat. Suspendisse tincidunt quis nisi quis eleifend. Nam auctor leo vel turpis convallis elementum. Vivamus nec libero magna. Nulla pharetra aliquam augue, nec venenatis lacus tempor nec. Curabitur convallis hendrerit ligula, sit amet eleifend ipsum. Etiam mauris odio, egestas nec ligula non, consequat molestie sapien. Sed egestas mauris ligula, mollis pellentesque ante mollis sed. Aenean bibendum elit in magna convallis vulputate. Nunc justo dui, vehicula vel tempus quis, cursus vitae sapien. Nunc pretium diam a nunc bibendum viverra. Morbi hendrerit magna vitae est ultricies vehicula. Quisque in rutrum libero.</p>
+<p>Phasellus eu ipsum ornare, laoreet nibh et, consectetur sapien. Etiam finibus neque a lacus euismod euismod. Sed condimentum, nunc a pharetra pellentesque, sem nunc suscipit dui, non laoreet odio erat in quam. Suspendisse fringilla, ex in luctus vestibulum, eros dolor cursus ligula, ac scelerisque sapien enim feugiat leo. Sed iaculis, mauris vel convallis tempus, orci lorem egestas risus, varius consequat eros lectus at est. Sed varius odio sit amet urna volutpat convallis. Donec odio nibh, luctus tempus sodales et, rhoncus sit amet diam. Etiam pharetra pharetra dui, vitae fringilla diam mollis ut.</p>
+<p>Aenean efficitur tristique placerat. Proin venenatis facilisis ligula, quis porta lorem blandit ac. Duis non lacus nec lacus aliquam posuere non ut diam. Donec condimentum mi et libero pretium, in congue nisl tempus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc tempor, tortor vitae rhoncus tincidunt, risus libero lacinia ipsum, nec blandit mi urna vitae velit. Nullam ut purus at erat imperdiet cursus a quis metus. Suspendisse felis massa, accumsan id eros sit amet, tristique vehicula augue. Aliquam erat volutpat. Mauris et nisi id magna pellentesque ullamcorper. Ut sit amet fringilla elit, in mollis diam. Praesent aliquet nunc eu sagittis eleifend. Suspendisse a mollis justo. Nam ac massa vehicula, volutpat nunc at, ornare erat. In dignissim enim risus, ut aliquet nulla porttitor in. Quisque mi augue, placerat vel volutpat id, accumsan quis ligula.</p>
+<p>Nunc sit amet risus suscipit erat ultricies bibendum eu id sem. Phasellus dapibus arcu vel metus condimentum ullamcorper. Maecenas sagittis, diam sed luctus euismod, purus velit interdum leo, sit amet sodales nunc purus sit amet diam. In ligula est, commodo vitae lorem a, aliquam pharetra nibh. Curabitur elementum mi justo, et laoreet elit commodo sit amet. In vel quam diam. Proin dictum nisi tellus, iaculis pretium ante condimentum in. Integer finibus tristique laoreet. Phasellus et egestas metus. Fusce a est ac nisi congue ultrices. Aenean magna ipsum, blandit vel neque vitae, dignissim lacinia ipsum. Suspendisse potenti. Quisque non condimentum tortor. Etiam ultricies bibendum eros eu scelerisque. Aliquam a est sed arcu bibendum laoreet id consectetur tortor. Nam pharetra ante ut lorem euismod, nec lacinia nibh interdum. </p>
+
+</div>
+
+
+JavaScript
+==========
+
+console.log("test JS string");
+
+    $('textarea').click(function(eventObject) {
+           success: console.log("- clicked on " + this.type)
+    });
+
+
+
+CSS
+===
+
+.grabber_default { color: blue }
+
+.test_div { 
+color: green;
+font-weight: bold;
+text-size: 20px;
+}
