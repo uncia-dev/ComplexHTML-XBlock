@@ -1,0 +1,9 @@
+/* CSS for CDOTgrabberXBlock */
+
+.cdotgrabber_block .count {
+    font-weight: bold;
+}
+
+.cdotgrabber_block p {
+    cursor: pointer;
+}
