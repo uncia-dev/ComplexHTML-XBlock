@@ -19,6 +19,7 @@ $('input', element).click(function (eventObject) {
         ),
         success: console.log("- clicked on " + this.className)
     });
+
 });
 
 /* Page is loaded. Do something. */

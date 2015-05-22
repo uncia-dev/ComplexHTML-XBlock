@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber.css" afterPath="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber.html" afterPath="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cdotgrabber/static/html/cdotgrabber.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cdotgrabber/static/html/cdotgrabber_studio.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js" afterPath="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/cdotgrabber.py" afterPath="$PROJECT_DIR$/cdotgrabber/cdotgrabber.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber_studio.css" afterPath="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber_studio.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber_studio.html" afterPath="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber_studio.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_studio.js" afterPath="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_studio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdotgrabber/utils.py" afterPath="$PROJECT_DIR$/cdotgrabber/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cdotgrabber.iws" />
@@ -32,14 +29,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cdotgrabber.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cdotgrabber.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cdotgrabber/cdotgrabber.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75931233">
-              <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
               <folding>
-                <element signature="e#58#78#0" expanded="true" />
+                <element signature="e#58#87#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.61891115">
+              <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,21 +55,9 @@
         <entry file="file://$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cdotgrabber/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="17" />
-              <folding>
-                <element signature="e#98#112#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,12 +128,13 @@
         <option value="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_studio.js" />
         <option value="$PROJECT_DIR$/cdotgrabber/utils.py" />
         <option value="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_onload.js" />
-        <option value="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js" />
         <option value="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber.css" />
         <option value="$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber_studio.css" />
         <option value="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber.html" />
         <option value="$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber_studio.html" />
+        <option value="$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js" />
         <option value="$PROJECT_DIR$/cdotgrabber/cdotgrabber.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -543,10 +539,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/cdotgrabber/cdotgrabber.py</url>
-          <line>2</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/cdotgrabber/utils.py</url>
           <line>5</line>
           <option name="timeStamp" value="1" />
@@ -562,7 +554,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -620,7 +612,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -658,7 +650,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -696,7 +688,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -734,7 +726,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -772,7 +764,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,7 +802,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,7 +840,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -881,26 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_studio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cdotgrabber/static/css/cdotgrabber.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -917,6 +889,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber_studio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.0">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.333333">
@@ -927,21 +907,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cdotgrabber/templates/cdotgrabber_studio.html">
+    <entry file="file://$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber_studio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.0">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cdotgrabber/static/js/cdotgrabber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cdotgrabber/cdotgrabber.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75931233">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
           <folding>
-            <element signature="e#58#78#0" expanded="true" />
+            <element signature="e#58#87#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61891115">
+          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>

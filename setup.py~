@@ -35,5 +35,5 @@ setup(
             'cdotgrabber = cdotgrabber:CDOTgrabberXBlock',
         ]
     },
-    package_data=package_data("cdotgrabber", ["static", "templates", "public"]),
+    package_data=package_data("cdotgrabber", ["static", "public"]),
 )

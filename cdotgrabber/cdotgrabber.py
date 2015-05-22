@@ -1,15 +1,12 @@
 """TO-DO: Write a description of what this XBlock is."""
 
-import pkg_resources
-import urllib
-import datetime
-
+import urllib, datetime, json
+from .utils import render_template, load_resource, resource_string
+from django.template import Context, Template
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
-from .utils import render_template, load_resource, resource_string
 
-from django.template import Context, Template
 
 class CDOTgrabberXBlock(XBlock):
     """
@@ -99,6 +96,8 @@ class CDOTgrabberXBlock(XBlock):
         else:
             body_css = self.body_css
 
+        print(body_js)
+
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
@@ -139,15 +138,23 @@ class CDOTgrabberXBlock(XBlock):
             self.display_name = data["display_name"]
             self.body_html = data["body_html"]
             self.body_json = data["body_json"]
+
+            # json processing
+            fields = json.loads(self.body_json)
+            print fields
+
+
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
+            '''
             print("+ Submitted data")
             print("+- Display Name: " + data["display_name"])
             print("+- HTML: " + data["body_html"])
             print("+- JS: " + data["body_js"])
             print("+- JSON: " + data["body_json"])
             print("+- CSS: " + data["body_css"])
+            '''
 
             return {"submitted": "true"}
 
