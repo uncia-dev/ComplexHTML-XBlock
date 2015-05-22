@@ -30,3 +30,10 @@ def render_template(template_path, context={}):
     template_str = load_resource(template_path)
     template = Template(template_str)
     return template.render(Context(context))
+
+def resource_string(self, path):
+    """
+    Handy helper for getting resources from our kit.
+    """
+    data = pkg_resources.resource_string(__name__, path)
+    return data.decode("utf8")

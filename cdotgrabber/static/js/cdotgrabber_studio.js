@@ -7,6 +7,7 @@ function CDOTgrabberXBlockStudio(runtime, element) {
         $(".cdot_display_name").val(data.display_name);
         $(".cdot_body_html").val(data.body_html);
         $(".cdot_body_js").val(data.body_js);
+        $(".cdot_body_json").val(data.body_json);
         $(".cdot_body_css").val(data.body_css);
 
     }
@@ -30,6 +31,7 @@ function CDOTgrabberXBlockStudio(runtime, element) {
                     "display_name": $('.cdot_display_name').val(),
                     "body_html": $('.cdot_body_html').val(),
                     "body_js": $('.cdot_body_js').val(),
+                    "body_json": $('.cdot_body_json').val(),
                     "body_css": $('.cdot_body_css').val()
                 }),
                 success: formUpdate
