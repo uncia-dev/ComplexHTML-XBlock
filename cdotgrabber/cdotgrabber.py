@@ -96,8 +96,6 @@ class CDOTgrabberXBlock(XBlock):
         else:
             body_css = self.body_css
 
-        print(body_js)
-
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
