@@ -45,6 +45,16 @@ class CDOTgrabberXBlock(XBlock):
         help="Student interaction that was grabbed from XBlock.",
     )
 
+
+    '''
+    TODO
+
+    - Add getters for the 5 fields
+    - Add getter/template generator for self.grabbed
+    - Add function to clear student state for grabbed
+
+    '''
+
     @XBlock.json_handler
     def grab_data(self, data, suffix=''):
         """
@@ -65,7 +75,8 @@ class CDOTgrabberXBlock(XBlock):
             content["data"] = None
 
         print "Grabbed data on " + self.grabbed[-1][0]
-        for i in self.grabbed[-1][1]: print "+--" + str(i)
+        for i in self.grabbed[-1][1]:
+            print "+--" + str(i)
 
         return content
 
