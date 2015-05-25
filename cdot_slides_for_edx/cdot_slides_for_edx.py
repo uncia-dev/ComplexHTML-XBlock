@@ -1,5 +1,3 @@
-"""TO-DO: Write a description of what this XBlock is."""
-
 import urllib, datetime, json
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
@@ -8,7 +6,7 @@ from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
 
 
-class CDOTgrabberXBlock(XBlock):
+class CDOTSlidesXBlock(XBlock):
     """
     Simple XBlock that grabs
     """
@@ -22,7 +20,7 @@ class CDOTgrabberXBlock(XBlock):
 
     body_html = String(
         help="HTML body of the slide",
-        default="<p class=\"grabber_default\">Body of slide goes here...</p>", scope=Scope.content
+        default="<p class=\"cdot_slide_default\">Body of slide goes here...</p>", scope=Scope.content
     )
 
     body_js = String(
@@ -37,7 +35,7 @@ class CDOTgrabberXBlock(XBlock):
 
     body_css = String(
         help="CSS code for the slide",
-        default=".grabber_default { color: red }", scope=Scope.content
+        default=".cdot_slide_default { color: red }", scope=Scope.content
     )
 
     grabbed = List(
@@ -74,7 +72,7 @@ class CDOTgrabberXBlock(XBlock):
     @XBlock.json_handler
     def grab_data(self, data, suffix=''):
         """
-        Grab all data passed from cdotgrabber.js and append it to self.grabbed.
+        Grab all data passed from cdot_slides_for_edx.js and append it to self.grabbed.
         """
 
         content = {"time": str(datetime.datetime.now())}
@@ -118,12 +116,12 @@ class CDOTgrabberXBlock(XBlock):
             body_html = urllib.urlopen(self.body_html).read()
 
         else:
-            body_html = "<div class=\"cdotgrabber_xblock\">" + self.body_html + "</div>"
+            body_html = "<div class=\"cdot_slides_for_edx_xblock\">" + self.body_html + "</div>"
 
         if self.body_js[:4] == "http":
             body_js = urllib.urlopen(self.body_js).read()
         else:
-            body_js = load_resource('static/js/cdotgrabber.js')
+            body_js = load_resource('static/js/cdot_slides_for_edx.js')
             body_js = body_js[:-7] + self.body_js + body_js[-7:]
 
         if self.body_css[:4] == "http":
@@ -136,11 +134,11 @@ class CDOTgrabberXBlock(XBlock):
         fragment.add_css(unicode(body_css))
 
         # FOR DEVELOPMENT
-        fragment.add_content(render_template('templates/cdotgrabber.html', content))
-        fragment.add_css(load_resource('static/css/cdotgrabber.css'))
+        fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
+        fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
         # FOR DEVELOPMENT
 
-        fragment.initialize_js('CDOTgrabberXBlock')
+        fragment.initialize_js('CDOTSlidesXBlock')
 
         return fragment
 
@@ -150,10 +148,10 @@ class CDOTgrabberXBlock(XBlock):
         """
 
         fragment = Fragment()
-        fragment.add_content(render_template('templates/cdotgrabber_studio.html', {'self': self}))
-        fragment.add_css(load_resource('static/css/cdotgrabber_studio.css'))
-        fragment.add_javascript(load_resource('static/js/cdotgrabber_studio.js'))
-        fragment.initialize_js('CDOTgrabberXBlockStudio')
+        fragment.add_content(render_template('templates/cdot_slides_for_edx_studio.html', {'self': self}))
+        fragment.add_css(load_resource('static/css/cdot_slides_for_edx_studio.css'))
+        fragment.add_javascript(load_resource('static/js/cdot_slides_for_edx_studio.js'))
+        fragment.initialize_js('CDOTSlidesXBlockStudio')
 
         return fragment
 
@@ -176,7 +174,6 @@ class CDOTgrabberXBlock(XBlock):
             fields = json.loads(self.body_json)
             print fields
 
-
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
@@ -197,9 +194,9 @@ class CDOTgrabberXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("CDOTgrabberXBlock",
+            ("cdot_slides_for_edxXBlock",
              """<vertical_demo>
-                <cdotgrabber/>
+                <cdot_slides_for_edx/>
                 </vertical_demo>
              """),
         ]

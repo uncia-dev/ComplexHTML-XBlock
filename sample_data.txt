@@ -1,7 +1,7 @@
 HTML
 ====
 
-<p class="grabber_default">Body of slide goes below...</p>
+<p class="cdot_slide_default">Body of slide goes below...</p>
 
 <div class="test_div">
 
@@ -28,7 +28,7 @@ console.log("test JS string");
 CSS
 ===
 
-.grabber_default { color: blue }
+.cdot_slide_default { color: blue }
 
 .test_div { 
 color: green;

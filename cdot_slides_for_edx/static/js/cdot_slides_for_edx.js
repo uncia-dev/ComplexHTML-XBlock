@@ -1,5 +1,5 @@
-/* Javascript for CDOTgrabberXBlock. */
-function CDOTgrabberXBlock(runtime, element) {
+/* Javascript for CDOTSlideXBlock. */
+function CDOTSlidesXBlock(runtime, element) {
 
 // Return class name, id or type depending on which one is available first
 function getid(element) {

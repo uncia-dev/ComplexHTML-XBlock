@@ -1,5 +1,5 @@
-/* Javascript for CDOTgrabberXBlock. */
-function CDOTgrabberXBlockStudio(runtime, element) {
+/* Javascript for CDOTSlideXBlock. */
+function CDOTSlidesXBlockStudio(runtime, element) {
 
     /* Update fields of the form to the current values */
     function formUpdate(data) {

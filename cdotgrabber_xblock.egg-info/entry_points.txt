@@ -1,3 +1,0 @@
-[xblock.v1]
-cdotgrabber = cdotgrabber:CDOTgrabberXBlock
-

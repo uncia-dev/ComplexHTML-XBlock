@@ -1,4 +1,4 @@
-"""Setup for cdotgrabber XBlock."""
+"""Setup for cdot_slides_for_edx XBlock."""
 
 import os
 from setuptools import setup
@@ -21,19 +21,19 @@ def package_data(pkg, roots):
 
 
 setup(
-    name='cdotgrabber-xblock',
+    name='cdot_slides_for_edx-xblock',
     version='0.1',
-    description='cdotgrabber XBlock',   # TODO: write a better description.
+    description='cdot_slides_for_edx XBlock',   # TODO: write a better description.
     packages=[
-        'cdotgrabber',
+        'cdot_slides_for_edx',
     ],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'cdotgrabber = cdotgrabber:CDOTgrabberXBlock',
+            'cdot_slides_for_edx = cdot_slides_for_edx:CDOTSlidesXBlock',
         ]
     },
-    package_data=package_data("cdotgrabber", ["static", "templates", "public"]),
+    package_data=package_data("cdot_slides_for_edx", ["static", "templates", "public"]),
 )
