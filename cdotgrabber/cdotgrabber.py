@@ -45,15 +45,31 @@ class CDOTgrabberXBlock(XBlock):
         help="Student interaction that was grabbed from XBlock.",
     )
 
+    @XBlock.json_handler
+    def get_body_html(self, data, suffix=''):
+        return {"body_html": self.body_html}
 
-    '''
-    TODO
+    @XBlock.json_handler
+    def get_body_css(self, data, suffix=''):
+        return {"body_css": self.body_css}
 
-    - Add getters for the 5 fields
-    - Add getter/template generator for self.grabbed
-    - Add function to clear student state for grabbed
+    @XBlock.json_handler
+    def get_body_js(self, data, suffix=''):
+        return {"body_js": self.body_js}
 
-    '''
+    @XBlock.json_handler
+    def get_body_json(self, data, suffix=''):
+        return {"body_json": self.body_json}
+
+    @XBlock.json_handler
+    def get_grabbed_data(self, data, suffix=''):
+        return {"grabbed_data": self.grabbed.to_json()}
+
+    def get_time_delta(self):
+        """
+        :return: Delta between current grabbed input and the previous one. Use to measure time spent between actions.
+        """
+        return self.grabbed[-1] - self.grabbed[-2]
 
     @XBlock.json_handler
     def grab_data(self, data, suffix=''):
@@ -79,6 +95,14 @@ class CDOTgrabberXBlock(XBlock):
             print "+--" + str(i)
 
         return content
+
+    @XBlock.json_handler
+    def clear_data(self, data, suffix=''):
+        """
+        Clear grabbed data from student
+        """
+        self.grabbed = []
+        return {"cleared": "yes"}
 
     def student_view(self, context=None):
         """

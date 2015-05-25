@@ -4,6 +4,8 @@ cdotgrabber/utils.py
 cdotgrabber/static/README.txt
 cdotgrabber/static/css/cdotgrabber.css
 cdotgrabber/static/css/cdotgrabber_studio.css
+cdotgrabber/static/html/cdotgrabber.html
+cdotgrabber/static/html/cdotgrabber_studio.html
 cdotgrabber/static/js/cdotgrabber.js
 cdotgrabber/static/js/cdotgrabber_studio.js
 cdotgrabber/templates/cdotgrabber.html

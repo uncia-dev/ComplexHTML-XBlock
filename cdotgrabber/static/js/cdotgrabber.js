@@ -1,25 +1,36 @@
 /* Javascript for CDOTgrabberXBlock. */
 function CDOTgrabberXBlock(runtime, element) {
 
-// Record a click from a input object
+// Return class name, id or type depending on which one is available first
+function getid(element) {
+    var id = element.className;
+    if (id === "") id = element.id;
+    if (id === "") id = element.type;
+    return id;
+}
+
+
+// Record clicks on input objects
 $('input', element).click(function (eventObject) {
+    // for now apply this only on buttons
+    if (this.type == "button") {
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'grab_data'),
+            data: JSON.stringify({"id": getid(this), "action": this.type + "_click"}),
+            success: console.log("- clicked on " + this.className)
+        });
+    }
+});
 
-    // AJAX request sent to Django
-    // Handy data: URL/Title, Time, What to grab and the data
-
+// Record link clicks
+$('a', element).click(function (eventObject) {
     $.ajax({
         type: "POST",
         url: runtime.handlerUrl(element, 'grab_data'),
-        data: JSON.stringify( // to be expanded
-            {
-                "id": this.className,
-                "action": this.type + "_click",
-                "result": this.value
-            }
-        ),
+        data: JSON.stringify({"id": getid(this),"action": this.type + "_click"}),
         success: console.log("- clicked on " + this.className)
     });
-
 });
 
 /* Page is loaded. Do something. */
