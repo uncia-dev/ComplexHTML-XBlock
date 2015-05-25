@@ -177,14 +177,12 @@ class CDOTSlidesXBlock(XBlock):
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
-            '''
             print("+ Submitted data")
             print("+- Display Name: " + data["display_name"])
             print("+- HTML: " + data["body_html"])
             print("+- JS: " + data["body_js"])
             print("+- JSON: " + data["body_json"])
             print("+- CSS: " + data["body_css"])
-            '''
 
             return {"submitted": "true"}
 

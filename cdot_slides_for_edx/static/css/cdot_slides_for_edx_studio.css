@@ -1,8 +1,8 @@
-.cdotslides_parameters {
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  background: #FFFFFF;
-  text-align: center;
-  padding: 15px;
-  min-height: 320px;
-  margin: auto;
+form {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background: #FFFFFF;
+    text-align: center;
+    padding: 15px;
+    min-height: 320px;
+    margin: auto;
 }
