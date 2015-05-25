@@ -3,25 +3,21 @@ HTML
 
 <p class="cdot_slide_default">Body of slide goes below...</p>
 
-<p class="cdot_test">test</p>
-
-<div class="cdot_test_div">
+<div class="test_div">
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta diam vitae ante hendrerit fermentum. Maecenas consectetur risus odio, sed bibendum nisi varius eu. Curabitur vulputate, ligula pulvinar luctus maximus, lectus lacus varius felis, a elementum justo arcu vitae metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent at posuere orci. Cras viverra condimentum nibh, et tincidunt mauris. Fusce feugiat justo sed facilisis volutpat. Integer accumsan eros lectus, at hendrerit metus accumsan tincidunt. Cras ornare, augue eu porttitor vestibulum, sapien mauris elementum ipsum, eget laoreet felis velit eget ligula. Maecenas at maximus lacus. Ut sit amet ipsum non neque volutpat aliquet sit amet in eros. Cras eros nibh, sollicitudin et dolor ut, venenatis lobortis lacus. Praesent commodo vulputate lorem, at ullamcorper magna pretium vitae. Suspendisse accumsan mollis lacus, eget tristique ipsum rutrum sed. Aenean luctus libero iaculis odio elementum efficitur. Ut leo nunc, sodales at risus eu, molestie maximus ante.</p>
 <p>Duis accumsan turpis non velit consectetur viverra. Nullam vestibulum commodo sapien, quis posuere ex pretium a. Etiam cursus neque eu massa facilisis, at cursus diam consequat. Suspendisse tincidunt quis nisi quis eleifend. Nam auctor leo vel turpis convallis elementum. Vivamus nec libero magna. Nulla pharetra aliquam augue, nec venenatis lacus tempor nec. Curabitur convallis hendrerit ligula, sit amet eleifend ipsum. Etiam mauris odio, egestas nec ligula non, consequat molestie sapien. Sed egestas mauris ligula, mollis pellentesque ante mollis sed. Aenean bibendum elit in magna convallis vulputate. Nunc justo dui, vehicula vel tempus quis, cursus vitae sapien. Nunc pretium diam a nunc bibendum viverra. Morbi hendrerit magna vitae est ultricies vehicula. Quisque in rutrum libero.</p>
 <p>Phasellus eu ipsum ornare, laoreet nibh et, consectetur sapien. Etiam finibus neque a lacus euismod euismod. Sed condimentum, nunc a pharetra pellentesque, sem nunc suscipit dui, non laoreet odio erat in quam. Suspendisse fringilla, ex in luctus vestibulum, eros dolor cursus ligula, ac scelerisque sapien enim feugiat leo. Sed iaculis, mauris vel convallis tempus, orci lorem egestas risus, varius consequat eros lectus at est. Sed varius odio sit amet urna volutpat convallis. Donec odio nibh, luctus tempus sodales et, rhoncus sit amet diam. Etiam pharetra pharetra dui, vitae fringilla diam mollis ut.</p>
 
-</div>
-
 <input type="button" value="A" class="btn_A">
 <input type="button" value="B" class="btn_B">
 <input type="button" value="C" class="btn_C">
 
+</div>
+
 
 JavaScript
 ==========
-
-console.log("test JS string");
 
 console.log("test JS string");
 
@@ -39,5 +35,9 @@ CSS
 ===
 
 .cdot_slide_default { color: blue }
-.cdot_test { color: green }
-.cdot_test_div p { color: purple }
+
+.test_div { 
+color: green;
+font-weight: bold;
+text-size: 20px;
+}
