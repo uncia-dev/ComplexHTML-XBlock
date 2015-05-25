@@ -1,3 +1,3 @@
-# cdot_slides_for_edx (WIP)
+# cdot_slides_for_edx (Still WIP)
 
-XBlock HTML module that records student interactions
+HTML XBlock module for edX with the purpose of recording student interaction depending on the staff's requirements.
