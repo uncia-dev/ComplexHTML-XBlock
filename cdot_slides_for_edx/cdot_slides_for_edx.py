@@ -194,7 +194,7 @@ class CDOTSlidesXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("cdot_slides_for_edxXBlock",
+            ("cdot_slides_for_edx",
              """<vertical_demo>
                 <cdot_slides_for_edx/>
                 </vertical_demo>
