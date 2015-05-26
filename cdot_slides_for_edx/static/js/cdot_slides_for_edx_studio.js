@@ -16,6 +16,9 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     // MANUALLY SET THE URL BELOW IF YOU WISH, OR DISABLE IT
     var CKEditor_URL = "//cdn.ckeditor.com/4.4.7/standard/ckeditor.js";
     if (CKEditor_URL.endsWith("ckeditor.js")) {
+
+        console.log ("test_cke");
+
         $.getScript(CKEditor_URL, function () {
             CKEDITOR.replace('cdot_body_html');
             //CKEDITOR.replace('cdot_body_js');
@@ -26,8 +29,6 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
     /* Page is loaded. Do something. */
     $(function($) {
-
-        console.log("test");
 
         // Add personal save button
         $(".modal-actions")//.empty()
@@ -51,7 +52,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                 success: formUpdate
             });
 
-            setTimeout(function(){location.reload();},100);
+            setTimeout(function(){location.reload();},200);
 
         });
 

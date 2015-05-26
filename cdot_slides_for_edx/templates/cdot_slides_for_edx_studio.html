@@ -6,13 +6,11 @@
 
             <form class="cdograbber_parameters">
 
-                <h1>CDOTgrabber</h1>
-
                 <p>Display Name</p><input type="text" class="cdot_display_name" value="{{ self.display_name }}">
-                <p>HTML Code/URL</p><textarea wrap="off" class="cdot_body_html" rows="20">{{ self.body_html }}</textarea>
-                <p>JavaScript Code/URL</p><textarea wrap="off" class="cdot_body_js" rows="20">{{ self.body_js }}</textarea>
-                <p>JSON Code/URL</p><textarea wrap="off" class="cdot_body_json" rows="20">{{ self.body_json }}</textarea>
-                <p>CSS Code/URL</p><textarea wrap="off" class="cdot_body_css" rows="20">{{ self.body_css }}</textarea>
+                <p>HTML Code/URL</p><textarea wrap="off" name="cdot_body_html" class="cdot_body_html" rows="20">{{ self.body_html }}</textarea>
+                <p>JavaScript Code/URL</p><textarea wrap="off" name="cdot_body_js" class="cdot_body_js" rows="20">{{ self.body_js }}</textarea>
+                <p>JSON Code/URL</p><textarea wrap="off" name="cdot_body_json" class="cdot_body_json" rows="20">{{ self.body_json }}</textarea>
+                <p>CSS Code/URL</p><textarea wrap="off" name="cdot_body_css" class="cdot_body_css" rows="20">{{ self.body_css }}</textarea>
                 <!-- For debugging purposes -->
                 <!--<p><input class="btn_submit" type="button" value="Submit & Reload"></p>-->
 
