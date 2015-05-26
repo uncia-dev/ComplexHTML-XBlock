@@ -14,7 +14,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
     // Load CKEditor and attach it to relevant text areas
     // MANUALLY SET THE URL BELOW IF YOU WISH, OR DISABLE IT
-    var CKEditor_URL = "//cdn.ckeditor.com/4.4.7/standard/ckeditor.js";
+    var CKEditor_URL = "";
     if (CKEditor_URL.endsWith("ckeditor.js")) {
 
         console.log ("test_cke");
