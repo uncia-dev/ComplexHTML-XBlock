@@ -136,9 +136,9 @@ class CDOTSlidesXBlock(XBlock):
 
         # FOR DEVELOPMENT
 
-        #print(body_html)
-        #print(body_js)
-        #print(body_css)
+        print(body_html)
+        print(body_js)
+        print(body_css)
 
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))

@@ -38,6 +38,11 @@ $(function ($) {
 
     /* FOR DEVELOPMENT */
 
+    $('.btn_cdot_toggle_visibility').click(function (eventObject) {
+        $(this).hide();
+        $('.cdot_slides_for_edx_block_dev').show();
+    });
+
     $('.btn_submit').click(function (eventObject) {
 
         $.ajax({
