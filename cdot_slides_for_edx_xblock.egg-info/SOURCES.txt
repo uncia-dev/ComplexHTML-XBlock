@@ -4,8 +4,6 @@ cdot_slides_for_edx/utils.py
 cdot_slides_for_edx/static/README.txt
 cdot_slides_for_edx/static/css/cdot_slides_for_edx.css
 cdot_slides_for_edx/static/css/cdot_slides_for_edx_studio.css
-cdot_slides_for_edx/static/html/cdot_slides_for_edx.html
-cdot_slides_for_edx/static/html/cdot_slides_for_edx_studio.html
 cdot_slides_for_edx/static/js/cdot_slides_for_edx.js
 cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js
 cdot_slides_for_edx/templates/cdot_slides_for_edx.html

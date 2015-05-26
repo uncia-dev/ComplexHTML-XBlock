@@ -12,8 +12,22 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
     }
 
+    // Load CKEditor and attach it to relevant text areas
+    // MANUALLY SET THE URL BELOW IF YOU WISH, OR DISABLE IT
+    var CKEditor_URL = "//cdn.ckeditor.com/4.4.7/standard/ckeditor.js";
+    if (CKEditor_URL.endsWith("ckeditor.js")) {
+        $.getScript(CKEditor_URL, function () {
+            CKEDITOR.replace('dev_body_html');
+            //CKEDITOR.replace('dev_body_js');
+            //CKEDITOR.replace('dev_body_json');
+            //CKEDITOR.replace('dev_body_css');
+        });
+    }
+
     /* Page is loaded. Do something. */
     $(function($) {
+
+        console.log("test");
 
         // Add personal save button
         $(".modal-actions")//.empty()

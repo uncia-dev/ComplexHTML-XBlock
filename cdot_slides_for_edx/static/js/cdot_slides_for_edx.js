@@ -60,8 +60,24 @@ $(function ($) {
 
     /* FOR DEVELOPMENT */
 
-/* Staff entered JS code goes below */
+    // Load CKEditor and attach it to relevant text areas
+    // MANUALLY SET THE URL BELOW
 
+    var CKEditor_URL = "//cdn.ckeditor.com/4.4.7/standard/ckeditor.js";
+    if (CKEditor_URL.endsWith("ckeditor.js")) {
+
+        $.getScript(CKEditor_URL, function () {
+
+            CKEDITOR.replace('dev_body_html');
+            //CKEDITOR.replace('dev_body_js');
+            //CKEDITOR.replace('dev_body_json');
+            //CKEDITOR.replace('dev_body_css');
+
+        });
+
+    }
+
+/* Staff entered JS code goes below */
 
 
 })

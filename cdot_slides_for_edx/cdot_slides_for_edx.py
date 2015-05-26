@@ -78,7 +78,8 @@ class CDOTSlidesXBlock(XBlock):
         content = {"time": str(datetime.datetime.now())}
         chunk = []
 
-        for i in data: chunk.append((str(i), str(data[i])))
+        for i in data:
+            chunk.append((str(i), str(data[i])))
 
         if len(chunk) > 0:
             self.grabbed.append((content["time"], chunk))
@@ -122,7 +123,7 @@ class CDOTSlidesXBlock(XBlock):
             body_js = urllib.urlopen(self.body_js).read()
         else:
             body_js = load_resource('static/js/cdot_slides_for_edx.js')
-            body_js = body_js[:-7] + self.body_js + body_js[-7:]
+            body_js = body_js[:-7] + self.body_js + body_js[-7:]  # add staff entered JavaScript code
 
         if self.body_css[:4] == "http":
             body_css = urllib.urlopen(self.body_css).read()
@@ -135,9 +136,9 @@ class CDOTSlidesXBlock(XBlock):
 
         # FOR DEVELOPMENT
 
-        print(body_html)
-        print(body_js)
-        print(body_css)
+        #print(body_html)
+        #print(body_js)
+        #print(body_css)
 
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
@@ -175,7 +176,7 @@ class CDOTSlidesXBlock(XBlock):
             self.body_html = data["body_html"]
             self.body_json = data["body_json"]
 
-            # json processing
+            # json processing - WIP
             fields = json.loads(self.body_json)
             print fields
 

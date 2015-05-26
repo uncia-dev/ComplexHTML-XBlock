@@ -6,3 +6,23 @@ form {
     min-height: 320px;
     margin: auto;
 }
+
+.dev_display_name {
+    width: 100%;
+}
+
+.dev_body_html {
+    width: 100%;
+}
+
+.dev_body_js {
+    width: 100%;
+}
+
+.dev_body_json {
+    width: 100%;
+}
+
+.dev_body_css {
+    width: 100%;
+}

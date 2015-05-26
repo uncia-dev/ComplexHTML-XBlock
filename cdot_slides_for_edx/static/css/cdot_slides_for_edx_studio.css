@@ -6,3 +6,23 @@ form {
     min-height: 320px;
     margin: auto;
 }
+
+.cdot_display_name {
+    width: 100%;
+}
+
+.cdot_body_html {
+    width: 100%;
+}
+
+.cdot_body_js {
+    width: 100%;
+}
+
+.cdot_body_json {
+    width: 100%;
+}
+
+.cdot_body_css {
+    width: 100%;
+}

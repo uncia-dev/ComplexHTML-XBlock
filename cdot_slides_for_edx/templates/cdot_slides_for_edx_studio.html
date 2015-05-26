@@ -8,11 +8,11 @@
 
                 <h1>CDOTgrabber</h1>
 
-                <p>Display Name</p><textarea wrap="off" class="cdot_display_name" cols="100" rows="1">{{ self.display_name }}</textarea>
-                <p>HTML Code or URL</p><textarea wrap="off" class="cdot_body_html" cols="100" rows="20">{{ self.body_html }}</textarea>
-                <p>JavaScript Code or URL</p><textarea wrap="off" class="cdot_body_js" cols="100" rows="20">{{ self.body_js }}</textarea>
-                <p>JSON Code or URL</p><textarea wrap="off" class="cdot_body_json" cols="100" rows="20">{{ self.body_json }}</textarea>
-                <p>CSS Code or URL</p><textarea wrap="off" class="cdot_body_css" cols="100" rows="20">{{ self.body_css }}</textarea>
+                <p>Display Name</p><input type="text" class="cdot_display_name" cols="80" rows="1" value="{{ self.display_name }}">
+                <p>HTML Code/URL</p><textarea wrap="off" class="cdot_body_html" rows="20">{{ self.body_html }}</textarea>
+                <p>JavaScript Code/URL</p><textarea wrap="off" class="cdot_body_js" rows="20">{{ self.body_js }}</textarea>
+                <p>JSON Code/URL</p><textarea wrap="off" class="cdot_body_json" rows="20">{{ self.body_json }}</textarea>
+                <p>CSS Code/URL</p><textarea wrap="off" class="cdot_body_css" rows="20">{{ self.body_css }}</textarea>
                 <!-- For debugging purposes -->
                 <!--<p><input class="btn_submit" type="button" value="Submit & Reload"></p>-->
 
