@@ -17,10 +17,10 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     var CKEditor_URL = "//cdn.ckeditor.com/4.4.7/standard/ckeditor.js";
     if (CKEditor_URL.endsWith("ckeditor.js")) {
         $.getScript(CKEditor_URL, function () {
-            CKEDITOR.replace('dev_body_html');
-            //CKEDITOR.replace('dev_body_js');
-            //CKEDITOR.replace('dev_body_json');
-            //CKEDITOR.replace('dev_body_css');
+            CKEDITOR.replace('cdot_body_html');
+            //CKEDITOR.replace('cdot_body_js');
+            //CKEDITOR.replace('cdot_body_json');
+            //CKEDITOR.replace('cdot_body_css');
         });
     }
 
