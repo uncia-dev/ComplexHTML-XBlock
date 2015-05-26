@@ -1,6 +1,6 @@
 # cdot_slides_for_edx (Documentation is WIP)
 
-Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technologies.
+Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
 
 This XBlock is a component for the edX platform and can be installed on devstack and fullstack. It permits a course author to paste in pre-made HTML, CSS, JavaScript and JSON code, all of which is compiled into a slide for student viewing. Unlike edX's built-in HTML module, this XBlock also record student interactions within the slide, for later analysis. By default, only button and link clicks are recorded into the database, but this can be further expanded via AJAX requests (see below).
 
