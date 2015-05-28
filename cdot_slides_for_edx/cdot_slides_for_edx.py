@@ -111,21 +111,14 @@ class CDOTSlidesXBlock(XBlock):
         fragment = Fragment()
         content = {'self': self}
 
-        # move code mirror code to Studio view
-
-        # Load CKEditor
-
-        
-
-
-        # Load CodeMirror
+        # Load CodeMirror - disable
         fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
         fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
 
-        # Load CodeMirror add-ons
-        fragment.add_css(load_resource('static/js/codemirror/theme/ambiance.css'))
+        # Load CodeMirror add-ons - disable
+        fragment.add_css(load_resource('static/js/codemirror/theme/mdn-like.css'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
@@ -153,8 +146,6 @@ class CDOTSlidesXBlock(XBlock):
         else:
             body_css = self.body_css
 
-
-
         # add 'cdot_slides_for_edx_xblock' to each CSS entry in self.body_css
 
         print self.body_css
@@ -163,7 +154,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
 
-        # FOR DEVELOPMENT - TO BE DISABLED
+        # FOR DEVELOPMENT - disable
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
         # FOR DEVELOPMENT

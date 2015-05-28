@@ -1,8 +1,6 @@
 /* Javascript for CDOTSlideXBlock. */
 function CDOTSlidesXBlock(runtime, element) {
 
-var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
-
 // Return class name, id or type depending on which one is available first
 function getid(element) {
     var id = element.className;
@@ -37,6 +35,7 @@ $('a', element).click(function (eventObject) {
     // TODO: Process JSON code passed from Studio view for Paul's JavaScript module
     // TODO Remove code below at the end of development
 
+var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
 
 // Attach CKEditor to HTML input textarea
 if (CKEditor_URL.endsWith("ckeditor.js")) {
@@ -48,7 +47,7 @@ var codemirror_settings = {
     lineNumbers: true,
     matchBrackets: true,
     autoCloseBrackets: true,
-    theme: "ambiance",
+    theme: "mdn-like",
     extraKeys: {
     "F11": function(cm) {
       cm.setOption("fullScreen", !cm.getOption("fullScreen"));
