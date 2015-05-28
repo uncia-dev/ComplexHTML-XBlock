@@ -111,6 +111,13 @@ class CDOTSlidesXBlock(XBlock):
         fragment = Fragment()
         content = {'self': self}
 
+        # move code mirror code to Studio view
+
+        # load Code Mirror
+        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+
+        fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
+
         # Build page based on user input HTML, JS and CSS code
 
         if self.body_html[:4] == "http":
@@ -129,6 +136,12 @@ class CDOTSlidesXBlock(XBlock):
             body_css = urllib.urlopen(self.body_css).read()
         else:
             body_css = self.body_css
+
+
+
+        # add 'cdot_slides_for_edx_xblock' to each CSS entry in self.body_css
+
+        print self.body_css
 
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))

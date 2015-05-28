@@ -1,6 +1,8 @@
 /* Javascript for CDOTSlideXBlock. */
 function CDOTSlidesXBlock(runtime, element) {
 
+var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
+
 // Return class name, id or type depending on which one is available first
 function getid(element) {
     var id = element.className;
@@ -8,7 +10,6 @@ function getid(element) {
     if (id === "") id = element.type;
     return id;
 }
-
 
 // Record clicks on input objects
 $('input', element).click(function (eventObject) {
@@ -35,20 +36,42 @@ $('a', element).click(function (eventObject) {
 
 
 // TODO: Process JSON code passed from Studio view for Paul's JavaScript module
-
-// TODO: Disable/remove the code below when module is finished
-
-var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
+// Attach CKEditor to HTML input textarea
 if (CKEditor_URL.endsWith("ckeditor.js")) {
-
-    $.getScript(CKEditor_URL, function () {
-        CKEDITOR.replace('dev_body_html');
-        //CKEDITOR.replace('cdot_body_js');
-        //CKEDITOR.replace('cdot_body_json');
-        //CKEDITOR.replace('cdot_body_css');
-    });
-
+    $.getScript(CKEditor_URL, function () { CKEDITOR.replace('dev_body_html'); });
 }
+
+    var editor_js = CodeMirror.fromTextArea($('.dev_body_js')[0], {
+            lineNumbers: true
+            //matchBrackets: true,
+            //parserfile: "parsecss.js",
+            //autoCloseBrackets: true,
+            //stylesheet: "codemirror/css/csscolors.css",
+            //mode: {name: "css", globalVars: true}
+        }
+
+    );
+    var editor_json = CodeMirror.fromTextArea($('.dev_body_json')[0], {
+            lineNumbers: true
+            //matchBrackets: true,
+            //parserfile: "parsecss.js",
+            //autoCloseBrackets: true,
+            //stylesheet: "codemirror/css/csscolors.css",
+            //mode: {name: "css", globalVars: true}
+        }
+
+    );
+
+    var editor_css = CodeMirror.fromTextArea($('.dev_body_css')[0], {
+            lineNumbers: true
+            //matchBrackets: true,
+            //parserfile: "parsecss.js",
+            //autoCloseBrackets: true,
+            //stylesheet: "codemirror/css/csscolors.css",
+            //mode: {name: "css", globalVars: true}
+        }
+
+    );
 
 /* Page is loaded. Do something. */
 $(function ($) {
@@ -59,7 +82,6 @@ $(function ($) {
         $('.cdot_slides_for_edx_block_dev').show();
     });
 
-
     $('.btn_submit').click(function (eventObject) {
 
         $.ajax({
@@ -69,11 +91,10 @@ $(function ($) {
                 "display_name": $('.dev_display_name').val(),
                 "body_html":
                     (CKEditor_URL.endsWith("ckeditor.js")) ?
-                        CKEDITOR.instances.dev_body_html.getData() :
-                        $('.dev_body_html').val(),
-                "body_js": $('.dev_body_js').val(),
-                "body_json": $('.dev_body_json').val(),
-                "body_css": $('.dev_body_css').val()
+                        CKEDITOR.instances.dev_body_html.getData() : $('.dev_body_html').val(),
+                "body_js": editor_js.getDoc().getValue(), // : $('.dev_body_js').val(),
+                "body_json": editor_json.getDoc().getValue(), // : $('.dev_body_json').val(),
+                "body_css": editor_css.getDoc().getValue() // : $('.dev_body_css').val()
             })
         });
 
