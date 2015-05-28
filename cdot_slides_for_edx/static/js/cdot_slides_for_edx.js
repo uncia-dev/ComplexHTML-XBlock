@@ -33,15 +33,32 @@ $('a', element).click(function (eventObject) {
     });
 });
 
+
+// TODO: Process JSON code passed from Studio view for Paul's JavaScript module
+
+// TODO: Disable/remove the code below when module is finished
+
+var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
+if (CKEditor_URL.endsWith("ckeditor.js")) {
+
+    $.getScript(CKEditor_URL, function () {
+        CKEDITOR.replace('dev_body_html');
+        //CKEDITOR.replace('cdot_body_js');
+        //CKEDITOR.replace('cdot_body_json');
+        //CKEDITOR.replace('cdot_body_css');
+    });
+
+}
+
 /* Page is loaded. Do something. */
 $(function ($) {
 
     /* FOR DEVELOPMENT */
-
     $('.btn_cdot_toggle_visibility').click(function (eventObject) {
         $(this).hide();
         $('.cdot_slides_for_edx_block_dev').show();
     });
+
 
     $('.btn_submit').click(function (eventObject) {
 
@@ -50,7 +67,10 @@ $(function ($) {
             url: runtime.handlerUrl(element, 'studio_submit'),
             data: JSON.stringify({
                 "display_name": $('.dev_display_name').val(),
-                "body_html": $('.dev_body_html').val(),
+                "body_html":
+                    (CKEditor_URL.endsWith("ckeditor.js")) ?
+                        CKEDITOR.instances.dev_body_html.getData() :
+                        $('.dev_body_html').val(),
                 "body_js": $('.dev_body_js').val(),
                 "body_json": $('.dev_body_json').val(),
                 "body_css": $('.dev_body_css').val()

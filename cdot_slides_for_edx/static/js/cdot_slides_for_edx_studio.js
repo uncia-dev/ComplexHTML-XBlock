@@ -14,10 +14,8 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
     // Load CKEditor and attach it to relevant text areas
     // MANUALLY SET THE URL BELOW IF YOU WISH, OR DISABLE IT
-    var CKEditor_URL = "";
+    var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
     if (CKEditor_URL.endsWith("ckeditor.js")) {
-
-        console.log ("test_cke");
 
         $.getScript(CKEditor_URL, function () {
             CKEDITOR.replace('cdot_body_html');
@@ -25,7 +23,9 @@ function CDOTSlidesXBlockStudio(runtime, element) {
             //CKEDITOR.replace('cdot_body_json');
             //CKEDITOR.replace('cdot_body_css');
         });
+
     }
+
 
     /* Page is loaded. Do something. */
     $(function($) {
@@ -44,7 +44,10 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
                     "display_name": $('.cdot_display_name').val(),
-                    "body_html": $('.cdot_body_html').val(),
+                    "body_html":
+                        (CKEditor_URL.endsWith("ckeditor.js")) ?
+                        CKEDITOR.instances.cdot_body_html.getData() :
+                        $('.dev_body_html').val(),
                     "body_js": $('.cdot_body_js').val(),
                     "body_json": $('.cdot_body_json').val(),
                     "body_css": $('.cdot_body_css').val()

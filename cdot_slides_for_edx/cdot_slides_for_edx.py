@@ -61,7 +61,7 @@ class CDOTSlidesXBlock(XBlock):
 
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
-        return {"grabbed_data": self.grabbed.to_json()}
+        return {"grabbed_data": self.grabbed}
 
     def get_time_delta(self):
         """
@@ -134,12 +134,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
 
-        # FOR DEVELOPMENT
-
-        print(body_html)
-        print(body_js)
-        print(body_css)
-
+        # FOR DEVELOPMENT - TO BE DISABLED
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
         # FOR DEVELOPMENT
@@ -175,15 +170,11 @@ class CDOTSlidesXBlock(XBlock):
             self.display_name = data["display_name"]
             self.body_html = data["body_html"]
             self.body_json = data["body_json"]
-
-            # json processing - WIP
-            fields = json.loads(self.body_json)
-            print fields
-
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
             print("+ Submitted data")
+            print("================================================================================")
             print("+- Display Name: " + data["display_name"])
             print("+- HTML: " + data["body_html"])
             print("+- JS: " + data["body_js"])
