@@ -2,10 +2,403 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx_xblock.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/cdot_slides_for_edx_xblock.egg-info/SOURCES.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/link/images/anchor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/link/images/hidpi/anchor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/angel_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/angel_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/angry_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/angry_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_address.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_blockquote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_div.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_h6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_p.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/showblocks/images/block_pre.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/broken_heart.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/broken_heart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/brown_papersq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/hidpi/close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/confused_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/confused_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/cry_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/cry_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/devil_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/devil_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/embaressed_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/embarrassed_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/embarrassed_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/envelope.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/envelope.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/widget/images/handle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/heart.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/heart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/images/hiddenfield.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/magicline/images/icon-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/magicline/images/hidpi/icon-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/magicline/images/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/magicline/images/hidpi/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/icons_hidpi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/icons_hidpi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/kiss.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/kiss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/lightbulb.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/lightbulb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/lock-open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/hidpi/lock-open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/hidpi/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/assets/inlineall/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/about/dialogs/logo_ckeditor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/image/images/noimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/omg_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/omg_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.fla" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pagebreak/images/pagebreak.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/flash/images/placeholder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/iframe/images/placeholder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/pojoaque.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/images/hidpi/refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/regular_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/regular_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/sad_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/sad_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/assets/sample.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/school_book.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/shades_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/shades_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/teeth_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/teeth_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/templates/images/template1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/templates/images/template2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/templates/images/template3.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/thumbs_down.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/thumbs_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/thumbs_up.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/thumbs_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/tongue_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/tongue_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/tounge_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/wink_smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/images/wink_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/CHANGES.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/CHANGES.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/scayt/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/dialogs/PBSyntaxHighlighter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/scayt/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/README.ru.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_colorpanel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/config/_colors.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/config/_config.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/config/_defaults.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_elementspath.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_mainui.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_menu.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_panel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_presets.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_reset.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_richcombo.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/_toolbar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/about/dialogs/about.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/af.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/af.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/ajax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/sample/js/analytics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/link/dialogs/anchor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/api.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/appendto.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/arta.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/ascetic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-dune.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-dune.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-forest.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-forest.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-heath.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-heath.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-lakeside.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-lakeside.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-seaside.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/atelier-seaside.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/sample/css/bootstrapck-sample.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/sample/bootstrapck-sample.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/brown_paper.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/build-config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/checkbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/dialogs/ciframe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/ckeditor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/codesnippet/codesnippet.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/dialogs/codesnippet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/colordialog/dialogs/colordialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/contents.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/cy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/datafiltering.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pastefromword/filter/default.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/templates/default.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/dialog/dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/dialog/dialog.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/dialog/dialogDefinition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog_ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog_ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie/dialog_ie.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog_ie7.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog_ie7.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie7/dialog_ie7.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog_ie8.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog_ie8.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie8/dialog_ie8.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog_iequirks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog_iequirks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/iequirks/dialog_iequirks.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/dialog_opera.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/dialog_opera.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/opera/dialog_opera.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/div/dialogs/div.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/divreplace.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/docco.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/components/editor.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor_gecko.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor_gecko.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/gecko/editor_gecko.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor_ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor_ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie/editor_ie.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor_ie7.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor_ie7.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie7/editor_ie7.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor_ie8.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor_ie8.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/ie8/editor_ie8.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/editor_iequirks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/.temp/css/editor_iequirks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/scss/browser-specific/iequirks/editor_iequirks.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/lang/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/enterkey/enterkey.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/far.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/find/dialogs/find.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/flash/dialogs/flash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/foundation.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/wysiwygarea/fullpage.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/github.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/googlecode.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/hiddenfield.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/idea.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/iframe/dialogs/iframe.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/image/dialogs/image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/inlineall.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/inlinebycode.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/inlinetextarea.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/ir_black.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/sample/js/jquery-1.11.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/jquery.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/adapters/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/km.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ku.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/assets/uilanguages/languages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/link/dialogs/link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/liststyle/dialogs/liststyle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/magicline/magicline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/magula.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/mono-blue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/dialog/assets/my_dialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/obsidian.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/scayt/dialogs/options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/htmlwriter/outputforflash.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/htmlwriter/outputhtml.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/assets/outputxhtml/outputxhtml.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/paraiso.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/paraiso.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/clipboard/dialogs/paste.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/dialogs/pbckcode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/pojoaque.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/assets/posteddata.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/preview/preview.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/radio.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/railscasts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/rainbow.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/skins/bootstrapck/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/readonly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/replacebyclass.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/replacebycode.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/sample.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/sample.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/sample_posteddata.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/school_book.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/select.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/si.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/smiley/dialogs/smiley.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/solarized_dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/solarized_light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/specialchar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/sq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/pbckcode/dialogs/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/styles.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/sunburst.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/swfobject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/tabindex.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/table/dialogs/table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/tabletools/dialogs/tableCell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/dialogs/templates.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/templates/dialogs/templates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/textarea.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/forms/dialogs/textfield.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow-night-blue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow-night-bright.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow-night-eighties.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow-night.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/scayt/dialogs/toolbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/plugins/toolbar/toolbar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/tt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/ug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/uicolor.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/uilanguages.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/vs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/dialogs/wsc.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/dialogs/wsc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/wsc/dialogs/wsc_ie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/xcode.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/samples/xhtmlstyle.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/codesnippet/lib/highlight/styles/zenburn.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cdotgrabber.iws" />
@@ -31,8 +424,8 @@
       <file leaf-file-name="cdot_slides_for_edx.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6771729">
-              <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.4364852">
+              <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -43,8 +436,8 @@
       <file leaf-file-name="cdot_slides_for_edx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-61.714287">
-              <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="70" selection-end-column="2" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -56,7 +449,7 @@
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -124,10 +517,10 @@
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/utils.py" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx_studio.css" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx_studio.html" />
-        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
+        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
       </list>
     </option>
@@ -828,14 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2727273">
@@ -859,18 +1244,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-61.714287">
-          <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="70" selection-end-column="2" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6771729">
-          <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.4364852">
+          <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

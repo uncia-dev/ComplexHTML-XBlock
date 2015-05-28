@@ -34,44 +34,41 @@ $('a', element).click(function (eventObject) {
     });
 });
 
+    // TODO: Process JSON code passed from Studio view for Paul's JavaScript module
+    // TODO Remove code below at the end of development
 
-// TODO: Process JSON code passed from Studio view for Paul's JavaScript module
+
 // Attach CKEditor to HTML input textarea
 if (CKEditor_URL.endsWith("ckeditor.js")) {
     $.getScript(CKEditor_URL, function () { CKEDITOR.replace('dev_body_html'); });
 }
 
-    var editor_js = CodeMirror.fromTextArea($('.dev_body_js')[0], {
-            lineNumbers: true
-            //matchBrackets: true,
-            //parserfile: "parsecss.js",
-            //autoCloseBrackets: true,
-            //stylesheet: "codemirror/css/csscolors.css",
-            //mode: {name: "css", globalVars: true}
-        }
+// Attach CodeMirror to JavaScript, JSON and CSS fields
+var codemirror_settings = {
+    lineNumbers: true,
+    matchBrackets: true,
+    autoCloseBrackets: true,
+    theme: "ambiance",
+    extraKeys: {
+    "F11": function(cm) {
+      cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+    },
+    "Esc": function(cm) {
+      if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+    }}
+};
 
-    );
-    var editor_json = CodeMirror.fromTextArea($('.dev_body_json')[0], {
-            lineNumbers: true
-            //matchBrackets: true,
-            //parserfile: "parsecss.js",
-            //autoCloseBrackets: true,
-            //stylesheet: "codemirror/css/csscolors.css",
-            //mode: {name: "css", globalVars: true}
-        }
+var editor_js = CodeMirror.fromTextArea($('.dev_body_js')[0],
+    jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
+);
 
-    );
+var editor_json = CodeMirror.fromTextArea($('.dev_body_json')[0],
+    jQuery.extend({mode: {name: "javascript", globalVars: true, json: true}}, codemirror_settings)
+);
 
-    var editor_css = CodeMirror.fromTextArea($('.dev_body_css')[0], {
-            lineNumbers: true
-            //matchBrackets: true,
-            //parserfile: "parsecss.js",
-            //autoCloseBrackets: true,
-            //stylesheet: "codemirror/css/csscolors.css",
-            //mode: {name: "css", globalVars: true}
-        }
-
-    );
+var editor_css = CodeMirror.fromTextArea($('.dev_body_css')[0],
+    jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
+);
 
 /* Page is loaded. Do something. */
 $(function ($) {

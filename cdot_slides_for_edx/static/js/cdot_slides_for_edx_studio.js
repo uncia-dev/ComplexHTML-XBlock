@@ -19,13 +19,36 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
         $.getScript(CKEditor_URL, function () {
             CKEDITOR.replace('cdot_body_html');
-            //CKEDITOR.replace('cdot_body_js');
-            //CKEDITOR.replace('cdot_body_json');
-            //CKEDITOR.replace('cdot_body_css');
         });
 
     }
 
+    // Attach CodeMirror to JavaScript, JSON and CSS fields
+    var codemirror_settings = {
+        lineNumbers: true,
+        matchBrackets: true,
+        autoCloseBrackets: true,
+        theme: "ambiance",
+        extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }}
+    };
+
+    var editor_js = CodeMirror.fromTextArea($('.cdot_body_js')[0],
+        jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
+    );
+
+    var editor_json = CodeMirror.fromTextArea($('.cdot_body_json')[0],
+        jQuery.extend({mode: {name: "javascript", globalVars: true, json: true}}, codemirror_settings)
+    );
+
+    var editor_css = CodeMirror.fromTextArea($('.cdot_body_css')[0],
+        jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
+    );
 
     /* Page is loaded. Do something. */
     $(function($) {

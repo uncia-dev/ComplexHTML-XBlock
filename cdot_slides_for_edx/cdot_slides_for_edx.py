@@ -113,13 +113,29 @@ class CDOTSlidesXBlock(XBlock):
 
         # move code mirror code to Studio view
 
-        # load Code Mirror
-        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+        # Load CKEditor
 
+        
+
+
+        # Load CodeMirror
+        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
         fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
 
-        # Build page based on user input HTML, JS and CSS code
+        # Load CodeMirror add-ons
+        fragment.add_css(load_resource('static/js/codemirror/theme/ambiance.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
 
+        # Build page based on user input HTML, JS and CSS code
         if self.body_html[:4] == "http":
             body_html = urllib.urlopen(self.body_html).read()
 
@@ -162,6 +178,24 @@ class CDOTSlidesXBlock(XBlock):
         """
 
         fragment = Fragment()
+
+        # Load CodeMirror
+        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
+        fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
+
+        # Load CodeMirror add-ons
+        fragment.add_css(load_resource('static/js/codemirror/theme/ambiance.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
+
         fragment.add_content(render_template('templates/cdot_slides_for_edx_studio.html', {'self': self}))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx_studio.css'))
         fragment.add_javascript(load_resource('static/js/cdot_slides_for_edx_studio.js'))
