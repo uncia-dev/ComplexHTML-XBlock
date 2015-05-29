@@ -161,12 +161,20 @@ class CDOTSlidesXBlock(XBlock):
             body_js = body_js[:-7] + self.body_js + body_js[-7:]
 
         if self.body_css[:4] == "http":
-            body_css = urllib.urlopen(self.body_css).read()
+            body_css_tmp = urllib.urlopen(self.body_css).read()
         else:
-            body_css = self.body_css
+            body_css_tmp = self.body_css
 
-        # add 'cdot_slides_for_edx_xblock' to each CSS entry in self.body_css
-        print self.body_css
+        body_css = ""
+
+        # assuming course author places the opening accolade on the same line as the selectors
+        # ie. .this_is_a_selector {
+        for i in body_css_tmp.split('\n'):
+            if i.find('{') != -1:
+                body_css += ".cdot_slides_for_edx_xblock " + i
+            else:
+                body_css += i
+            body_css += '\n'
 
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))
