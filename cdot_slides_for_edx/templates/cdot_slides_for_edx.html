@@ -9,6 +9,8 @@
     <h4>Display Name</h4>
     <p>{{self.display_name}}</p>
     <h4>HTML Code</h4>
+    <h4>Tracked Elements</h4>
+    <p>{{self.body_tracked}}</p>
     <p>{{self.body_html}}</p>
     <h4>JavaScript Code</h4>
     <p>{{self.body_js}}</p>
@@ -24,9 +26,10 @@
     <form class="cdo_slides_for_edx_parameters">
 
         <p>Display Name</p><input type="text" class="dev_display_name" cols="80" rows="1" value="{{ self.display_name }}"><br/><br/>
-        <p>HTML Code/URL</p><textarea name="dev_body_html" wrap="off" id="dev_body_html" class="dev_body_html" cols="80" rows="20">{{ self.body_html }}</textarea><br/><br/>
+        <p>HTML Code/URL</p><textarea name="dev_body_html" wrap="off" class="dev_body_html" cols="80" rows="20">{{ self.body_html }}</textarea><br/><br/>
+        <p>Tracked Elements (separate with commas)</p><textarea wrap="off" class="dev_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea><br/><br/>
         <p>JavaScript Code/URL</p><textarea wrap="off" class="dev_body_js" cols="80" rows="20">{{ self.body_js }}</textarea><br/><br/>
-        <p>JSON Code/URL</p><textarea wrap="off" class="dev_body_json" cols="80" rows="20">{{ self.body_json }}</textarea><br/><br/>
+        <p>JSON Code/URL</p><textarea wrap="off" class="dev_body_json" cols="80" rows="10">{{ self.body_json }}</textarea><br/><br/>
         <p>CSS Code/URL</p><textarea wrap="off" class="dev_body_css" cols="80" rows="20">{{ self.body_css }}</textarea><br/><br/>
         <h3 style="color: red">DO NOT CLICK THIS IN LMS AND CMS. USE ONLY IN THE XBLOCK-SDK!</h3>
         <p><input class="btn_submit" type="button" value="Submit & Reload"></p>
@@ -39,7 +42,7 @@
 
     <!-- just a basic form to test clicks -->
     <form id="testform">
-        <input id="x" class="btna" type="button" value="btna">
+        <input class="btna" type="button" value="btna">
         <input class="btnb" type="button" value="btnb">
         <input class="texta" type="text" value="123">
     </form>

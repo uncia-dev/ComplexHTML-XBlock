@@ -26,3 +26,7 @@ form {
 .dev_body_css {
     width: 100%;
 }
+
+.CodeMirror {
+    height: 400px;
+}

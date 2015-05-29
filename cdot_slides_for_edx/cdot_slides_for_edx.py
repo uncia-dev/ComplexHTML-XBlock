@@ -23,6 +23,11 @@ class CDOTSlidesXBlock(XBlock):
         default="<p class=\"cdot_slide_default\">Body of slide goes here...</p>", scope=Scope.content
     )
 
+    body_tracked = String(
+        help="List of elements that are being tracked for student interaction",
+        default="", scope=Scope.content
+    )
+
     body_js = String(
         help="JS code for the slide",
         default="console.log(\"Your lack of JavaScript disturbs me.\");", scope=Scope.content
@@ -113,6 +118,8 @@ class CDOTSlidesXBlock(XBlock):
 
         # Load CodeMirror - disable
         fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/htmlmixed/htmlmixed.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
         fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
@@ -130,16 +137,28 @@ class CDOTSlidesXBlock(XBlock):
 
         # Build page based on user input HTML, JS and CSS code
         if self.body_html[:4] == "http":
-            body_html = urllib.urlopen(self.body_html).read()
-
+            body_html = "<div class=\"cdot_slides_for_edx_xblock\">" + urllib.urlopen(self.body_html).read() + "</div>"
         else:
             body_html = "<div class=\"cdot_slides_for_edx_xblock\">" + self.body_html + "</div>"
 
+        # Build slide specific JavaScript code
+        body_js = load_resource('static/js/cdot_slides_for_edx.js')
+        tracked = ""
+
+        # Generate AJAX request for each element that will be tracked
+        for i in self.body_tracked.split("\n"):
+            e = i.split(", ")
+            tracked += "recordClick(\'" + e[0] + "\'"
+            if len(e) > 1:
+                tracked += ", \'" + e[1] + "\'"
+            tracked += ");\n"
+
+        body_js = body_js[:-48] + tracked + body_js[-48:]
+
         if self.body_js[:4] == "http":
-            body_js = urllib.urlopen(self.body_js).read()
+            body_js = body_js[:-7] + urllib.urlopen(self.body_js).read() + body_js[-7:]
         else:
-            body_js = load_resource('static/js/cdot_slides_for_edx.js')
-            body_js = body_js[:-7] + self.body_js + body_js[-7:]  # add staff entered JavaScript code
+            body_js = body_js[:-7] + self.body_js + body_js[-7:]
 
         if self.body_css[:4] == "http":
             body_css = urllib.urlopen(self.body_css).read()
@@ -147,7 +166,6 @@ class CDOTSlidesXBlock(XBlock):
             body_css = self.body_css
 
         # add 'cdot_slides_for_edx_xblock' to each CSS entry in self.body_css
-
         print self.body_css
 
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
@@ -170,23 +188,6 @@ class CDOTSlidesXBlock(XBlock):
 
         fragment = Fragment()
 
-        # Load CodeMirror
-        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
-        fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
-
-        # Load CodeMirror add-ons
-        fragment.add_css(load_resource('static/js/codemirror/theme/ambiance.css'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
-        fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
-        fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
-
         fragment.add_content(render_template('templates/cdot_slides_for_edx_studio.html', {'self': self}))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx_studio.css'))
         fragment.add_javascript(load_resource('static/js/cdot_slides_for_edx_studio.js'))
@@ -207,6 +208,7 @@ class CDOTSlidesXBlock(XBlock):
 
             self.display_name = data["display_name"]
             self.body_html = data["body_html"]
+            self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
@@ -214,10 +216,11 @@ class CDOTSlidesXBlock(XBlock):
             print("+ Submitted data")
             print("================================================================================")
             print("+- Display Name: " + data["display_name"])
-            print("+- HTML: " + data["body_html"])
-            print("+- JS: " + data["body_js"])
-            print("+- JSON: " + data["body_json"])
-            print("+- CSS: " + data["body_css"])
+            print("+- HTML: \n" + data["body_html"])
+            print("+- Tracked Elements: \n" + data["body_tracked"])
+            print("+- JS: \n" + data["body_js"])
+            print("+- JSON: \n" + data["body_json"])
+            print("+- CSS: \n" + data["body_css"])
 
             return {"submitted": "true"}
 
