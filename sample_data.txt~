@@ -33,5 +33,6 @@ console.log("test JS string");
 CSS
 ===
 
+.cdot_slide_default { color: blue }
+.cdot_test { color: green }
 .cdot_test_div p { color: purple }
-p { color: green }

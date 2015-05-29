@@ -50,33 +50,33 @@ var codemirror_settings = {
     }}
 };
 
-var editor_tracked = CodeMirror.fromTextArea($('.dev_body_tracked')[0],
+var editor_dev_tracked = CodeMirror.fromTextArea($('.dev_body_tracked')[0],
     codemirror_settings
 );
-editor_tracked.setSize("100%", 120);
+editor_dev_tracked.setSize("100%", 120);
 
-var editor_js = CodeMirror.fromTextArea($('.dev_body_js')[0],
+var editor_dev_js = CodeMirror.fromTextArea($('.dev_body_js')[0],
     jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
 );
 
-var editor_json = CodeMirror.fromTextArea($('.dev_body_json')[0],
+var editor_dev_json = CodeMirror.fromTextArea($('.dev_body_json')[0],
     jQuery.extend({mode: {name: "javascript", globalVars: true, json: true}}, codemirror_settings)
 );
 
-var editor_css = CodeMirror.fromTextArea($('.dev_body_css')[0],
+var editor_dev_css = CodeMirror.fromTextArea($('.dev_body_css')[0],
     jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
 );
 
-var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
+var CKeditor_dev_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
 
 // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
-if (CKEditor_URL.endsWith("ckeditor.js")) {
-    $.getScript(CKEditor_URL, function () {
+if (CKeditor_dev_URL.endsWith("ckeditor.js")) {
+    $.getScript(CKeditor_dev_URL, function () {
         CKEDITOR.replace('dev_body_html');
         CKEDITOR.config.height = 400;
     });
 } else {
-    var editor_html = CodeMirror.fromTextArea($('.dev_body_html')[0],
+    var editor_dev_html = CodeMirror.fromTextArea($('.dev_body_html')[0],
         jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
     );
 }
@@ -98,12 +98,12 @@ $(function ($) {
             data: JSON.stringify({
                 "display_name": $('.dev_display_name').val(),
                 "body_html":
-                    (CKEditor_URL.endsWith("ckeditor.js")) ?
-                        CKEDITOR.instances.dev_body_html.getData() : editor_html.getDoc().getValue(),
-                "body_tracked": editor_tracked.getDoc().getValue(),
-                "body_js": editor_js.getDoc().getValue(),
-                "body_json": editor_json.getDoc().getValue(),
-                "body_css": editor_css.getDoc().getValue()
+                    (CKeditor_dev_URL.endsWith("ckeditor.js")) ?
+                        CKEDITOR.instances.dev_body_html.getData() : editor_dev_html.getDoc().getValue(),
+                "body_tracked": editor_dev_tracked.getDoc().getValue(),
+                "body_js": editor_dev_js.getDoc().getValue(),
+                "body_json": editor_dev_json.getDoc().getValue(),
+                "body_css": editor_dev_css.getDoc().getValue()
             })
         });
 
