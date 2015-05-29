@@ -208,8 +208,6 @@ class CDOTSlidesXBlock(XBlock):
 
         print "Snatched input from Studio View"
 
-        #TODO process JSON code here
-
         if len(data) > 0:
 
             # NOTE: No validation going on here; be careful with your code

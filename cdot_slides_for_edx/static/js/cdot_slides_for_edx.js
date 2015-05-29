@@ -1,6 +1,15 @@
 /* Javascript for CDOTSlideXBlock. */
 function CDOTSlidesXBlock(runtime, element) {
 
+var json_settings = {};
+
+$.ajax({
+    type: "POST",
+    url: runtime.handlerUrl(element, 'get_body_json'),
+    data: JSON.stringify({}),
+    success: function(result) { json_settings = JSON.parse(result.body_json); }
+});
+
 // Record an element click to the student's database entry
 function recordClick(rec, type) {
 
@@ -17,8 +26,7 @@ function recordClick(rec, type) {
                 $.ajax({
                     type: "POST",
                     url: runtime.handlerUrl(element, 'grab_data'),
-                    data: JSON.stringify({"id": id, "action": ((this.type != undefined) ? this.type : this.tagName) + "_click"}),
-                    success: console.log("- clicked on " + id)
+                    data: JSON.stringify({"id": id, "action": ((this.type != undefined) ? this.type : this.tagName) + "_click"})
             });}
 
         });
@@ -46,6 +54,7 @@ var codemirror_settings = {
 var editor_tracked = CodeMirror.fromTextArea($('.dev_body_tracked')[0],
     codemirror_settings
 );
+editor_tracked.setSize("100%", 120);
 
 var editor_js = CodeMirror.fromTextArea($('.dev_body_js')[0],
     jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
