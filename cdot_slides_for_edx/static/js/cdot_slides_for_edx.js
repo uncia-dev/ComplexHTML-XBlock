@@ -104,7 +104,7 @@ $(function ($) {
         }, 2000); // intentional wait time to see the console
 
     });
-//recordClick('input', ' button');
+
     /* FOR DEVELOPMENT */
 
 
