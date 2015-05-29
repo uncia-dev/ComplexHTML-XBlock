@@ -6,22 +6,6 @@ This XBlock is a component for the edX platform and can be installed on devstack
 
 This module is meant to be used in conjunction with CDOT's library for a customized edX course, however it is available for other developers should they have interest in it. This module is nothing too fancy (Studio View is made up only of handful of textarea elements), but hopefully it will be of use to others.
 
-To record student interactions other than buttons (<input type="button"> elements) and links (<a> elements), insert an AJAX request within the JavaScript field, in the Studio View. Here is an example code that I use:
-
-    $.ajax({
-        type: "POST",
-        url: runtime.handlerUrl(element, 'grab_data'),
-        data: JSON.stringify(
-          { // add whatever entries you wish in here
-            "id": getid(this), 
-            "action": this.type + "_click"
-          }
-        ),
-        // add below a success message or function if you wish
-        success: console.log("- clicked on " + this.className)
-    });
-
-
 =====
 Needs more documentation
 =====
