@@ -153,7 +153,7 @@ class CDOTSlidesXBlock(XBlock):
                 tracked += ", \'" + e[1] + "\'"
             tracked += ");\n"
 
-        body_js = body_js[:-48] + tracked + body_js[-48:]
+        body_js = body_js[:-47] + tracked + body_js[-47:]
 
         if self.body_js[:4] == "http":
             body_js = body_js[:-7] + urllib.urlopen(self.body_js).read() + body_js[-7:]

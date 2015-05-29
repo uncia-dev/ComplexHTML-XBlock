@@ -106,7 +106,7 @@ $(function ($) {
     });
 
     /* FOR DEVELOPMENT */
-
+/* Elements being recorded go here */
 
 /* Staff entered JS code goes below */
 
