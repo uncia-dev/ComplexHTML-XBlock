@@ -33,8 +33,7 @@ function recordClick(rec, type) {
 
 }
 
-    // TODO: Process JSON code passed from Studio view for Paul's JavaScript module
-    // TODO Remove code below at the end of development
+// TODO Remove code below at the end of development
 
 // Attach CodeMirror to JavaScript, JSON and CSS fields
 var codemirror_settings = {
@@ -79,7 +78,7 @@ if (CKEditor_URL.endsWith("ckeditor.js")) {
 } else {
     var editor_html = CodeMirror.fromTextArea($('.dev_body_html')[0],
         jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
-);
+    );
 }
 
 /* Page is loaded. Do something. */

@@ -196,6 +196,26 @@ class CDOTSlidesXBlock(XBlock):
 
         fragment = Fragment()
 
+        # Load CodeMirror - disable
+        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/htmlmixed/htmlmixed.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
+        fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
+
+        # Load CodeMirror add-ons - disable
+        fragment.add_css(load_resource('static/js/codemirror/theme/mdn-like.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
+        fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
+        fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
+
+        # Load Studio View
         fragment.add_content(render_template('templates/cdot_slides_for_edx_studio.html', {'self': self}))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx_studio.css'))
         fragment.add_javascript(load_resource('static/js/cdot_slides_for_edx_studio.js'))

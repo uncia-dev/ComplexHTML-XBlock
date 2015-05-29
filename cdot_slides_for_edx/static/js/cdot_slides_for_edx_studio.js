@@ -12,23 +12,12 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
     }
 
-    // Load CKEditor and attach it to relevant text areas
-    // MANUALLY SET THE URL BELOW IF YOU WISH, OR DISABLE IT
-    var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
-    if (CKEditor_URL.endsWith("ckeditor.js")) {
-
-        $.getScript(CKEditor_URL, function () {
-            CKEDITOR.replace('cdot_body_html');
-        });
-
-    }
-
     // Attach CodeMirror to JavaScript, JSON and CSS fields
     var codemirror_settings = {
         lineNumbers: true,
         matchBrackets: true,
         autoCloseBrackets: true,
-        theme: "ambiance",
+        theme: "mdn-like",
         extraKeys: {
         "F11": function(cm) {
           cm.setOption("fullScreen", !cm.getOption("fullScreen"));
@@ -37,6 +26,11 @@ function CDOTSlidesXBlockStudio(runtime, element) {
           if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
         }}
     };
+
+    var editor_tracked = CodeMirror.fromTextArea($('.cdot_body_tracked')[0],
+        codemirror_settings
+    );
+    editor_tracked.setSize("100%", 120);
 
     var editor_js = CodeMirror.fromTextArea($('.cdot_body_js')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
@@ -49,6 +43,20 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     var editor_css = CodeMirror.fromTextArea($('.cdot_body_css')[0],
         jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
     );
+
+    var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
+
+    // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
+    if (CKEditor_URL.endsWith("ckeditor.js")) {
+        $.getScript(CKEditor_URL, function () {
+            CKEDITOR.replace('cdot_body_html');
+            CKEDITOR.config.height = 400;
+        });
+    } else {
+        var editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
+            jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
+        );
+    }
 
     /* Page is loaded. Do something. */
     $(function($) {
@@ -66,14 +74,14 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "display_name": $('.cdot_display_name').val(),
+                    "display_name": $('.dev_display_name').val(),
                     "body_html":
                         (CKEditor_URL.endsWith("ckeditor.js")) ?
-                        CKEDITOR.instances.cdot_body_html.getData() :
-                        $('.dev_body_html').val(),
-                    "body_js": $('.cdot_body_js').val(),
-                    "body_json": $('.cdot_body_json').val(),
-                    "body_css": $('.cdot_body_css').val()
+                            CKEDITOR.instances.dev_body_html.getData() : editor_html.getDoc().getValue(),
+                    "body_tracked": editor_tracked.getDoc().getValue(),
+                    "body_js": editor_js.getDoc().getValue(),
+                    "body_json": editor_json.getDoc().getValue(),
+                    "body_css": editor_css.getDoc().getValue()
                 }),
                 success: formUpdate
             });

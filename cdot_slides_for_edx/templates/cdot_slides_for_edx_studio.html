@@ -1,16 +1,17 @@
-<div class="cdotgrabber_block">
+<div class="cdot_slides_for_edx_block_studio_block">
 
     <div class="studio">
 
         <div>
 
-            <form class="cdograbber_parameters">
+            <form class="cdot_slides_for_edx_block_parameters">
 
-                <p>Display Name</p><input type="text" class="cdot_display_name" value="{{ self.display_name }}"><br/><br/>
-                <p>HTML Code/URL</p><textarea wrap="off" name="cdot_body_html" class="cdot_body_html" rows="20">{{ self.body_html }}</textarea><br/><br/>
-                <p>JavaScript Code/URL</p><textarea wrap="off" class="cdot_body_js" rows="20">{{ self.body_js }}</textarea><br/><br/>
-                <p>JSON Code/URL</p><textarea wrap="off" class="cdot_body_json" rows="20">{{ self.body_json }}</textarea><br/><br/>
-                <p>CSS Code/URL</p><textarea wrap="off" class="cdot_body_css" rows="20">{{ self.body_css }}</textarea><br/><br/>
+                <p>Display Name</p><input type="text" class="cdot_display_name" cols="80" rows="1" value="{{ self.display_name }}"><br/><br/>
+                <p>HTML Code/URL</p><textarea name="cdot_body_html" wrap="off" class="cdot_body_html" cols="80" rows="20">{{ self.body_html }}</textarea><br/><br/>
+                <p>Tracked Elements (separate with commas)</p><textarea wrap="off" class="cdot_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea><br/><br/>
+                <p>JavaScript Code/URL</p><textarea wrap="off" class="cdot_body_js" cols="80" rows="20">{{ self.body_js }}</textarea><br/><br/>
+                <p>JSON Code/URL</p><textarea wrap="off" class="cdot_body_json" cols="80" rows="10">{{ self.body_json }}</textarea><br/><br/>
+                <p>CSS Code/URL</p><textarea wrap="off" class="cdot_body_css" cols="80" rows="20">{{ self.body_css }}</textarea><br/><br/>
                 <!-- For debugging purposes -->
                 <!--<p><input class="btn_submit" type="button" value="Submit & Reload"></p>-->
 
