@@ -19,13 +19,13 @@ class CDOTSlidesXBlock(XBlock):
     )
 
     body_html = String(
-        help="HTML body of the slide",
-        default="<p class=\"cdot_slide_default\">Body of slide goes here...</p>", scope=Scope.content
+        help="HTML code of the slide",
+        default="<p>Body of slide goes here...</p>", scope=Scope.content
     )
 
     body_tracked = String(
         help="List of elements that are being tracked for student interaction",
-        default="", scope=Scope.content
+        default="p", scope=Scope.content
     )
 
     body_js = String(
@@ -40,7 +40,7 @@ class CDOTSlidesXBlock(XBlock):
 
     body_css = String(
         help="CSS code for the slide",
-        default=".cdot_slide_default { color: red }", scope=Scope.content
+        default="p { color: red }", scope=Scope.content
     )
 
     grabbed = List(
