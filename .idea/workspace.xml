@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="" />
+    <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample_data.txt" afterPath="$PROJECT_DIR$/sample_data.txt" />
+    </list>
     <ignored path="cdotgrabber.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -464,7 +466,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="868" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="868" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1988555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

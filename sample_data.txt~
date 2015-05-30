@@ -28,9 +28,6 @@ for (i = 0; i < 5; i++) {
   console.log(i);
 }
 
-JSON Code
-=========
-{"blank": { "not_really_blank": "true" }}
 
 CSS
 ===
