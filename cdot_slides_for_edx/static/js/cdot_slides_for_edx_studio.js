@@ -70,19 +70,21 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         });
 
         // Add Save and Reload Button
-        $(".modal-actions")//.empty()
+        $("ul", ".modal-actions")//.empty()
             .append(
-                    $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
+                    $("<li>", {class: "action-item"}).append(
+                        $("<a />", {class: "action-primary", id: "btn_submit", text: "Save"})
+                    )
             );
 
         // Clicked Submit
-        $('.btn_submit').click(function(eventObject) {
+        $('#btn_submit').click(function(eventObject) {
 
             $.ajax({
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "display_name": $('.dev_display_name').val(),
+                    "display_name": $('.cdot_display_name').val(),
                     "body_html":
                         (CKEditor_URL.endsWith("ckeditor.js")) ?
                             CKEDITOR.instances.cdot_body_html.getData() : editor_html.getDoc().getValue(),
