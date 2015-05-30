@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
     </list>
     <ignored path="cdotgrabber.iws" />
@@ -53,8 +51,8 @@
       <file leaf-file-name="cdot_slides_for_edx_studio.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.621547">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6270718">
+              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -951,8 +949,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.621547">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6270718">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

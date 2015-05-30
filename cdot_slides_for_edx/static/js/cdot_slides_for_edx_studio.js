@@ -1,17 +1,6 @@
 /* Javascript for CDOTSlideXBlock, Studio Side. */
 function CDOTSlidesXBlockStudio(runtime, element) {
 
-    /* Update fields of the form to the current values */
-    function formUpdate(data) {
-
-        $(".cdot_display_name").val(data.display_name);
-        $(".cdot_body_html").val(data.body_html);
-        $(".cdot_body_js").val(data.body_js);
-        $(".cdot_body_json").val(data.body_json);
-        $(".cdot_body_css").val(data.body_css);
-
-    }
-
     // Attach CodeMirror to JavaScript, JSON and CSS fields
     var codemirror_settings = {
         lineNumbers: true,
@@ -58,7 +47,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     $(function($) {
 
         // Override default Studio styling such that it fits the entire window and disables the main scrollbar
-        $('.modal-window').hover(function() {
+        $('.modal-window-overlay').hover(function() {
 
             $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
             $('.modal-content').css({"height": "100%"});
@@ -88,8 +77,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                     "body_js": editor_js.getDoc().getValue(),
                     "body_json": editor_json.getDoc().getValue(),
                     "body_css": editor_css.getDoc().getValue()
-                }),
-                success: formUpdate
+                })
             });
 
             setTimeout(function(){location.reload();},200);
