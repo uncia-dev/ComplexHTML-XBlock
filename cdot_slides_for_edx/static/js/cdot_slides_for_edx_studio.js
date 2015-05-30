@@ -17,14 +17,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         lineNumbers: true,
         matchBrackets: true,
         autoCloseBrackets: true,
-        theme: "mdn-like",
-        extraKeys: {
-        "F11": function(cm) {
-          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-        },
-        "Esc": function(cm) {
-          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-        }}
+        theme: "mdn-like"
     };
 
     var editor_tracked = CodeMirror.fromTextArea($('.cdot_body_tracked')[0],
@@ -35,14 +28,17 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     var editor_js = CodeMirror.fromTextArea($('.cdot_body_js')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
     );
+    editor_js.setSize("100%", 600);
 
     var editor_json = CodeMirror.fromTextArea($('.cdot_body_json')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true, json: true}}, codemirror_settings)
     );
+    editor_json.setSize("100%", 200);
 
     var editor_css = CodeMirror.fromTextArea($('.cdot_body_css')[0],
         jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
     );
+    editor_css.setSize("100%", 600);
 
     var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
 
@@ -50,7 +46,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     if (CKEditor_URL.endsWith("ckeditor.js")) {
         $.getScript(CKEditor_URL, function () {
             CKEDITOR.replace('cdot_body_html');
-            CKEDITOR.config.height = 400;
+            CKEDITOR.config.height = 600;
         });
     } else {
         var editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],

@@ -40,14 +40,7 @@ var codemirror_settings = {
     lineNumbers: true,
     matchBrackets: true,
     autoCloseBrackets: true,
-    theme: "mdn-like",
-    extraKeys: {
-    "F11": function(cm) {
-      cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-    },
-    "Esc": function(cm) {
-      if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-    }}
+    theme: "mdn-like"
 };
 
 var editor_dev_tracked = CodeMirror.fromTextArea($('.dev_body_tracked')[0],
@@ -73,7 +66,7 @@ var CKeditor_dev_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
 if (CKeditor_dev_URL.endsWith("ckeditor.js")) {
     $.getScript(CKeditor_dev_URL, function () {
         CKEDITOR.replace('dev_body_html');
-        CKEDITOR.config.height = 400;
+        CKEDITOR.config.height = 600;
     });
 } else {
     var editor_dev_html = CodeMirror.fromTextArea($('.dev_body_html')[0],
