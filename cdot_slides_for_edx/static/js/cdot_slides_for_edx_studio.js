@@ -85,7 +85,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                     "display_name": $('.dev_display_name').val(),
                     "body_html":
                         (CKEditor_URL.endsWith("ckeditor.js")) ?
-                            CKEDITOR.instances.dev_body_html.getData() : editor_html.getDoc().getValue(),
+                            CKEDITOR.instances.cdot_body_html.getData() : editor_html.getDoc().getValue(),
                     "body_tracked": editor_tracked.getDoc().getValue(),
                     "body_js": editor_js.getDoc().getValue(),
                     "body_json": editor_json.getDoc().getValue(),
