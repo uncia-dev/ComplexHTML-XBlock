@@ -1,4 +1,4 @@
-/* Javascript for CDOTSlideXBlock. */
+/* Javascript for CDOTSlideXBlock, Studio Side. */
 function CDOTSlidesXBlockStudio(runtime, element) {
 
     /* Update fields of the form to the current values */
@@ -61,7 +61,15 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     /* Page is loaded. Do something. */
     $(function($) {
 
-        // Add personal save button
+        // Override default Studio styling such that it fits the entire window and disables the main scrollbar
+        $('.modal-window').hover(function() {
+
+            $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
+            $('.modal-content').css({"height": "100%"});
+
+        });
+
+        // Add Save and Reload Button
         $(".modal-actions")//.empty()
             .append(
                     $("<input />", {type: "button", class: "btn_submit", value: "Save and Reload"})
