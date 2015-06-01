@@ -20,17 +20,45 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 3. (Optional) Enable CKEditor support. Edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js"
 
-![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide_0.jpg)
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide00.jpg)
   
-Install the XBlock:
+4. Install the XBlock:
   sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/
   
-In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the advance_modules policy key and add "cdot_slides_for_edx" to the list. Click on "Save changes". (( Picture here ))
+5. In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the advance_modules policy key and add "cdot_slides_for_edx" to the list. Click on "Save changes". 
 
-(( Picture of how to add unit to course ))
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide01.jpg)
+
 
 ### Usage
 
-Regarding CSS:
-assuming course author places the opening accolade on the same line as the selectors
-ie the first line for each CSS element should be as follows ".this_is_a_selector {"
+1. Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen:
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide02.jpg)
+
+2. In the menu, click on "CDOT Slide"
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide03.jpg)
+
+3. The XBlock will now open the Studio Editor. Moving the cursor in the greyed out area will maximize the Studio Editor.
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide04.jpg)
+
+4. First part is to add a title to the slide, and work on the HTML code, either by CKEditor (WYSIWYG and source) or CodeMirror (only source):
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide05.jpg)
+
+5. Next stop is the list of HTML elements you wish to record. Either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide06.jpg)
+
+6. Now onto JavaScript. Type in the code as you would in any text editor:
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide07.jpg)
+
+7. At this step, write any JSON settings you wish to connect to the JavaScript code above
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide08.jpg)
+
+8. Lastly there is the CSS code. Make sure selector is on the same line as the opening accolade (ie ".this_is_a_selector {")
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide09.jpg)
+
+9. Click on save and admire your slide fully assembled!
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide10.jpg)
+
+10. (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
+$(".dev_stuff").show()
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide11.jpg)
