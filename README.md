@@ -13,12 +13,14 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 ### Installation
 
-First ensure that advanced modules are enabled on your edX server. See here: http://edx-developer-guide.readthedocs.org/en/latest/extending_platform/xblocks.html
+1. First ensure that advanced modules are enabled on your edX server. See here: http://edx-developer-guide.readthedocs.org/en/latest/extending_platform/xblocks.html
 
-SSH into your edX server and enter the following commands, and download the module from GitHub:
+2. SSH into your edX server and enter the following commands, and download the module from GitHub:
   git clone https://github.com/uw-ray/cdot_slides_for_edx.git
 
-(Optional) Enable CKEditor support. Edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js"
+3. (Optional) Enable CKEditor support. Edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js"
+
+![Image of Yaktocat](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide_0.jpg)
   
 Install the XBlock:
   sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/
