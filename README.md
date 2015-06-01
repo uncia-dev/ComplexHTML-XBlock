@@ -28,3 +28,7 @@ In Studio, open your course and navigate to Settings -> Advanced Settings. Look 
 (( Picture of how to add unit to course ))
 
 ### Usage
+
+Regarding CSS:
+assuming course author places the opening accolade on the same line as the selectors
+ie the first line for each CSS element should be as follows ".this_is_a_selector {"
