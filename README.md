@@ -34,10 +34,10 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 1. Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen:
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide02.jpg)
 
-2. In the menu, click on "CDOT Slide"
+2. In the menu, click on "CDOT Slide":
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide03.jpg)
 
-3. The XBlock will now open the Studio Editor. Moving the cursor in the greyed out area will maximize the Studio Editor.
+3. The XBlock will now open the Studio Editor. Moving the cursor in the greyed out area will maximize the Studio Editor:
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide04.jpg)
 
 4. First part is to add a title to the slide, and work on the HTML code, either by CKEditor (WYSIWYG and source) or CodeMirror (only source):
