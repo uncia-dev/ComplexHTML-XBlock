@@ -1,4 +1,4 @@
-### cdot_slides_for_edx XBlock
+# cdot_slides_for_edx XBlock
 
 Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
 
@@ -9,7 +9,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 
 
-# Installation
+### Installation
 ====
 
 There is also support for CKEditor; edit
