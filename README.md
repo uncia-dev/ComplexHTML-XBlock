@@ -61,9 +61,11 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 * Lastly there is the CSS code. Make sure selector is on the same line as the opening accolade. For example:
 
-    `.this_is_a_selector {`
-
-    `}`
+    ```
+    .this_is_a_selector {
+        color: red;
+    }
+    ```
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide09.jpg)
 
