@@ -2,11 +2,11 @@
 
 ### Description
 
-Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
-
 This XBlock is a component for the edX platform and can be installed on devstakcblac and fullstack. It permits a course author to write made HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. Unlike edX's built-in HTML module, this XBlock can also record student interactions within the slide, for later analysis.
 
-This module is meant to be used in conjunction with CDOT's JavaScript library for a customized edX course, however it is available for everyone, should they have interest in my work. Licensing wise, feel free to use and change this code as you wish.
+This module is meant to be used in conjunction with a JavaScript library for a customized edX course, however it is available for everyone, should they have interest in my work. Licensing wise, feel free to use and change this code as you wish.
+
+Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
 
 ### Installation
 
