@@ -47,7 +47,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide05.jpg)
 
-* Next stop is the list of HTML elements you wish to record. Either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#")
+* Next stop is the list of HTML elements you wish to record. Either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide06.jpg)
 
@@ -62,6 +62,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 * Lastly there is the CSS code. Make sure selector is on the same line as the opening accolade. For example:
 
     `.this_is_a_selector {`
+
     `}`
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide09.jpg)
