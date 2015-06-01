@@ -1,4 +1,4 @@
-# cdot_slides_for_edx XBlock
+# CDOT Slides for edX XBlock
 
 ### Description
 
