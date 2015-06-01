@@ -39,9 +39,11 @@ function CDOTSlidesXBlock(runtime, element) {
     // Load JSON settings from database
     $.ajax({
         type: "POST",
-        url: runtime.handlerUrl(element, 'get_body_json'),
+        url: runtime.handlerUrl(element, 'get_json_settings'),
         data: JSON.stringify({}),
-        success: function(result) { json_settings = JSON.parse(result.body_json); }
+        success: function(result) {
+            if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
+        }
     });
 
     /* Used during development

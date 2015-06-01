@@ -74,6 +74,21 @@ class CDOTSlidesXBlock(XBlock):
         return {"body_json": self.body_json}
 
     @XBlock.json_handler
+    def get_json_settings(self, data, suffix=''):
+        """
+        Return the JSON settings string attached to this XBlock
+        """
+
+        result = ""
+
+        if self.body_json[:4] == "http":
+            result += urllib.urlopen(self.body_json).read()
+        else:
+            result += self.body_json
+
+        return {"json_settings": result}
+
+    @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
         return {"grabbed_data": self.grabbed}
 
