@@ -6,9 +6,7 @@ This XBlock is a component for the edX platform and can be installed on devstakc
 
 This module is meant to be used in conjunction with a JavaScript library for a customized edX course, however it is available for everyone, should they have interest in my work. Please note that there is no validation for any code you write in the Studio view. Each of the fields in the Studio Editor makes use of CodeMirror, but the HTML editor supports CKEditor as well. It is however disabled by default, as I could not get the CKEditor library to work from within the XBlock directory. Instead, I am hosting it on an local Apache server and linking it via the Studio JavaScript file.
 
-Licensing wise, feel free to use and change this code as you wish.
-
-Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
+Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology. Licensing wise, feel free to use and change this code as you wish.
 
 ### Installation
 
