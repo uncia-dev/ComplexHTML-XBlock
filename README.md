@@ -13,7 +13,6 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 * First ensure that advanced modules are enabled on your edX server. See here: http://edx-developer-guide.readthedocs.org/en/latest/extending_platform/xblocks.html#testing
 
 * SSH into your edX server and enter the following commands, and download the module from GitHub:
-
     `git clone https://github.com/uw-ray/cdot_slides_for_edx.git`
 
 * (Optional) Enable CKEditor support. Edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js"
@@ -21,7 +20,6 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide00.jpg)
   
 * Install the XBlock:
-    
     `sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/`
   
 * In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "advance_modules policy key" and add "cdot_slides_for_edx" to the list. Click on "Save Changes". 
