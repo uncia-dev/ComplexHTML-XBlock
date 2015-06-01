@@ -1,4 +1,4 @@
-# cdot_slides_for_edx XBlock
+### cdot_slides_for_edx XBlock
 
 Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology.
 
@@ -6,14 +6,11 @@ This XBlock is a component for the edX platform and can be installed on devstakc
 
 This module is meant to be used in conjunction with CDOT's JavaScript library for a customized edX course, however it is available for others, should they have interest in it.
 
-=====
-Needs more documentation
-=====
 
-Regarding CSS:
-# assuming course author places the opening accolade on the same line as the selectors
-# ie the first line for each CSS element should be as follows ".this_is_a_selector {"
 
+
+# Installation
+====
 
 There is also support for CKEditor; edit
 
