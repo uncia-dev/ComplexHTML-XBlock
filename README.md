@@ -69,7 +69,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide09.jpg)
 
-* Click on save and admire your slide fully assembled:
+* Click on save and admire your fully assembled slide in the student view:
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide10.jpg)
 
