@@ -78,3 +78,8 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
     `$(".dev_stuff").show()`
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide11.jpg)
+
+
+TODO:
+
+Add notes regarding recorded interactions
