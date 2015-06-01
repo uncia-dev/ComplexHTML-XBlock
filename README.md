@@ -20,7 +20,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 3. (Optional) Enable CKEditor support. Edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js"
 
-![Image of Yaktocat](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide_0.jpg)
+![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide_0.jpg)
   
 Install the XBlock:
   sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/
