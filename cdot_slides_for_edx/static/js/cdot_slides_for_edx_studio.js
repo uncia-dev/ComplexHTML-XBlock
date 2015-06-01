@@ -2,7 +2,7 @@
 function CDOTSlidesXBlockStudio(runtime, element) {
 
     // Manually set this to where you store CKEditor
-    var CKEditor_URL = "http://127.0.0.1/ckeditor/ckeditor.js";
+    var CKEditor_URL = "";
     var codemirror_settings = {
         lineNumbers: true,
         matchBrackets: true,
