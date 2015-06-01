@@ -1,3 +1,5 @@
+This is just some sample data I used during testing.
+
 HTML
 ====
 <p class="cdot_slide_default">Body of slide goes below...</p>

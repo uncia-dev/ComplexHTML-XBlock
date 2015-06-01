@@ -1,8 +1,11 @@
-<hr/>
+<!--
+This XBlock does not have its own HTML page, as it is generated from the course author's input in Studio.
+This page was used only during development, but its contents can be shown via your browser's console.
+-->
 
-<input type="button" class="btn_cdot_toggle_visibility" value="Show Developer Data">
+<div class="dev_stuff" hidden>
 
-<div class="cdot_slides_for_edx_block_dev" hidden>
+    <hr/>
 
     <h3 style="color: blue">FOR DEVELOPMENT - Content Data From Database</h3>
 
@@ -31,20 +34,11 @@
         <p>JavaScript Code/URL</p><textarea wrap="off" class="dev_body_js" cols="80" rows="20">{{ self.body_js }}</textarea><br/><br/>
         <p>JSON Code/URL</p><textarea wrap="off" class="dev_body_json" cols="80" rows="10">{{ self.body_json }}</textarea><br/><br/>
         <p>CSS Code/URL</p><textarea wrap="off" class="dev_body_css" cols="80" rows="20">{{ self.body_css }}</textarea><br/><br/>
+        <!-- Was used during development
         <h3 style="color: red">DO NOT CLICK THIS IN LMS AND CMS. USE ONLY IN THE XBLOCK-SDK!</h3>
         <p><input class="btn_submit" type="button" value="Submit & Reload"></p>
+        -->
 
-    </form>
-
-    <hr/>
-
-    <h3 style="color: blue">FOR DEVELOPMENT - Click on the items below and watch the Python console</h3>
-
-    <!-- just a basic form to test clicks -->
-    <form id="testform">
-        <input class="btna" type="button" value="btna">
-        <input class="btnb" type="button" value="btnb">
-        <input class="texta" type="text" value="123">
     </form>
 
 </div>

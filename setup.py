@@ -22,8 +22,8 @@ def package_data(pkg, roots):
 
 setup(
     name='cdot_slides_for_edx-xblock',
-    version='0.1',
-    description='cdot_slides_for_edx XBlock',   # TODO: write a better description.
+    version='1.0',
+    description='cdot_slides_for_edx XBlock',
     packages=[
         'cdot_slides_for_edx',
     ],

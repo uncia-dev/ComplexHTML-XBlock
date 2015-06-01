@@ -13,7 +13,12 @@ Needs more documentation
 
 There is also support for CKEditor; edit "cdot_slides_for_edx/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" and search for "CKEditor_URL". Just note that it will work mostly only for static HTML content (ie no forms and buttons), therefore it is disabled by default.
 
-To instal this module, SSH into your edX server and enter the following commands:
+To install this module, SSH into your edX server and enter the following commands:
 
   git clone https://github.com/uw-ray/cdot_slides_for_edx.git
   sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/
+
+
+Regarding CSS:
+# assuming course author places the opening accolade on the same line as the selectors
+# ie the first line for each CSS element should be as follows ".this_is_a_selector {"

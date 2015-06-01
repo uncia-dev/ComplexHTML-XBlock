@@ -1,3 +1,9 @@
+"""
+CDOT Slides for edX XBlock
+Author: Raymond Lucian Blaga
+Description: An HTML, JavaScript and CSS Editing XBlock that records student interactions if the course author wishes it.
+"""
+
 import urllib, datetime, json
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
@@ -5,10 +11,9 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
 
-
 class CDOTSlidesXBlock(XBlock):
     """
-    Simple XBlock that grabs
+    XBlock class
     """
 
     display_name = String(
@@ -47,6 +52,10 @@ class CDOTSlidesXBlock(XBlock):
         default=[], scope=Scope.user_state,
         help="Student interaction that was grabbed from XBlock.",
     )
+
+    """
+    A handful of getters below
+    """
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -103,8 +112,9 @@ class CDOTSlidesXBlock(XBlock):
     @XBlock.json_handler
     def clear_data(self, data, suffix=''):
         """
-        Clear grabbed data from student
+        Clear data grabbed from student
         """
+
         self.grabbed = []
         return {"cleared": "yes"}
 
@@ -116,6 +126,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment = Fragment()
         content = {'self': self}
 
+        """ Was used during development
         # Load CodeMirror - disable
         fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
@@ -134,6 +145,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
         fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
+        """
 
         # Build page based on user input HTML, JS and CSS code
         if self.body_html[:4] == "http":
@@ -168,7 +180,7 @@ class CDOTSlidesXBlock(XBlock):
         body_css = ""
 
         # assuming course author places the opening accolade on the same line as the selectors
-        # ie. .this_is_a_selector {
+        # ie the first line for each CSS element should be as follows ".this_is_a_selector {"
         for i in body_css_tmp.split('\n'):
             if i.find('{') != -1:
                 body_css += ".cdot_slides_for_edx_xblock " + i
@@ -180,10 +192,9 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
 
-        # FOR DEVELOPMENT - disable
+        # Was used during development
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
-        # FOR DEVELOPMENT
 
         fragment.initialize_js('CDOTSlidesXBlock')
 
@@ -196,7 +207,7 @@ class CDOTSlidesXBlock(XBlock):
 
         fragment = Fragment()
 
-        # Load CodeMirror - disable
+        # Load CodeMirror
         fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/mode/htmlmixed/htmlmixed.js'))
@@ -204,7 +215,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
         fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
 
-        # Load CodeMirror add-ons - disable
+        # Load CodeMirror add-ons
         fragment.add_css(load_resource('static/js/codemirror/theme/mdn-like.css'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
         fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
@@ -223,8 +234,9 @@ class CDOTSlidesXBlock(XBlock):
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
-
-        print "Snatched input from Studio View"
+        """
+        Course author pressed the Save button in Studio
+        """
 
         if len(data) > 0:
 
@@ -237,6 +249,7 @@ class CDOTSlidesXBlock(XBlock):
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
 
+            """ Was used during development
             print("+ Submitted data")
             print("================================================================================")
             print("+- Display Name: " + data["display_name"])
@@ -245,6 +258,7 @@ class CDOTSlidesXBlock(XBlock):
             print("+- JS: \n" + data["body_js"])
             print("+- JSON: \n" + data["body_json"])
             print("+- CSS: \n" + data["body_css"])
+            """
 
             return {"submitted": "true"}
 

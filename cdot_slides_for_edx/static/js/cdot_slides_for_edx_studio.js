@@ -1,7 +1,8 @@
 /* Javascript for CDOTSlideXBlock, Studio Side. */
 function CDOTSlidesXBlockStudio(runtime, element) {
 
-    // Attach CodeMirror to JavaScript, JSON and CSS fields
+    // Manually set this to where you store CKEditor
+    var CKEditor_URL = "http://127.0.0.1/ckeditor/ckeditor.js";
     var codemirror_settings = {
         lineNumbers: true,
         matchBrackets: true,
@@ -9,6 +10,21 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         theme: "mdn-like"
     };
 
+    // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
+    if (CKEditor_URL.endsWith("ckeditor.js")) {
+        console.log("Loading CKEditor.");
+        $.getScript(CKEditor_URL, function () {
+            CKEDITOR.replace('cdot_body_html');
+            CKEDITOR.config.height = 600;
+        });
+    } else {
+        console.log("CKEditor script not located. Loading CodeMirror instead.");
+        var editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
+            jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
+        );
+    }
+
+    // Attach CodeMirror to JavaScript, JSON and CSS fields
     var editor_tracked = CodeMirror.fromTextArea($('.cdot_body_tracked')[0],
         codemirror_settings
     );
@@ -29,32 +45,15 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     );
     editor_css.setSize("100%", 600);
 
-    var CKEditor_URL = "http://127.0.0.1:1080/lib/js/ckeditor/ckeditor.js";
-
-    // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
-    if (CKEditor_URL.endsWith("ckeditor.js")) {
-        $.getScript(CKEditor_URL, function () {
-            CKEDITOR.replace('cdot_body_html');
-            CKEDITOR.config.height = 600;
-        });
-    } else {
-        var editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
-            jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
-        );
-    }
-
-    /* Page is loaded. Do something. */
     $(function($) {
 
         // Override default Studio styling such that it fits the entire window and disables the main scrollbar
         $('.modal-window-overlay').hover(function() {
-
             $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
             $('.modal-content').css({"height": "100%"});
-
         });
 
-        // Add Save and Reload Button
+        // Add Save Button
         $("ul", ".modal-actions")//.empty()
             .append(
                     $("<li>", {class: "action-item"}).append(
@@ -62,7 +61,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                     )
             );
 
-        // Clicked Submit
+        // Clicked Save button
         $('#btn_submit').click(function(eventObject) {
 
             $.ajax({
