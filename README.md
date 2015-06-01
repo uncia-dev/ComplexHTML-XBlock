@@ -10,7 +10,6 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
 
 ### Installation
-====
 
 There is also support for CKEditor; edit
 
