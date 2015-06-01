@@ -24,7 +24,7 @@ This module is meant to be used in conjunction with CDOT's JavaScript library fo
 
     `sudo -u edxapp /edx/bin/pip.edxapp install cdot_slides_for_edx/`
   
-* In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "advance_modules policy key" and add "cdot_slides_for_edx" to the list. Click on "Save Changes". 
+* In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "cdot_slides_for_edx" to the list. Click on "Save Changes". 
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide01.jpg)
 
