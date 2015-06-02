@@ -1,8 +1,15 @@
 /* Javascript for CDOTSlideXBlock, Studio Side. */
 function CDOTSlidesXBlockStudio(runtime, element) {
 
+    var isFullscreen = false;
+    var sHeight = 0.88 * $(window).height();
+    var sWidth = "70%";
+    var sTop = "0%";
+    var sLeft = "15%";
+
     // Manually set this to where you store CKEditor
     var CKEditor_URL = "";
+
     var codemirror_settings = {
         lineNumbers: true,
         matchBrackets: true,
@@ -45,21 +52,85 @@ function CDOTSlidesXBlockStudio(runtime, element) {
     );
     editor_css.setSize("100%", 600);
 
+    // Adjust Editor dialog to fit the entire window
+    function xblock_maximize() {
+        isFullscreen = true;
+        $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
+        $('.modal-content').css({"height": sHeight});
+    }
+
+    // Adjust Editor dialog to edX's standard settings
+    function xblock_minimize() {
+        isFullscreen = false;
+        $('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
+        $('.modal-content').css({"height": sHeight});
+    }
+
+    // Refresh Editor dimensions
+    function xblock_refresh() {
+        if (isFullscreen) xblock_maximize();
+        else xblock_minimize();
+    }
+
     $(function($) {
 
-        // Override default Studio styling such that it fits the entire window and disables the main scrollbar
-        $('.modal-window-overlay').hover(function() {
-            $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
-            $('.modal-content').css({"height": "100%"});
+        // Add Save Button
+        $('ul', '.modal-actions')
+            .append(
+                $('<li>', {class: "action-item"}).append(
+                    $('<a />', {class: "action-primary", id: "btn_submit", text: "Save"})
+                )
+            );
+
+        // Add Fullscreen Button
+        $('.editor-modes')
+            .append(
+                $('<li>', {class: "action-item"}).append(
+                    $('<a />', {class: "action-primary", id: "btn_fullscreen", text: "Fullscreen"})
+                )
+            );
+
+        // Readjust settings in case the window is resized
+        window.addEventListener('resize', function(event){
+            if (!isFullscreen) xblock_minimize();
+            else xblock_maximize();
         });
 
-        // Add Save Button
-        $("ul", ".modal-actions")//.empty()
-            .append(
-                    $("<li>", {class: "action-item"}).append(
-                        $("<a />", {class: "action-primary", id: "btn_submit", text: "Save"})
-                    )
-            );
+        // Fill the window with the Editor view
+        $('#btn_fullscreen').click(function() {
+            if (!isFullscreen) xblock_maximize();
+            else xblock_minimize();
+        });
+
+        function toggle_pane(t) {
+            $('.csx_options').hide();
+            $('.csx_html').hide();
+            $('.csx_javascript').hide();
+            $('.csx_css').hide();
+            $('.csx_preview').hide();
+            $(t).show();
+            xblock_refresh();
+        }
+
+        $('#csx_options').click(function() {
+            toggle_pane(".csx_options");
+        });
+
+        $('#csx_html').click(function() {
+            toggle_pane(".csx_html");
+        });
+
+        $('#csx_javascript').click(function() {
+            toggle_pane(".csx_javascript");
+        });
+
+        $('#csx_css').click(function() {
+            toggle_pane(".csx_css");
+        });
+
+        $('#csx_preview').click(function() {
+            toggle_pane(".csx_preview");
+        });
 
         // Clicked Save button
         $('#btn_submit').click(function(eventObject) {
