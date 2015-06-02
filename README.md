@@ -1,5 +1,7 @@
 # CDOT Slides for edX XBlock
 
+#### Note that this XBlock is still under development
+
 ### Description
 
 This XBlock is a component for the edX platform and can be installed on devstakcblac and fullstack. It permits a course author to write made HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. Unlike edX's built-in HTML module, this XBlock can also record student interactions within the slide, for later analysis.
