@@ -85,10 +85,17 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
 TODO:
 
 Add notes regarding recorded interactions
+
 add next, previous fields
+
 url to an index / table of content file
+
 add preview pane in studio
+
 rename element to xblock_element in JS files
+
 regarding JSON settings:
+
 	if user doesn't have one, copy it from the db
+
 	if the user has one, update it
