@@ -6,6 +6,10 @@ form {
     margin: auto;
 }
 
+.csx_desc {
+    text-align: center;
+}
+
 .cdot_display_name {
     text-align: center;
     width: 100%;

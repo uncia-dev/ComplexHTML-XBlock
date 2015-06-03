@@ -1,35 +1,34 @@
 <div class="cdot_slides_for_edx_block_studio_block">
 
-    <!--Control bar for studio-->
-    <div class="studio_controls">
-        <input type="button" value="Options" id="csx_options">
-        <input type="button" value="HTML" id="csx_html">
-        <input type="button" value="JavaScript" id="csx_javascript">
-        <input type="button" value="CSS" id="csx_css">
-        <input type="button" value="Preview" id="csx_preview">
-        <hr/>
-    </div>
-
     <!-- XBlock options -->
     <div class="csx_options">
-        <p>Display Name</p><input type="text" class="cdot_display_name" cols="80" rows="1" value="{{ self.display_name }}"><br/><br/>
+        <p class="csx_desc">Display Name</p>
+        <input type="text" class="cdot_display_name" cols="80" rows="1" value="{{ self.display_name }}">
+        <br/>
     </div>
 
     <!-- HTML editor and list of tracked elements -->
-    <div class="csx_html" hidden>
-        <p>HTML Code/URL</p><textarea name="cdot_body_html" wrap="off" class="cdot_body_html" cols="80" rows="20">{{ self.body_html }}</textarea><br/><br/>
-        <p>Tracked Elements (separate with commas)</p><textarea wrap="off" class="cdot_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea><br/><br/>
+    <div class="csx_html">
+        <p class="csx_desc">HTML Code/URL</p>
+        <textarea name="cdot_body_html" wrap="off" class="cdot_body_html" cols="80" rows="20">{{ self.body_html }}</textarea>
+        <br/>
+        <p class="csx_desc">Tracked Elements (separate with commas)</p>
+        <textarea wrap="off" class="cdot_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea>
     </div>
 
     <!-- JavaScript editor and JSON field -->
-    <div class="csx_javascript" hidden>
-        <p>JavaScript Code/URL</p><textarea wrap="off" class="cdot_body_js" cols="80" rows="20">{{ self.body_js }}</textarea><br/><br/>
-        <p>JSON Code/URL</p><textarea wrap="off" class="cdot_body_json" cols="80" rows="10">{{ self.body_json }}</textarea><br/><br/>
+    <div class="csx_javascript">
+        <p class="csx_desc">JavaScript Code/URL</p>
+        <textarea wrap="off" class="cdot_body_js" cols="80" rows="20">{{ self.body_js }}</textarea>
+        <br/>
+        <p class="csx_desc">JSON Code/URL</p>
+        <textarea wrap="off" class="cdot_body_json" cols="80" rows="10">{{ self.body_json }}</textarea>
     </div>
 
     <!-- CSS editor -->
-    <div class="csx_css" hidden>
-        <p>CSS Code/URL</p><textarea wrap="off" class="cdot_body_css" cols="80" rows="20">{{ self.body_css }}</textarea><br/><br/>
+    <div class="csx_css">
+        <p class="csx_desc">CSS Code/URL</p>
+        <textarea wrap="off" class="cdot_body_css" cols="80" rows="20">{{ self.body_css }}</textarea>
     </div>
 
     <!-- Preview Pane -->
