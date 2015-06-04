@@ -33,7 +33,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         console.log("Loading CKEditor.");
         $.getScript(CKEditor_URL, function () {
             CKEDITOR.replace('cdot_body_html');
-            CKEDITOR.config.height = 600;
+            CKEDITOR.config.height = 340;
         });
     } else {
         console.log("CKEditor script not located. Loading CodeMirror instead.");
@@ -64,8 +64,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         isFullscreen = true;
         $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
         $('.modal-content').css({"height": 0.865 * $(window).height()});
-        if (CKEditor_URL.endsWith("ckeditor.js")) CKEDITOR.config.height = 600;
-        editor_html.setSize("100%", 0.8 * $(window).height());
+        if (!CKEditor_URL.endsWith("ckeditor.js")) editor_html.setSize("100%", 0.8 * $(window).height());
         editor_tracked.setSize("100%", 120);
         editor_js.setSize("100%", 0.8 * $(window).height());
         editor_json.setSize("100%", 230);
@@ -78,8 +77,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         isFullscreen = false;
         $('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
         $('.modal-content').css({"height": 0.6 * $(window).height()});
-        if (CKEditor_URL.endsWith("ckeditor.js")) CKEDITOR.config.height = 600;
-        editor_html.setSize("100%", 370);
+        if (!CKEditor_URL.endsWith("ckeditor.js")) editor_html.setSize("100%", 370);
         editor_tracked.setSize("100%", 120);
         editor_js.setSize("100%", 370);
         editor_json.setSize("100%", 230);
