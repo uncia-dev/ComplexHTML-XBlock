@@ -87,6 +87,7 @@ TODO / Plans:
 [X] add preview pane in studio
 [ ] try to rename element to xblock_element in JS files
 [ ] Add notes regarding recorded interactions
+[?] Give the XBlock a more suitable name
 
 Adaptive Learning Stuff:
 
