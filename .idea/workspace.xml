@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx_studio.css" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx_studio.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx_studio.html" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx_studio.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" afterPath="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
     </list>
     <ignored path="cdotgrabber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cdot_slides_for_edx.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cdot_slides_for_edx.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1926" max-vertical-offset="5256">
-              <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
+            <state vertical-scroll-proportion="-0.6085973" vertical-offset="2032" max-vertical-offset="5256">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="cdot_slides_for_edx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="2250">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1188">
+              <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -52,11 +52,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cdot_slides_for_edx_studio.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cdot_slides_for_edx.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cdot_slides_for_edx.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cdot_slides_for_edx_studio.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15981735" vertical-offset="832" max-vertical-offset="3474">
-              <caret line="54" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="3474">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -87,16 +107,16 @@
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/html/cdot_slides_for_edx.html" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/html/cdot_slides_for_edx_studio.html" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/utils.py" />
-        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/sample_data.txt" />
-        <option value="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
-        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx_studio.html" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx_studio.css" />
         <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js" />
+        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css" />
+        <option value="$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html" />
+        <option value="$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py" />
+        <option value="$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js" />
       </list>
     </option>
   </component>
@@ -105,9 +125,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -460,7 +479,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -847,42 +866,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0776699" vertical-offset="0" max-vertical-offset="0">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46569178" vertical-offset="0" max-vertical-offset="0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72" vertical-offset="0" max-vertical-offset="0">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,13 +889,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/templates/cdot_slides_for_edx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/css/cdot_slides_for_edx.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx_studio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15981735" vertical-offset="832" max-vertical-offset="3474">
-          <caret line="54" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3474">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/static/js/cdot_slides_for_edx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1188">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cdot_slides_for_edx/cdot_slides_for_edx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6085973" vertical-offset="2032" max-vertical-offset="5256">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

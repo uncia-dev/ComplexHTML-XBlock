@@ -48,9 +48,14 @@ class CDOTSlidesXBlock(XBlock):
         default="p { color: red }", scope=Scope.content
     )
 
+    settings_student = String(
+        help="Student-specific JSON code for student view",
+        default="", scope=Scope.user_state
+    )
+
     grabbed = List(
-        default=[], scope=Scope.user_state,
         help="Student interaction that was grabbed from XBlock.",
+        default=[], scope=Scope.user_state
     )
 
     """
@@ -74,19 +79,15 @@ class CDOTSlidesXBlock(XBlock):
         return {"body_json": self.body_json}
 
     @XBlock.json_handler
-    def get_json_settings(self, data, suffix=''):
+    def get_settings_student(self, data, suffix=''):
         """
         Return the JSON settings string attached to this XBlock
         """
 
-        result = ""
+        # TODO: Remove me
+        print self.settings_student
 
-        if self.body_json[:4] == "http":
-            result += urllib.urlopen(self.body_json).read()
-        else:
-            result += self.body_json
-
-        return {"json_settings": result}
+        return {"json_settings": self.settings_student}
 
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
@@ -133,6 +134,22 @@ class CDOTSlidesXBlock(XBlock):
         self.grabbed = []
         return {"cleared": "yes"}
 
+    @XBlock.json_handler
+    def update_student_settings(self, data, suffix=''):
+        """
+        Update student settings from AJAX request
+        """
+
+        if self.settings_student != data["json_settings"]:
+            self.settings_student = data["json_settings"]
+
+            # TODO: Remove me
+            print self.settings_student
+
+            return {"updated": "true"}
+
+        return {"updated": "false"}
+
     def student_view(self, context=None):
         """
         The student view
@@ -140,27 +157,9 @@ class CDOTSlidesXBlock(XBlock):
 
         fragment = Fragment()
         content = {'self': self}
-
-        """ Was used during development
-        # Load CodeMirror - disable
-        fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/htmlmixed/htmlmixed.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
-        fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
-
-        # Load CodeMirror add-ons - disable
-        fragment.add_css(load_resource('static/js/codemirror/theme/mdn-like.css'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
-        fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
-        fragment.add_javascript(load_resource('static/js/codemirror/addon/display/fullscreen.js'))
-        fragment.add_css(load_resource('static/js/codemirror/addon/display/fullscreen.css'))
-        """
+        
+        if self.settings_student == "":
+            self.settings_student = self.body_json
 
         # Build page based on user input HTML, JS and CSS code
         if self.body_html[:4] == "http":
@@ -206,12 +205,13 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
-
-        # Was used during development
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
 
         fragment.initialize_js('CDOTSlidesXBlock')
+
+        # TODO: Remove me
+        print self.settings_student
 
         return fragment
 

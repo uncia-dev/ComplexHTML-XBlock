@@ -22,23 +22,4 @@ This page was used only during development, but its contents can be shown via yo
     <h4>CSS Code</h4>
     <p>{{self.body_css}}</p>
 
-    <hr/>
-
-    <h3 style="color: blue">FOR DEVELOPMENT - Studio View</h3>
-
-    <form class="cdo_slides_for_edx_parameters">
-
-        <p>Display Name</p><input type="text" class="dev_display_name" cols="80" rows="1" value="{{ self.display_name }}"><br/><br/>
-        <p>HTML Code/URL</p><textarea name="dev_body_html" wrap="off" class="dev_body_html" cols="80" rows="20">{{ self.body_html }}</textarea><br/><br/>
-        <p>Tracked Elements (separate with commas)</p><textarea wrap="off" class="dev_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea><br/><br/>
-        <p>JavaScript Code/URL</p><textarea wrap="off" class="dev_body_js" cols="80" rows="20">{{ self.body_js }}</textarea><br/><br/>
-        <p>JSON Code/URL</p><textarea wrap="off" class="dev_body_json" cols="80" rows="10">{{ self.body_json }}</textarea><br/><br/>
-        <p>CSS Code/URL</p><textarea wrap="off" class="dev_body_css" cols="80" rows="20">{{ self.body_css }}</textarea><br/><br/>
-        <!-- Was used during development
-        <h3 style="color: red">DO NOT CLICK THIS IN LMS AND CMS. USE ONLY IN THE XBLOCK-SDK!</h3>
-        <p><input class="btn_submit" type="button" value="Submit & Reload"></p>
-        -->
-
-    </form>
-
 </div>
