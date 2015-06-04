@@ -85,12 +85,20 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
 TODO / Plans:
 
 [X] add preview pane in studio
+
 [ ] try to rename element to xblock_element in JS files
+
 [ ] Add notes regarding recorded interactions
+
 [?] Give the XBlock a more suitable name
+
 
 Adaptive Learning Stuff:
 
 [ ] add next, previous slide fields
+
 [ ] add prev/next buttons at the bottom of the slides
+
 [ ] url to an index / table of content file, or browse the database for the course structure
+
+[ ] Add option to disable horizontal nav bar directly above a unit
