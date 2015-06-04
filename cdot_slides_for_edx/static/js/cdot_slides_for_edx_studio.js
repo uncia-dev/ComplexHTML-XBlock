@@ -28,16 +28,18 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         "csx_fullscreen": "Fullscreen"
     };
 
+    var ckeditor_html = "";
+    var editor_html = "";
+
     // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
     if (CKEditor_URL.endsWith("ckeditor.js")) {
-        console.log("Loading CKEditor.");
         $.getScript(CKEditor_URL, function () {
-            CKEDITOR.replace('cdot_body_html');
-            CKEDITOR.config.height = 340;
+            ckeditor_html = CKEDITOR.replace('cdot_body_html');
+            ckeditor_html.config.height = "auto";
+            ckeditor_html.config.width = "auto";
         });
     } else {
-        console.log("CKEditor script not located. Loading CodeMirror instead.");
-        var editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
+        editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
             jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
         );
     }
@@ -64,11 +66,12 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         isFullscreen = true;
         $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
         $('.modal-content').css({"height": 0.865 * $(window).height()});
-        if (!CKEditor_URL.endsWith("ckeditor.js")) editor_html.setSize("100%", 0.8 * $(window).height());
+        if (ckeditor_html != "") ckeditor_html.resize("100%", 0.83 * $(window).height());
+        if (editor_html != "") editor_html.setSize("100%", 0.83 * $(window).height());
         editor_tracked.setSize("100%", 120);
-        editor_js.setSize("100%", 0.8 * $(window).height());
+        editor_js.setSize("100%", 0.83 * $(window).height());
         editor_json.setSize("100%", 230);
-        editor_css.setSize("100%", 0.8 * $(window).height());
+        editor_css.setSize("100%", 0.83 * $(window).height());
         $('#csx_fullscreen').css({"color": csxColor[1]});
     }
 
@@ -77,11 +80,12 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         isFullscreen = false;
         $('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
         $('.modal-content').css({"height": 0.6 * $(window).height()});
-        if (!CKEditor_URL.endsWith("ckeditor.js")) editor_html.setSize("100%", 370);
+        if (ckeditor_html != "") ckeditor_html.resize("100%", 0.82 * $(window).height());
+        if (editor_html != "") editor_html.setSize("100%", 0.82 * $(window).height());
         editor_tracked.setSize("100%", 120);
-        editor_js.setSize("100%", 370);
+        editor_js.setSize("100%", $(window).height() * 0.55);
         editor_json.setSize("100%", 230);
-        editor_css.setSize("100%", 370);
+        editor_css.setSize("100%", $(window).height() * 0.55);
         $('#csx_fullscreen').css({"color": csxColor[0]});
     }
 
@@ -130,7 +134,9 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         // Adjust the modal window
         xblock_minimize();
         // Readjust modal window dimensions in case the browser window is resized
-        window.addEventListener('resize', xblock_refresh());
+        window.addEventListener('resize', function() {
+            xblock_refresh()
+        });
 
         $('#csx_options').click(function() {
             tab_switch("csx_options");
@@ -167,8 +173,9 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                 data: JSON.stringify({
                     "display_name": $('.cdot_display_name').val(),
                     "body_html":
-                        (CKEditor_URL.endsWith("ckeditor.js")) ?
-                            CKEDITOR.instances.cdot_body_html.getData() : editor_html.getDoc().getValue(),
+                        (ckeditor_html != "") ?
+                            ckeditor_html.getData() :
+                            editor_html.getDoc().getValue(),
                     "body_tracked": editor_tracked.getDoc().getValue(),
                     "body_js": editor_js.getDoc().getValue(),
                     "body_json": editor_json.getDoc().getValue(),
