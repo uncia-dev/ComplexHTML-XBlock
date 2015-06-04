@@ -134,11 +134,16 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
         $(".csx_preview").empty().append(prev);
 
-        var json_settings = JSON.parse(editor_json.getDoc().getValue());
+        //var json_settings = JSON.parse(editor_json.getDoc().getValue());
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.text = editor_js.getDoc().getValue();
+        script.text =
+                "json_settings = JSON.parse(\'" +
+                editor_json.getDoc().getValue()  +
+                "\');\n" +
+                editor_js.getDoc().getValue();
         document.body.appendChild(script);
+
 
     }
 

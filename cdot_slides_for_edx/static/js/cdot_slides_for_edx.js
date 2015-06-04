@@ -10,7 +10,8 @@ function CDOTSlidesXBlock(runtime, element) {
         data: JSON.stringify({}),
         success: function(result) {
             if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
-        }
+        },
+        async: false
     });
 
     // Record an element click to the student's database entry
