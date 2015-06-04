@@ -150,6 +150,36 @@ class CDOTSlidesXBlock(XBlock):
 
         return {"updated": "false"}
 
+    @staticmethod
+    def generate_css(css, block):
+        """
+        Generate CSS text for block
+        """
+        # assuming course author places the opening accolade on the same line as the selectors
+        # ie the first line for each CSS element should be as follows ".this_is_a_selector {"
+
+        result = ""
+
+        for i in css.split('\n'):
+            if i.find('{') != -1:
+                result += block + " " + i
+            else:
+                result += i
+            result += '\n'
+
+        return result
+
+    @XBlock.json_handler
+    def get_generated_css(self, data, suffix=''):
+        """
+        Generate CSS text fo block and return it via AJAX request
+        """
+        content = {"css": ""}
+        if self.body_css != "" and data["block"] != "":
+            content = self.generate_css(data["css"], data["block"])
+            return content
+        return content
+
     def student_view(self, context=None):
         """
         The student view
@@ -191,16 +221,7 @@ class CDOTSlidesXBlock(XBlock):
         else:
             body_css_tmp = self.body_css
 
-        body_css = ""
-
-        # assuming course author places the opening accolade on the same line as the selectors
-        # ie the first line for each CSS element should be as follows ".this_is_a_selector {"
-        for i in body_css_tmp.split('\n'):
-            if i.find('{') != -1:
-                body_css += ".cdot_slides_for_edx_xblock " + i
-            else:
-                body_css += i
-            body_css += '\n'
+        body_css = self.generate_css(body_css_tmp, ".cdot_slides_for_edx_xblock ")
 
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))

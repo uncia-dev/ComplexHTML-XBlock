@@ -110,6 +110,32 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         xblock_refresh();
     }
 
+    // Generate a preview of the slide based on the HTML, JS and CSS code written so far
+    function preview_slide() {
+
+        var prev = "";
+
+        // Generate CSS for the preview block and append it
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'get_generated_css'),
+            data: JSON.stringify({
+                "css": editor_css.getDoc().getValue(),
+                "block": ".csx_preview"
+            }),
+            success: function(result) {
+                prev += "<style>" + result.css + "</style>";
+            },
+            async: false
+        });
+
+        // Append HTML code to preview block
+        prev += (ckeditor_html != "") ? ckeditor_html.getData() : editor_html.getDoc().getValue();
+
+        $(".csx_preview").empty().append(prev);
+
+    }
+
     $(function($) {
 
         // Add Save Button
@@ -144,6 +170,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
         $('#csx_preview').click(function() {
             tab_switch("csx_preview");
+            preview_slide();
         });
 
         $('#csx_html').click(function() {
