@@ -82,20 +82,14 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide11.jpg)
 
 
-TODO:
+TODO / Plans:
+
+add preview pane in studio
 
 Add notes regarding recorded interactions
 
 add next, previous fields
 
-url to an index / table of content file
-
-add preview pane in studio
+url to an index / table of content file, or browse the database for the course structure
 
 rename element to xblock_element in JS files
-
-regarding JSON settings:
-
-	if user doesn't have one, copy it from the db
-
-	if the user has one, update it
