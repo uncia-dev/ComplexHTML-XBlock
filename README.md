@@ -85,6 +85,8 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
 TODO / Plans:
 
 [X] add preview pane in studio
+    
+    [ ] Clear up JavaScript code inserted during preview, to avoid cluttering the DOM
 
 [ ] try to rename element to xblock_element in JS files
 
