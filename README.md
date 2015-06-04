@@ -84,12 +84,12 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
 
 TODO / Plans:
 
-add preview pane in studio
+[X] add preview pane in studio
+[ ] try to rename element to xblock_element in JS files
+[ ] Add notes regarding recorded interactions
 
-Add notes regarding recorded interactions
+Adaptive Learning Stuff:
 
-add next, previous fields
-
-url to an index / table of content file, or browse the database for the course structure
-
-rename element to xblock_element in JS files
+[ ] add next, previous slide fields
+[ ] add prev/next buttons at the bottom of the slides
+[ ] url to an index / table of content file, or browse the database for the course structure
