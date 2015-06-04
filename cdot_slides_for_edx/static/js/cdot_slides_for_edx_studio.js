@@ -134,6 +134,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
         $(".csx_preview").empty().append(prev);
 
+
     }
 
     $(function($) {

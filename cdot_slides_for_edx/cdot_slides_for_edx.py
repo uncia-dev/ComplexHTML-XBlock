@@ -176,7 +176,7 @@ class CDOTSlidesXBlock(XBlock):
         """
         content = {"css": ""}
         if self.body_css != "" and data["block"] != "":
-            content = self.generate_css(data["css"], data["block"])
+            content["css"] = self.generate_css(data["css"], data["block"])
             return content
         return content
 
