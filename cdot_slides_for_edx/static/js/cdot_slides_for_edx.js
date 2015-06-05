@@ -1,12 +1,12 @@
 /* Javascript for CDOTSlideXBlock. */
-function CDOTSlidesXBlock(runtime, element) {
+function CDOTSlidesXBlock(runtime, xblock_element) {
 
     var json_settings = {};
 
     // Load JSON settings from database
     $.ajax({
         type: "POST",
-        url: runtime.handlerUrl(element, 'get_settings_student'),
+        url: runtime.handlerUrl(xblock_element, 'get_settings_student'),
         data: JSON.stringify({}),
         success: function(result) {
             if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
@@ -17,7 +17,7 @@ function CDOTSlidesXBlock(runtime, element) {
     // Record an element click to the student's database entry
     function recordClick(rec, type) {
 
-        $(rec, element).click(
+        $(rec, xblock_element).click(
 
             function (eventObject) {
 
@@ -29,8 +29,8 @@ function CDOTSlidesXBlock(runtime, element) {
                 if (this.type === type || type === undefined) {
                     $.ajax({
                         type: "POST",
-                        url: runtime.handlerUrl(element, 'grab_data'),
-                        data: JSON.stringify({"id": id, "action": ((this.type != undefined) ? this.type : this.tagName) + "_click"})
+                        url: runtime.handlerUrl(xblock_element, 'grab_data'),
+                        data: JSON.stringify({"id": id, "type": ((this.type != undefined) ? this.type : this.tagName) + "_click"})
                     });
                 }
 
@@ -43,7 +43,7 @@ function CDOTSlidesXBlock(runtime, element) {
         if (json_settings) {
             $.ajax({
                 type: "POST",
-                url: runtime.handlerUrl(element, 'update_student_settings'),
+                url: runtime.handlerUrl(xblock_element, 'update_student_settings'),
                 data: JSON.stringify({"json_settings": json_settings})
             });
         }

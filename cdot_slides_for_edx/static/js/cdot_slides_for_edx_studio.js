@@ -1,5 +1,5 @@
 /* Javascript for CDOTSlideXBlock, Studio Side. */
-function CDOTSlidesXBlockStudio(runtime, element) {
+function CDOTSlidesXBlockStudio(runtime, xblock_element) {
 
     var isFullscreen = false;
     var sHeight = 0;
@@ -118,7 +118,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
         // Generate CSS for the preview block and append it
         $.ajax({
             type: "POST",
-            url: runtime.handlerUrl(element, 'get_generated_css'),
+            url: runtime.handlerUrl(xblock_element, 'get_generated_css'),
             data: JSON.stringify({
                 "css": editor_css.getDoc().getValue(),
                 "block": ".csx_preview"
@@ -211,7 +211,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
             $.ajax({
                 type: "POST",
-                url: runtime.handlerUrl(element, 'studio_submit'),
+                url: runtime.handlerUrl(xblock_element, 'studio_submit'),
                 data: JSON.stringify({
                     "display_name": $('#cdot_display_name').val(),
                     "body_html":
