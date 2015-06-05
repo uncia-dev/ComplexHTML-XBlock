@@ -24,7 +24,7 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
   
 * Install the XBlock:
 
-    `sudo -u edxapp /edx/bin/pip.edxapp install complexhtml/`
+    `sudo -u edxapp /edx/bin/pip.edxapp install ComplexHTML-XBlock/`
   
 * In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "complexhtml" to the list. Click on "Save Changes". 
 
