@@ -6,13 +6,12 @@ form {
     margin: auto;
 }
 
-.csx_desc {
+.csx_options {
     text-align: center;
 }
 
 .cdot_display_name {
-    text-align: center;
-    width: 100%;
+    width: 80%;
 }
 
 .cdot_body_html {
