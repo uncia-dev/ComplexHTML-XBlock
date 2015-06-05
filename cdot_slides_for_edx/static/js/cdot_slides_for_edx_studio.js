@@ -134,16 +134,20 @@ function CDOTSlidesXBlockStudio(runtime, element) {
 
         $(".csx_preview").empty().append(prev);
 
+        // remove old JS preview code
+        $("#cdot_preview_script").remove();
+
         //var json_settings = JSON.parse(editor_json.getDoc().getValue());
         var script = document.createElement("script");
         script.type = "text/javascript";
+        script.id = "cdot_preview_script";
         script.text =
                 "json_settings = JSON.parse(\'" +
                 editor_json.getDoc().getValue()  +
                 "\');\n" +
                 editor_js.getDoc().getValue();
-        document.body.appendChild(script);
 
+        document.head.appendChild(script);
 
     }
 
@@ -209,7 +213,7 @@ function CDOTSlidesXBlockStudio(runtime, element) {
                 type: "POST",
                 url: runtime.handlerUrl(element, 'studio_submit'),
                 data: JSON.stringify({
-                    "display_name": $('.cdot_display_name').val(),
+                    "display_name": $('#cdot_display_name').val(),
                     "body_html":
                         (ckeditor_html != "") ?
                             ckeditor_html.getData() :
