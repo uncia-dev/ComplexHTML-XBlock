@@ -1,6 +1,6 @@
-# CDOT Slides for edX XBlock
+# ComplexHTML XBlock for the Open edX Platform
 
-### Documentation really outdated. Will update soon.
+##### Documentation really outdated. Will update soon.
 
 ### Description
 
