@@ -1,6 +1,6 @@
 # CDOT Slides for edX XBlock
 
-#### Note that this XBlock is still under development - Some of the documentation is outdated already and needs updating
+### Documentation really outdated. Will update soon.
 
 ### Description
 
