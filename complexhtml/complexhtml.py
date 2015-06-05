@@ -1,5 +1,5 @@
 """
-CDOT Slides for edX XBlock
+ComplexHTML XBlock for edX
 Author: Raymond Lucian Blaga
 Description: An HTML, JavaScript and CSS Editing XBlock that records student interactions if the course author wishes it.
 """
@@ -11,45 +11,42 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String
 from xblock.fragment import Fragment
 
-class CDOTSlidesXBlock(XBlock):
-    """
-    XBlock class
-    """
+class ComplexHTMLXBlock(XBlock):
 
     display_name = String(
-        display_name="CDOT Slide",
+        display_name="Complex HTML XBlock",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="CDOT Slide"
+        default="Complex HTML XBlock"
     )
 
     body_html = String(
-        help="HTML code of the slide",
-        default="<p>Body of slide goes here...</p>", scope=Scope.content
+        help="HTML code of the block",
+        default="<p>Body of the block goes here...</p>", scope=Scope.content
     )
 
     body_tracked = String(
-        help="List of elements that are being tracked for student interaction",
+        help="List of tracked elements",
         default="p", scope=Scope.content
     )
 
     body_js = String(
-        help="JS code for the slide",
-        default="console.log(\"Your lack of JavaScript disturbs me.\");", scope=Scope.content
+        help="JavaScript code for the block",
+        default="console.log(\"Hello world.\");", scope=Scope.content
     )
 
     body_json = String(
-        help="JSON code for the slide used to initialize fields",
-        default="{\"blank\": { \"not_really_blank\": \"true\" }}", scope=Scope.content
+        help="JSON container that can be used by the JavaScript code above",
+        default="{\"sample\": { \"subsample\": \"true\" }}", scope=Scope.content
     )
 
     body_css = String(
-        help="CSS code for the slide",
+        help="CSS code for the block",
         default="p { color: red }", scope=Scope.content
     )
 
     settings_student = String(
-        help="Student-specific JSON code for student view",
+        help="Student-specific settings for student view in JSON form; initially a copy of body_json",
         default="", scope=Scope.user_state
     )
 
@@ -76,16 +73,10 @@ class CDOTSlidesXBlock(XBlock):
 
     @XBlock.json_handler
     def get_settings_student(self, data, suffix=''):
-        """
-        Return the JSON settings string attached to this XBlock
-        """
         return {"json_settings": self.settings_student}
 
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
-        """
-        Return data grabbed from the student
-        """
         return {"grabbed_data": self.grabbed}
 
     def get_time_delta(self):
@@ -114,11 +105,9 @@ class CDOTSlidesXBlock(XBlock):
             self.grabbed.append((content["time"], "crickets"))
             content["data"] = None
 
-        """
         print "Grabbed data on " + self.grabbed[-1][0]
         for i in self.grabbed[-1][1]:
             print "+--" + str(i)
-        """
 
         return content
 
@@ -182,13 +171,14 @@ class CDOTSlidesXBlock(XBlock):
             self.settings_student = self.body_json
 
         # Build page based on user input HTML, JS and CSS code
+        # basic check for url
         if self.body_html[:4] == "http":
-            body_html = "<div class=\"cdot_slides_for_edx_xblock\">" + urllib.urlopen(self.body_html).read() + "</div>"
+            body_html = "<div class=\"complexhtml_xblock\">" + urllib.urlopen(self.body_html).read() + "</div>"
         else:
-            body_html = "<div class=\"cdot_slides_for_edx_xblock\">" + self.body_html + "</div>"
+            body_html = "<div class=\"complexhtml_xblock\">" + self.body_html + "</div>"
 
         # Build slide specific JavaScript code
-        body_js = load_resource('static/js/cdot_slides_for_edx.js')
+        body_js = load_resource('static/js/complexhtml.js')
         tracked = ""
 
         # Generate AJAX request for each element that will be tracked
@@ -201,24 +191,26 @@ class CDOTSlidesXBlock(XBlock):
 
         body_js = body_js[:-47] + tracked + body_js[-47:]
 
+        # basic check for url
         if self.body_js[:4] == "http":
             body_js = body_js[:-7] + urllib.urlopen(self.body_js).read() + body_js[-7:]
         else:
             body_js = body_js[:-7] + self.body_js + body_js[-7:]
 
+        # basic check for url
         if self.body_css[:4] == "http":
             body_css_tmp = urllib.urlopen(self.body_css).read()
         else:
             body_css_tmp = self.body_css
 
-        body_css = self.generate_css(body_css_tmp, ".cdot_slides_for_edx_xblock ")
+        body_css = self.generate_css(body_css_tmp, ".complexhtml_xblock")
 
         fragment.add_content(Template(unicode(body_html)).render(Context(content)))
         fragment.add_javascript(unicode(body_js))
         fragment.add_css(unicode(body_css))
-        fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
-        fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
-        fragment.initialize_js('CDOTSlidesXBlock')
+        fragment.add_content(render_template('templates/complexhtml.html', content))
+        fragment.add_css(load_resource('static/css/complexhtml.css'))
+        fragment.initialize_js('ComplexHTMLXBlock')
 
         return fragment
 
@@ -247,10 +239,10 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
 
         # Load Studio View
-        fragment.add_content(render_template('templates/cdot_slides_for_edx_studio.html', {'self': self}))
-        fragment.add_css(load_resource('static/css/cdot_slides_for_edx_studio.css'))
-        fragment.add_javascript(load_resource('static/js/cdot_slides_for_edx_studio.js'))
-        fragment.initialize_js('CDOTSlidesXBlockStudio')
+        fragment.add_content(render_template('templates/complexhtml_edit.html', {'self': self}))
+        fragment.add_css(load_resource('static/css/complexhtml_edit.css'))
+        fragment.add_javascript(load_resource('static/js/complexhtml_edit.js'))
+        fragment.initialize_js('ComplexHTMLXBlockStudio')
 
         return fragment
 
@@ -279,9 +271,9 @@ class CDOTSlidesXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("cdot_slides_for_edx",
+            ("complexhtml",
              """<vertical_demo>
-                <cdot_slides_for_edx/>
+                <complexhtml/>
                 </vertical_demo>
              """),
         ]

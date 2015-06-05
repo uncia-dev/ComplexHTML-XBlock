@@ -1,4 +1,4 @@
-"""Setup for cdot_slides_for_edx XBlock."""
+"""Setup for ComplexHTML XBlock."""
 
 import os
 from setuptools import setup
@@ -21,19 +21,19 @@ def package_data(pkg, roots):
 
 
 setup(
-    name='cdot_slides_for_edx-xblock',
+    name='complexhtml-xblock',
     version='1.0',
-    description='cdot_slides_for_edx XBlock',
+    description='ComplexHTML XBlock',
     packages=[
-        'cdot_slides_for_edx',
+        'complexhtml',
     ],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'cdot_slides_for_edx = cdot_slides_for_edx:CDOTSlidesXBlock',
+            'complexhtml = complexhtml:ComplexHTMLXBlock',
         ]
     },
-    package_data=package_data("cdot_slides_for_edx", ["static", "templates", "public"]),
+    package_data=package_data("complexhtml", ["static", "templates", "public"]),
 )

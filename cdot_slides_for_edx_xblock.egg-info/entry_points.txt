@@ -1,3 +1,0 @@
-[xblock.v1]
-cdot_slides_for_edx = cdot_slides_for_edx:CDOTSlidesXBlock
-

@@ -1,5 +1,5 @@
-/* Javascript for CDOTSlideXBlock, Studio Side. */
-function CDOTSlidesXBlockStudio(runtime, xblock_element) {
+/* JavaScript for ComplexHTML XBlock, Studio Side. */
+function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
     var isFullscreen = false;
     var sHeight = 0;
@@ -20,12 +20,12 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
     };
 
     var studio_buttons = {
-        "csx_options": "Options",
-        "csx_preview": "Preview",
-        "csx_html": "HTML",
-        "csx_javascript": "JavaScript",
-        "csx_css": "CSS",
-        "csx_fullscreen": "Fullscreen"
+        "chx_options": "Options",
+        "chx_preview": "Preview",
+        "chx_html": "HTML",
+        "chx_javascript": "JavaScript",
+        "chx_css": "CSS",
+        "chx_fullscreen": "Fullscreen"
     };
 
     var ckeditor_html = "";
@@ -34,30 +34,30 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
     // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
     if (CKEditor_URL.endsWith("ckeditor.js")) {
         $.getScript(CKEditor_URL, function () {
-            ckeditor_html = CKEDITOR.replace('cdot_body_html');
+            ckeditor_html = CKEDITOR.replace('chx_body_html');
             ckeditor_html.config.height = "auto";
             ckeditor_html.config.width = "auto";
         });
     } else {
-        editor_html = CodeMirror.fromTextArea($('.cdot_body_html')[0],
+        editor_html = CodeMirror.fromTextArea($('.chx_body_html')[0],
             jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
         );
     }
 
     // Attach CodeMirror to JavaScript, JSON and CSS fields
-    var editor_tracked = CodeMirror.fromTextArea($('.cdot_body_tracked')[0],
+    var editor_tracked = CodeMirror.fromTextArea($('.chx_body_tracked')[0],
         codemirror_settings
     );
 
-    var editor_js = CodeMirror.fromTextArea($('.cdot_body_js')[0],
+    var editor_js = CodeMirror.fromTextArea($('.chx_body_js')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
     );
 
-    var editor_json = CodeMirror.fromTextArea($('.cdot_body_json')[0],
+    var editor_json = CodeMirror.fromTextArea($('.chx_body_json')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true, json: true}}, codemirror_settings)
     );
 
-    var editor_css = CodeMirror.fromTextArea($('.cdot_body_css')[0],
+    var editor_css = CodeMirror.fromTextArea($('.chx_body_css')[0],
         jQuery.extend({mode: {name: "css", globalVars: true}}, codemirror_settings)
     );
 
@@ -72,7 +72,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
         editor_js.setSize("100%", 0.83 * $(window).height());
         editor_json.setSize("100%", 230);
         editor_css.setSize("100%", 0.83 * $(window).height());
-        $('#csx_fullscreen').css({"color": csxColor[1]});
+        $('#chx_fullscreen').css({"color": csxColor[1]});
     }
 
     // Adjust Editor dialog to edX's standard settings
@@ -86,7 +86,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
         editor_js.setSize("100%", $(window).height() * 0.55);
         editor_json.setSize("100%", 230);
         editor_css.setSize("100%", $(window).height() * 0.55);
-        $('#csx_fullscreen').css({"color": csxColor[0]});
+        $('#chx_fullscreen').css({"color": csxColor[0]});
     }
 
     // Refresh Editor dimensions
@@ -97,7 +97,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
 
     function tab_highlight(toHighlight) {
         for (var b in studio_buttons) {
-            if (b != "csx_fullscreen") $("#" + b).css({"color": csxColor[0]});
+            if (b != "chx_fullscreen") $("#" + b).css({"color": csxColor[0]});
         }
         $("#" + toHighlight).css({"color": csxColor[1]});
     }
@@ -121,7 +121,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
             url: runtime.handlerUrl(xblock_element, 'get_generated_css'),
             data: JSON.stringify({
                 "css": editor_css.getDoc().getValue(),
-                "block": ".csx_preview"
+                "block": ".chx_preview"
             }),
             success: function(result) {
                 prev += "<style>" + result.css + "</style>";
@@ -132,15 +132,15 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
         // Append HTML code to preview block
         prev += (ckeditor_html != "") ? ckeditor_html.getData() : editor_html.getDoc().getValue();
 
-        $(".csx_preview").empty().append(prev);
+        $(".chx_preview").empty().append(prev);
 
         // remove old JS preview code
-        $("#cdot_preview_script").remove();
+        $("#chx_preview_script").remove();
 
         //var json_settings = JSON.parse(editor_json.getDoc().getValue());
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.id = "cdot_preview_script";
+        script.id = "chx_preview_script";
         script.text =
                 "json_settings = JSON.parse(\'" +
                 editor_json.getDoc().getValue()  +
@@ -157,7 +157,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
         $('ul', '.modal-actions')
             .append(
                 $('<li>', {class: "action-item"}).append(
-                    $('<a />', {class: "action-primary", id: "btn_submit", text: "Save"})
+                    $('<a />', {class: "action-primary", id: "chx_submit", text: "Save"})
                 )
             );
 
@@ -171,7 +171,7 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
         }
 
         // Set main pane to Options
-        tab_switch("csx_options");
+        tab_switch("chx_options");
         // Adjust the modal window
         xblock_minimize();
         // Readjust modal window dimensions in case the browser window is resized
@@ -179,41 +179,41 @@ function CDOTSlidesXBlockStudio(runtime, xblock_element) {
             xblock_refresh()
         });
 
-        $('#csx_options').click(function() {
-            tab_switch("csx_options");
+        $('#chx_options').click(function() {
+            tab_switch("chx_options");
         });
 
-        $('#csx_preview').click(function() {
-            tab_switch("csx_preview");
+        $('#chx_preview').click(function() {
+            tab_switch("chx_preview");
             preview_slide();
         });
 
-        $('#csx_html').click(function() {
-            tab_switch("csx_html");
+        $('#chx_html').click(function() {
+            tab_switch("chx_html");
         });
 
-        $('#csx_javascript').click(function() {
-            tab_switch("csx_javascript");
+        $('#chx_javascript').click(function() {
+            tab_switch("chx_javascript");
         });
 
-        $('#csx_css').click(function() {
-            tab_switch("csx_css");
+        $('#chx_css').click(function() {
+            tab_switch("chx_css");
         });
 
         // Fill the window with the Editor view
-        $('#csx_fullscreen').click(function() {
+        $('#chx_fullscreen').click(function() {
             isFullscreen = !isFullscreen;
             xblock_refresh();
         });
 
         // Clicked Save button
-        $('#btn_submit').click(function(eventObject) {
+        $('#chx_submit').click(function(eventObject) {
 
             $.ajax({
                 type: "POST",
                 url: runtime.handlerUrl(xblock_element, 'studio_submit'),
                 data: JSON.stringify({
-                    "display_name": $('#cdot_display_name').val(),
+                    "display_name": $('.chx_display_name').val(),
                     "body_html":
                         (ckeditor_html != "") ?
                             ckeditor_html.getData() :

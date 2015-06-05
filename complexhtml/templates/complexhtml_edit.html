@@ -1,0 +1,39 @@
+<div class="complexhtml_xblock_studio">
+
+    <!-- XBlock options -->
+    <div class="chx_options">
+        <p class="chx_desc">Display Name</p>
+        <input type="text" class="chx_display_name" value="{{ self.display_name }}">
+        <br/>
+    </div>
+
+    <!-- Preview Pane -->
+    <div class="chx_preview">
+
+    </div>
+
+    <!-- HTML editor and list of tracked elements -->
+    <div class="chx_html">
+        <p class="chx_desc">HTML Code/URL</p>
+        <textarea name="chx_body_html" wrap="off" class="chx_body_html" cols="80" rows="20">{{ self.body_html }}</textarea>
+        <br/>
+        <p class="chx_desc">Tracked Elements (separate with commas)</p>
+        <textarea wrap="off" class="chx_body_tracked" cols="80" rows="10">{{ self.body_tracked }}</textarea>
+    </div>
+
+    <!-- JavaScript editor and JSON field -->
+    <div class="chx_javascript">
+        <p class="chx_desc">JavaScript Code/URL</p>
+        <textarea wrap="off" class="chx_body_js" cols="80" rows="20">{{ self.body_js }}</textarea>
+        <br/>
+        <p class="chx_desc">JSON Code/URL</p>
+        <textarea wrap="off" class="chx_body_json" cols="80" rows="10">{{ self.body_json }}</textarea>
+    </div>
+
+    <!-- CSS editor -->
+    <div class="chx_css">
+        <p class="chx_desc">CSS Code/URL</p>
+        <textarea wrap="off" class="chx_body_css" cols="80" rows="20">{{ self.body_css }}</textarea>
+    </div>
+
+</div>

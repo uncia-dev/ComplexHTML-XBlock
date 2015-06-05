@@ -1,5 +1,5 @@
-/* Javascript for CDOTSlideXBlock. */
-function CDOTSlidesXBlock(runtime, xblock_element) {
+/* JavaScript for ComplexHTML XBlock. */
+function ComplexHTMLXBlock(runtime, xblock_element) {
 
     var json_settings = {};
 

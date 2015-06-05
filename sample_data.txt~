@@ -36,5 +36,5 @@ JSON Code
 
 CSS
 ===
-.complexhtml_test_div p { color: red }
-p { color: green }
+.complexhtml_test_div p { color: purple }
+p { color: cyan }
