@@ -80,27 +80,3 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
     `$(".dev_stuff").show()`
 
 ![Image](https://raw.githubusercontent.com/uw-ray/cdot_slides_for_edx/master/docs/cdot_slide11.jpg)
-
-
-TODO / Plans:
-
-[X] add preview pane in studio
-    
-    [ ] Clear up JavaScript code inserted during preview, to avoid cluttering the DOM
-
-[ ] try to rename element to xblock_element in JS files
-
-[ ] Add notes regarding recorded interactions
-
-[?] Give the XBlock a more suitable name
-
-
-Adaptive Learning Stuff:
-
-[ ] add next, previous slide fields
-
-[ ] add prev/next buttons at the bottom of the slides
-
-[ ] url to an index / table of content file, or browse the database for the course structure
-
-[ ] Add option to disable horizontal nav bar directly above a unit
