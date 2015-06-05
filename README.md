@@ -4,7 +4,7 @@
 
 ### Description
 
-This XBlock is a component for the edX platform and can be installed on devstakcblac and fullstack. It permits a course author to write made HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. Unlike edX's built-in HTML module, this XBlock can also record student interactions within the slide, for later analysis.
+This XBlock is a component for the edX platform and can be installed on devstack and fullstack. It permits a course author to write made HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. Unlike edX's built-in HTML module, this XBlock can also record student interactions within the slide, for later analysis.
 
 This module is meant to be used in conjunction with a JavaScript library for a customized edX course, however it is available for everyone, should they have interest in my work. Please note that there is no validation for any code you write in the Studio view. Each of the fields in the Studio Editor makes use of CodeMirror, but the HTML editor supports CKEditor as well. It is however disabled by default, as I could not get the CKEditor library to work from within the XBlock directory. Instead, I am hosting it on an local Apache server and linking it via the Studio JavaScript file.
 
@@ -24,7 +24,7 @@ Created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre
   
 * Install the XBlock:
 
-    `sudo -u edxapp /edx/bin/pip.edxapp install complexhtml/`
+    `sudo -u edxapp /edx/bin/pip.edxapp install ComplexHTML-XBlock/`
   
 * In Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "complexhtml" to the list. Click on "Save Changes". 
 
