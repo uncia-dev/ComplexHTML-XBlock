@@ -6,6 +6,10 @@ form {
     margin: auto;
 }
 
+.chx_desc {
+    text-align: center;
+}
+
 .chx_options {
     text-align: center;
 }

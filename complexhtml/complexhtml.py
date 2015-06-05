@@ -14,10 +14,10 @@ from xblock.fragment import Fragment
 class ComplexHTMLXBlock(XBlock):
 
     display_name = String(
-        display_name="Complex HTML XBlock",
+        display_name="ComplexHTML XBlock",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Complex HTML XBlock"
+        default="ComplexHTML XBlock"
     )
 
     body_html = String(
