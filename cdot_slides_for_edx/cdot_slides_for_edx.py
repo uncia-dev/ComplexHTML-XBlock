@@ -58,10 +58,6 @@ class CDOTSlidesXBlock(XBlock):
         default=[], scope=Scope.user_state
     )
 
-    """
-    A handful of getters below
-    """
-
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
         return {"body_html": self.body_html}
@@ -83,26 +79,25 @@ class CDOTSlidesXBlock(XBlock):
         """
         Return the JSON settings string attached to this XBlock
         """
-
-        # TODO: Remove me
-        print self.settings_student
-
         return {"json_settings": self.settings_student}
 
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
+        """
+        Return data grabbed from the student
+        """
         return {"grabbed_data": self.grabbed}
 
     def get_time_delta(self):
         """
-        :return: Delta between current grabbed input and the previous one. Use to measure time spent between actions.
+        Return time difference between current grabbed input and the previous one.
         """
         return self.grabbed[-1] - self.grabbed[-2]
 
     @XBlock.json_handler
     def grab_data(self, data, suffix=''):
         """
-        Grab all data passed from cdot_slides_for_edx.js and append it to self.grabbed.
+        Grab data from recordable fields and append it to self.grabbed.
         """
 
         content = {"time": str(datetime.datetime.now())}
@@ -119,9 +114,11 @@ class CDOTSlidesXBlock(XBlock):
             self.grabbed.append((content["time"], "crickets"))
             content["data"] = None
 
+        """
         print "Grabbed data on " + self.grabbed[-1][0]
         for i in self.grabbed[-1][1]:
             print "+--" + str(i)
+        """
 
         return content
 
@@ -130,7 +127,6 @@ class CDOTSlidesXBlock(XBlock):
         """
         Clear data grabbed from student
         """
-
         self.grabbed = []
         return {"cleared": "yes"}
 
@@ -139,15 +135,9 @@ class CDOTSlidesXBlock(XBlock):
         """
         Update student settings from AJAX request
         """
-
         if self.settings_student != data["json_settings"]:
             self.settings_student = data["json_settings"]
-
-            # TODO: Remove me
-            print self.settings_student
-
             return {"updated": "true"}
-
         return {"updated": "false"}
 
     @staticmethod
@@ -228,11 +218,7 @@ class CDOTSlidesXBlock(XBlock):
         fragment.add_css(unicode(body_css))
         fragment.add_content(render_template('templates/cdot_slides_for_edx.html', content))
         fragment.add_css(load_resource('static/css/cdot_slides_for_edx.css'))
-
         fragment.initialize_js('CDOTSlidesXBlock')
-
-        # TODO: Remove me
-        print self.settings_student
 
         return fragment
 
@@ -284,17 +270,6 @@ class CDOTSlidesXBlock(XBlock):
             self.body_json = data["body_json"]
             self.body_js = data["body_js"]
             self.body_css = data["body_css"]
-
-            """ Was used during development
-            print("+ Submitted data")
-            print("================================================================================")
-            print("+- Display Name: " + data["display_name"])
-            print("+- HTML: \n" + data["body_html"])
-            print("+- Tracked Elements: \n" + data["body_tracked"])
-            print("+- JS: \n" + data["body_js"])
-            print("+- JSON: \n" + data["body_json"])
-            print("+- CSS: \n" + data["body_css"])
-            """
 
             return {"submitted": "true"}
 
