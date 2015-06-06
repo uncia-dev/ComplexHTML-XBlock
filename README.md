@@ -54,6 +54,12 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_09.jpg)
 
+* A note on the recorded interaction: it is recorded in a student-specific field called grabbed_data, with the pattern below. In the back end, messages will also be displayed for every interaction.
+
+    `(time, [id, recorded_action])`
+
+![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_15.jpg)
+
 * The third tab is the JavaScript Editor. The code that you type in here will run when a student views the module in LMS:
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_10.jpg)
@@ -79,3 +85,7 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 * (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
 
     `$(".dev_stuff").show()`
+    
+* There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
+
+![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_14.jpg)
