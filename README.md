@@ -52,9 +52,11 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_09.jpg)
 
-* A note on the recorded interaction: it is recorded in a student-specific field called grabbed_data, with the pattern below. In the back end, messages will also be displayed for every interaction.
+* A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
 
     `(time, [id, recorded_action])`
+
+In the back end, messages will also be displayed for every interaction.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_15.jpg)
 
