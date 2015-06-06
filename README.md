@@ -23,9 +23,7 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 * Install the XBlock:
 
     `sudo -u edxapp /edx/bin/pip.edxapp install <path to XBlock parent directory>/ComplexHTML-XBlock/`
-    
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_02.jpg)
-  
+
 * In the edX Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "complexhtml" to the list. Click on "Save Changes". 
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_03.jpg)
