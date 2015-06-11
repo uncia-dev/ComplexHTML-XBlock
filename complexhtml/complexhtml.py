@@ -55,9 +55,19 @@ class ComplexHTMLXBlock(XBlock):
         default=[], scope=Scope.user_state
     )
 
-    completed = Boolean (
+    completed = Boolean(
         help="Completion status of this slide for the student.",
         default=False, scope=Scope.user_state
+    )
+
+    record_clicks = Boolean(
+        help="Record student clicks?",
+        default=True, scope=Scope.content
+    )
+
+    record_hover = Boolean(
+        help="Record student hovers? (Note that this will flood the database; use with caution)",
+        default=False, scope=Scope.content
     )
 
     has_score = True
@@ -203,11 +213,20 @@ class ComplexHTMLXBlock(XBlock):
 
         # Generate AJAX request for each element that will be tracked
         for i in self.body_tracked.split("\n"):
-            e = i.split(", ")
-            tracked += "recordClick(\'" + e[0] + "\'"
-            if len(e) > 1:
-                tracked += ", \'" + e[1] + "\'"
-            tracked += ");\n"
+
+            if self.record_clicks:
+                e = i.split(", ")
+                tracked += "recordClick(\'" + e[0] + "\'"
+                if len(e) > 1:
+                    tracked += ", \'" + e[1] + "\'"
+                tracked += ");\n"
+
+            if self.record_hover:
+                e = i.split(", ")
+                tracked += "recordHover(\'" + e[0] + "\'"
+                if len(e) > 1:
+                    tracked += ", \'" + e[1] + "\'"
+                tracked += ");\n"
 
         body_js = body_js[:-47] + tracked + body_js[-47:]
 
@@ -277,6 +296,8 @@ class ComplexHTMLXBlock(XBlock):
             # NOTE: No validation going on here; be careful with your code
 
             self.display_name = data["display_name"]
+            self.record_clicks = data["record_clicks"]
+            self.record_hover = data["record_hover"]
             self.body_html = data["body_html"]
             self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]

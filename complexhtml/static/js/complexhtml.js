@@ -46,6 +46,30 @@ function ComplexHTMLXBlock(runtime, xblock_element) {
 
     }
 
+    // Record an element hover to the student's database entry
+    function recordHover(rec, type) {
+
+        $(rec, xblock_element).hover(
+
+            function (eventObject) {
+
+                var id = this.tagName;
+                if (this.type != undefined) id = this.type;
+                if (this.id != "") id = this.id;
+                if (this.className != "" ) id = this.className;
+
+                if (this.type === type || type === undefined) {
+                    $.ajax({
+                        type: "POST",
+                        url: runtime.handlerUrl(xblock_element, 'grab_data'),
+                        data: JSON.stringify({"id": id, "type": ((this.type != undefined) ? this.type : this.tagName) + "_hover"})
+                    });
+                }
+
+            });
+
+    }
+
     // Update student settings with the contents of json_settings
     function updateSettings(json_settings) {
         if (json_settings) {
