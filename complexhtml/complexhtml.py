@@ -8,7 +8,7 @@ import urllib, datetime, json
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, List, String
+from xblock.fields import Scope, Integer, List, String, Boolean
 from xblock.fragment import Fragment
 
 class ComplexHTMLXBlock(XBlock):
@@ -55,6 +55,14 @@ class ComplexHTMLXBlock(XBlock):
         default=[], scope=Scope.user_state
     )
 
+    completed = Boolean (
+        help="Completion status of this slide for the student.",
+        default=False, scope=Scope.user_state
+    )
+
+    has_score = True
+    icon_class = 'other'
+
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
         return {"body_html": self.body_html}
@@ -78,6 +86,10 @@ class ComplexHTMLXBlock(XBlock):
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
         return {"grabbed_data": self.grabbed}
+
+    @XBlock.json_handler
+    def get_completion_status(self, data, suffix=''):
+        return {"completed": self.completed}
 
     def get_time_delta(self):
         """
@@ -128,6 +140,14 @@ class ComplexHTMLXBlock(XBlock):
             self.settings_student = data["json_settings"]
             return {"updated": "true"}
         return {"updated": "false"}
+
+    @XBlock.json_handler
+    def complete_block(self, data, suffix=''):
+        """
+        Mark this XBlock as completed for the student
+        """
+        self.completed = True
+        return {}
 
     @staticmethod
     def generate_css(css, block):

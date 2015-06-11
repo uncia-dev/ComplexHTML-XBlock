@@ -14,6 +14,14 @@ function ComplexHTMLXBlock(runtime, xblock_element) {
         async: false
     });
 
+    // Mark this block as completed for the student
+    function markCompleted() {
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'complete_block')
+        })
+    }
+
     // Record an element click to the student's database entry
     function recordClick(rec, type) {
 
