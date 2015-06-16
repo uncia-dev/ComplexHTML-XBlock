@@ -40,7 +40,7 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_06.jpg)
 
-* There are five tabs for this module: Options, Preview, HTML, JavaScript, CSS. In Options, you can set the title of the slide, which will be seen by the students in the LMS. Other options may be added in the future.
+* There are five tabs for this module: Options, Preview, HTML, JavaScript, CSS. In Options, you can set the title of the slide, which will be seen by the students in the LMS. You can also choose what events to record. For now, only clicks and hover are implement. Be cautious with hover, as it can potentially throw massive amounts of data at the database server.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_07.jpg)
 
@@ -89,3 +89,5 @@ In the back end, messages will also be displayed for every interaction.
 * There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_14.jpg)
+
+There is also a hidden method in the JavaScript code loaded in LMS called markCompleted(). Calling this function will mark an XBlock as completed for a student.
