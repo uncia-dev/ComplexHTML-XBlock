@@ -82,12 +82,12 @@ In the back end, messages will also be displayed for every interaction.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_13.jpg)
 
-* (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
-
-    `$(".dev_stuff").show()`
-    
 * There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_14.jpg)
 
-There is also a hidden method in the JavaScript code loaded in LMS called markCompleted(). Calling this function will mark an XBlock as completed for a student.
+* (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
+
+    `$(".dev_stuff").show()`
+
+* (Optional) There is also a hidden method in the JavaScript code loaded in LMS called markCompleted(). Calling this function will mark an XBlock as completed for a student.
