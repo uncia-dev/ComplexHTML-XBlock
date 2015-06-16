@@ -214,8 +214,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
                 url: runtime.handlerUrl(xblock_element, 'studio_submit'),
                 data: JSON.stringify({
                     "display_name": $('.chx_display_name').val(),
-                    "record_clicks": $('.chx_record_clicks').attr("checked"),
-                    "record_hover": $('.chx_record_hover').attr("checked"),
+                    "record_clicks": ($('.chx_record_clicks').attr("checked") === "checked") ? 1 : 0,
+                    "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
                     "body_html":
                         (ckeditor_html != "") ?
                             ckeditor_html.getData() :

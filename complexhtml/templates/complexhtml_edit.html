@@ -6,9 +6,9 @@
         <input type="text" class="chx_display_name" value="{{ self.display_name }}">
         <br/>
         <p class="chx_desc">Record mouse clicks?</p>
-        <input type="checkbox" class="chx_record_clicks" checked>
+        <input type="checkbox" class="chx_record_clicks" {% if self.record_clicks %} checked {% endif %}>
         <p class="chx_desc">Record mouse hovering?</p>
-        <input type="checkbox" class="chx_record_hover">
+        <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
     </div>
 
     <!-- Preview Pane -->
