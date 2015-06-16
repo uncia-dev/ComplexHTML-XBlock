@@ -295,8 +295,8 @@ class ComplexHTMLXBlock(XBlock):
 
             # NOTE: No validation going on here; be careful with your code
             self.display_name = data["display_name"]
-            self.record_clicks = data["record_clicks"] == "1"
-            self.record_hover = data["record_hover"] == "1"
+            self.record_clicks = data["record_clicks"] == 1
+            self.record_hover = data["record_hover"] == 1
             self.body_html = data["body_html"]
             self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]
