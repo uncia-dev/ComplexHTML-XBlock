@@ -18,7 +18,8 @@ function ComplexHTMLXBlock(runtime, xblock_element) {
     function markCompleted() {
         $.ajax({
             type: "POST",
-            url: runtime.handlerUrl(xblock_element, 'complete_block')
+            url: runtime.handlerUrl(xblock_element, 'complete_block'),
+            data: JSON.stringify({})
         })
     }
 
