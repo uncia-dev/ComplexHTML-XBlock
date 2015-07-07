@@ -113,6 +113,8 @@ class ComplexHTMLXBlock(XBlock):
         Grab data from recordable fields and append it to self.grabbed.
         """
 
+        print ("CHX: Grabbed data from student: " + data)
+
         content = {"time": str(datetime.datetime.now())}
         chunk = []
 
@@ -201,6 +203,7 @@ class ComplexHTMLXBlock(XBlock):
             self.settings_student = self.body_json
 
         # Build page based on user input HTML, JS and CSS code
+
         # basic check for url
         if self.body_html[:4] == "http":
             body_html = "<div class=\"complexhtml_xblock\">" + urllib.urlopen(self.body_html).read() + "</div>"
@@ -228,13 +231,18 @@ class ComplexHTMLXBlock(XBlock):
                     tracked += ", \'" + e[1] + "\'"
                 tracked += ");\n"
 
-        body_js = body_js[:-47] + tracked + body_js[-47:]
+        print ("CHX Tracked Items: " + tracked)
+
+        body_js += "/* Elements being recorded go here */" + tracked
+        body_js += "\n/* Staff entered JS code goes below */\n"
 
         # basic check for url
         if self.body_js[:4] == "http":
-            body_js = body_js[:-7] + urllib.urlopen(self.body_js).read() + body_js[-7:]
+            body_js += urllib.urlopen(self.body_js).read()
         else:
-            body_js = body_js[:-7] + self.body_js + body_js[-7:]
+            body_js += self.body_js
+
+        body_js += "\n})\n\n}"
 
         # basic check for url
         if self.body_css[:4] == "http":

@@ -85,11 +85,3 @@ function ComplexHTMLXBlock(runtime, xblock_element) {
 /* Page is loaded. Do something. */
 $(function ($) {
 
-/* Elements being recorded go here */
-
-/* Staff entered JS code goes below */
-
-
-})
-
-}
