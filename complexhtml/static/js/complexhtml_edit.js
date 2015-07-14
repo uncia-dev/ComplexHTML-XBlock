@@ -49,7 +49,11 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         codemirror_settings
     );
 
-    var editor_js = CodeMirror.fromTextArea($('.chx_body_js')[0],
+    var editor_js_chunk_1 = CodeMirror.fromTextArea($('.chx_body_js_chunk_1')[0],
+        jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
+    );
+
+    var editor_js_chunk_2 = CodeMirror.fromTextArea($('.chx_body_js_chunk_2')[0],
         jQuery.extend({mode: {name: "javascript", globalVars: true}}, codemirror_settings)
     );
 
@@ -69,7 +73,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.83 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.83 * $(window).height());
         editor_tracked.setSize("100%", 120);
-        editor_js.setSize("100%", 0.83 * $(window).height());
+        editor_js_chunk_1.setSize("100%", 0.83 * $(window).height());
+        editor_js_chunk_2.setSize("100%", 0.83 * $(window).height());
         editor_json.setSize("100%", 230);
         editor_css.setSize("100%", 0.83 * $(window).height());
         $('#chx_fullscreen').css({"color": csxColor[1]});
@@ -83,7 +88,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.82 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.82 * $(window).height());
         editor_tracked.setSize("100%", 120);
-        editor_js.setSize("100%", $(window).height() * 0.55);
+        editor_js_chunk_1.setSize("100%", $(window).height() * 0.55);
+        editor_js_chunk_2.setSize("100%", $(window).height() * 0.55);
         editor_json.setSize("100%", 230);
         editor_css.setSize("100%", $(window).height() * 0.55);
         $('#chx_fullscreen').css({"color": csxColor[0]});
@@ -221,7 +227,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
                             ckeditor_html.getData() :
                             editor_html.getDoc().getValue(),
                     "body_tracked": editor_tracked.getDoc().getValue(),
-                    "body_js": editor_js.getDoc().getValue(),
+                    "body_js_chunk_1": editor_js_chunk_1.getDoc().getValue(),
+                    "body_js_chunk_2": editor_js_chunk_2.getDoc().getValue(),
                     "body_json": editor_json.getDoc().getValue(),
                     "body_css": editor_css.getDoc().getValue()
                 })

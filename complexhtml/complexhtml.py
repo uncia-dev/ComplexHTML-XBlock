@@ -30,9 +30,14 @@ class ComplexHTMLXBlock(XBlock):
         default="p", scope=Scope.content
     )
 
-    body_js = String(
+    body_js_chunk_1 = String(
         help="JavaScript code for the block",
         default="console.log(\"Hello world.\");", scope=Scope.content
+    )
+
+    body_js_chunk_2 = String(
+        help="JavaScript code for the block, chunk #2",
+        default="console.log(\"Onload event!\");", scope=Scope.content
     )
 
     body_json = String(
@@ -83,7 +88,7 @@ class ComplexHTMLXBlock(XBlock):
 
     @XBlock.json_handler
     def get_body_js(self, data, suffix=''):
-        return {"body_js": self.body_js}
+        return {"body_js": ("Chunk 1: \n" + self.body_js_chunk_1 + "\nChunk 2:\n" + self.body_js_chunk_2)}
 
     @XBlock.json_handler
     def get_body_json(self, data, suffix=''):
@@ -113,7 +118,7 @@ class ComplexHTMLXBlock(XBlock):
         Grab data from recordable fields and append it to self.grabbed.
         """
 
-        print ("CHX: Grabbed data from student: " + data)
+        print ("CHX: Grabbed data from student: " + str(data))
 
         content = {"time": str(datetime.datetime.now())}
         chunk = []
@@ -160,6 +165,59 @@ class ComplexHTMLXBlock(XBlock):
         """
         self.completed = True
         return {}
+
+    @staticmethod
+    def generate_js(self):
+
+        # Load first chunk of the JS script
+        result = load_resource('static/js/complexhtml_lms_chunk_1.js')
+
+        # Generate AJAX request for each element that will be tracked
+        tracked = ""
+
+        for i in self.body_tracked.split("\n"):
+
+            if self.record_clicks:
+                e = i.split(", ")
+                tracked += "recordClick(\'" + e[0] + "\'"
+                if len(e) > 1:
+                    tracked += ", \'" + e[1] + "\'"
+                tracked += ");\n"
+
+            if self.record_hover:
+                e = i.split(", ")
+                tracked += "recordHover(\'" + e[0] + "\'"
+                if len(e) > 1:
+                    tracked += ", \'" + e[1] + "\'"
+                tracked += ");\n"
+
+        # Adding tracking calls
+        result += "/* Elements being recorded go here */\n" + tracked
+
+        # Add first staff entered chunk - ie the code running before the onLoad
+        result += "\n/* Staff entered JS code */\n"
+
+        # basic check for url
+        if self.body_js_chunk_1[:4] == "http":
+            result += urllib.urlopen(self.body_js_chunk_1).read()
+        else:
+            result += self.body_js_chunk_1
+
+        result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+
+        # Add second staff entered chunk - ie the code running on page load
+        result += "\n/* Staff entered JS code */\n"
+
+        # basic check for url
+        if self.body_js_chunk_1[:4] == "http":
+            result += urllib.urlopen(self.body_js_chunk_2).read()
+        else:
+            result += self.body_js_chunk_2
+
+        result += "\n})\n\n}"
+
+        return result
+
 
     @staticmethod
     def generate_css(css, block):
@@ -211,6 +269,12 @@ class ComplexHTMLXBlock(XBlock):
             body_html = "<div class=\"complexhtml_xblock\">" + self.body_html + "</div>"
 
         # Build slide specific JavaScript code
+        body_js = self.generate_js(self)
+
+        print (body_js)
+
+        '''
+        # Build slide specific JavaScript code
         body_js = load_resource('static/js/complexhtml.js')
         tracked = ""
 
@@ -231,10 +295,17 @@ class ComplexHTMLXBlock(XBlock):
                     tracked += ", \'" + e[1] + "\'"
                 tracked += ");\n"
 
-        print ("CHX Tracked Items: " + tracked)
+        # Adding tracking calls
+        body_js += "/* Elements being recorded go here */\n" + tracked
 
-        body_js += "/* Elements being recorded go here */" + tracked
+        # Add first chunk
+
+        body_js += "/* Page is loaded. Do something. */\n"
+        body_js += "$(function ($) {\n"
+
         body_js += "\n/* Staff entered JS code goes below */\n"
+
+        # Add second chunk
 
         # basic check for url
         if self.body_js[:4] == "http":
@@ -243,6 +314,7 @@ class ComplexHTMLXBlock(XBlock):
             body_js += self.body_js
 
         body_js += "\n})\n\n}"
+        '''
 
         # basic check for url
         if self.body_css[:4] == "http":
@@ -308,7 +380,8 @@ class ComplexHTMLXBlock(XBlock):
             self.body_html = data["body_html"]
             self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]
-            self.body_js = data["body_js"]
+            self.body_js_chunk_1 = data["body_js_chunk_1"]
+            self.body_js_chunk_2 = data["body_js_chunk_2"]
             self.body_css = data["body_css"]
 
             return {"submitted": "true"}
