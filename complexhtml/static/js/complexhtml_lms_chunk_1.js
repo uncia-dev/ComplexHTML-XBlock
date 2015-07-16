@@ -1,7 +1,7 @@
 /* JavaScript for ComplexHTML XBlock. */
 function ComplexHTMLXBlock(runtime, xblock_element) {
 
-var json_settings = {};
+var json_data = {};
 
 // Load JSON settings from database
 $.ajax({
@@ -9,7 +9,7 @@ $.ajax({
     url: runtime.handlerUrl(xblock_element, 'get_settings_student'),
     data: JSON.stringify({}),
     success: function(result) {
-        if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
+        if (result.json_data != "") json_data = JSON.parse(result.json_data);
     },
     async: false
 });
@@ -71,13 +71,13 @@ function recordHover(rec, type) {
 
 }
 
-// Update student settings with the contents of json_settings
-function updateSettings(json_settings) {
-    if (json_settings) {
+// Update student settings with the contents of json_data
+function updateSettings(json_data) {
+    if (json_data) {
         $.ajax({
             type: "POST",
             url: runtime.handlerUrl(xblock_element, 'update_student_settings'),
-            data: JSON.stringify({"json_settings": json_settings})
+            data: JSON.stringify({"json_data": json_data})
         });
     }
 }
