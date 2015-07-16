@@ -271,51 +271,6 @@ class ComplexHTMLXBlock(XBlock):
         # Build slide specific JavaScript code
         body_js = self.generate_js(self)
 
-        print (body_js)
-
-        '''
-        # Build slide specific JavaScript code
-        body_js = load_resource('static/js/complexhtml.js')
-        tracked = ""
-
-        # Generate AJAX request for each element that will be tracked
-        for i in self.body_tracked.split("\n"):
-
-            if self.record_clicks:
-                e = i.split(", ")
-                tracked += "recordClick(\'" + e[0] + "\'"
-                if len(e) > 1:
-                    tracked += ", \'" + e[1] + "\'"
-                tracked += ");\n"
-
-            if self.record_hover:
-                e = i.split(", ")
-                tracked += "recordHover(\'" + e[0] + "\'"
-                if len(e) > 1:
-                    tracked += ", \'" + e[1] + "\'"
-                tracked += ");\n"
-
-        # Adding tracking calls
-        body_js += "/* Elements being recorded go here */\n" + tracked
-
-        # Add first chunk
-
-        body_js += "/* Page is loaded. Do something. */\n"
-        body_js += "$(function ($) {\n"
-
-        body_js += "\n/* Staff entered JS code goes below */\n"
-
-        # Add second chunk
-
-        # basic check for url
-        if self.body_js[:4] == "http":
-            body_js += urllib.urlopen(self.body_js).read()
-        else:
-            body_js += self.body_js
-
-        body_js += "\n})\n\n}"
-        '''
-
         # basic check for url
         if self.body_css[:4] == "http":
             body_css_tmp = urllib.urlopen(self.body_css).read()

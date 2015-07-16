@@ -75,7 +75,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         editor_tracked.setSize("100%", 120);
         editor_js_chunk_1.setSize("100%", 0.83 * $(window).height());
         editor_js_chunk_2.setSize("100%", 0.83 * $(window).height());
-        editor_json.setSize("100%", 230);
+        editor_json.setSize("100%", 0.83 * $(window).height());
         editor_css.setSize("100%", 0.83 * $(window).height());
         $('#chx_fullscreen').css({"color": csxColor[1]});
     }
@@ -90,7 +90,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         editor_tracked.setSize("100%", 120);
         editor_js_chunk_1.setSize("100%", $(window).height() * 0.55);
         editor_js_chunk_2.setSize("100%", $(window).height() * 0.55);
-        editor_json.setSize("100%", 230);
+        editor_json.setSize("100%", $(window).height() * 0.55);
         editor_css.setSize("100%", $(window).height() * 0.55);
         $('#chx_fullscreen').css({"color": csxColor[0]});
     }
@@ -115,6 +115,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         $("." + toShow).show();
         xblock_refresh();
     }
+
 
     // Generate a preview of the slide based on the HTML, JS and CSS code written so far
     function preview_slide() {
@@ -151,9 +152,15 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
                 "json_settings = JSON.parse(\'" +
                 editor_json.getDoc().getValue()  +
                 "\');\n" +
-                editor_js.getDoc().getValue();
+                editor_js_chunk_1.getDoc().getValue() +
+                "function preview_run() {" +
+                editor_js_chunk_2.getDoc().getValue() +
+                "}";
 
         document.head.appendChild(script);
+
+        // Run on_load code here
+        preview_run();
 
     }
 
