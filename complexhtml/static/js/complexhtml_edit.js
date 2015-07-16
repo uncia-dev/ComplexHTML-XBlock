@@ -144,12 +144,12 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         // remove old JS preview code
         $("#chx_preview_script").remove();
 
-        //var json_settings = JSON.parse(editor_json.getDoc().getValue());
+        //var json_data = JSON.parse(editor_json.getDoc().getValue());
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.id = "chx_preview_script";
         script.text =
-                "json_settings = JSON.parse(\'" +
+                "json_data = JSON.parse(\'" +
                 editor_json.getDoc().getValue()  +
                 "\');\n" +
                 editor_js_chunk_1.getDoc().getValue() +
