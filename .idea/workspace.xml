@@ -6,6 +6,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" afterPath="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js" afterPath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js" afterPath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js" afterPath="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cdotgrabber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +32,8 @@
       <file leaf-file-name="complexhtml.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/complexhtml.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1084337">
-              <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
+            <state vertical-scroll-proportion="-11.26506">
+              <caret line="354" column="9" selection-start-line="354" selection-start-column="9" selection-end-line="354" selection-end-column="9" />
               <folding>
                 <element signature="e#187#216#0" expanded="true" />
               </folding>
@@ -42,8 +44,8 @@
       <file leaf-file-name="complexhtml_lms_chunk_1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.526316">
-              <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -51,21 +53,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="complexhtml_lms_chunk_2.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="complexhtml_lms_chunk_2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="complexhtml_edit.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="complexhtml_edit.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.842105">
-              <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
+            <state vertical-scroll-proportion="3.7229602">
+              <caret line="218" column="19" selection-start-line="218" selection-start-column="19" selection-end-line="218" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -84,8 +86,8 @@
       <file leaf-file-name="complexhtml_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.666667">
-              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state vertical-scroll-proportion="-26.0">
+              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -141,11 +143,11 @@
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk1.js" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk2.js" />
         <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml.html" />
-        <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js" />
+        <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js" />
+        <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
         <option value="$PROJECT_DIR$/complexhtml/complexhtml.py" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js" />
-        <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
-        <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js" />
+        <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js" />
       </list>
     </option>
   </component>
@@ -949,26 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/complexhtml/complexhtml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1084337">
-          <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
-          <folding>
-            <element signature="e#187#216#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.526316">
-          <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/complexhtml/static/css/complexhtml_edit.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15370019">
@@ -979,16 +961,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.666667">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.842105">
-          <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
+        <state vertical-scroll-proportion="-26.0">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1001,10 +975,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/complexhtml/complexhtml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.26506">
+          <caret line="354" column="9" selection-start-line="354" selection-start-column="9" selection-end-line="354" selection-end-column="9" />
+          <folding>
+            <element signature="e#187#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.7229602">
+          <caret line="218" column="19" selection-start-line="218" selection-start-column="19" selection-end-line="218" selection-end-column="19" />
           <folding />
         </state>
       </provider>

@@ -81,4 +81,3 @@ function updateSettings(json_settings) {
         });
     }
 }
-

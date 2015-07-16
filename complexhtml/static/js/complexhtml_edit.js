@@ -75,7 +75,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         editor_tracked.setSize("100%", 120);
         editor_js_chunk_1.setSize("100%", 0.83 * $(window).height());
         editor_js_chunk_2.setSize("100%", 0.83 * $(window).height());
-        editor_json.setSize("100%", 230);
+        editor_json.setSize("100%", 0.83 * $(window).height());
         editor_css.setSize("100%", 0.83 * $(window).height());
         $('#chx_fullscreen').css({"color": csxColor[1]});
     }
@@ -90,7 +90,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         editor_tracked.setSize("100%", 120);
         editor_js_chunk_1.setSize("100%", $(window).height() * 0.55);
         editor_js_chunk_2.setSize("100%", $(window).height() * 0.55);
-        editor_json.setSize("100%", 230);
+        editor_json.setSize("100%", $(window).height() * 0.55);
         editor_css.setSize("100%", $(window).height() * 0.55);
         $('#chx_fullscreen').css({"color": csxColor[0]});
     }
@@ -144,6 +144,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         // remove old JS preview code
         $("#chx_preview_script").remove();
 
+        //var json_settings = JSON.parse(editor_json.getDoc().getValue());
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.id = "chx_preview_script";
