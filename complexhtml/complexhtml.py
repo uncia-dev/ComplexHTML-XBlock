@@ -96,7 +96,7 @@ class ComplexHTMLXBlock(XBlock):
 
     @XBlock.json_handler
     def get_settings_student(self, data, suffix=''):
-        return {"json_data": self.settings_student}
+        return {"json_settings": self.settings_student}
 
     @XBlock.json_handler
     def get_grabbed_data(self, data, suffix=''):
@@ -153,8 +153,8 @@ class ComplexHTMLXBlock(XBlock):
         """
         Update student settings from AJAX request
         """
-        if self.settings_student != data["json_data"]:
-            self.settings_student = data["json_data"]
+        if self.settings_student != data["json_settings"]:
+            self.settings_student = data["json_settings"]
             return {"updated": "true"}
         return {"updated": "false"}
 
