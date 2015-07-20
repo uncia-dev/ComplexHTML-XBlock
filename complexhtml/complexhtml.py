@@ -77,6 +77,7 @@ class ComplexHTMLXBlock(XBlock):
 
     has_score = True
     icon_class = 'other'
+    div_title = 'complexhtml_xblock'
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -167,10 +168,43 @@ class ComplexHTMLXBlock(XBlock):
         return {}
 
     @staticmethod
+    def url_loader(strin, sep):
+        """
+        Load contents of all URLs from strin, separated by sep and return a compiled string
+        """
+
+        strout = ""
+
+        for line in strin.split(sep):
+
+            if line[:4] == "http":
+                strout += urllib.urlopen(line).read()
+            # else ignore line
+
+        return strout
+
+    @staticmethod
+    def generate_html(self):
+
+        body_html = "<div class=\"" + self.div_title + "\">"
+
+        # If first four letters are "http", assume list of URLs
+        if self.body_html[:4] == "http":
+            body_html += url_loader(self.body_html, '\n')
+
+        # Assume valid HTML code
+        else:
+            body_html += self.body_html
+
+        body_html += "</div>"
+
+        return body_html
+
+    @staticmethod
     def generate_js(self):
 
         # Load first chunk of the JS script
-        result = load_resource('static/js/complexhtml_lms_chunk_1.js')
+        body_js = load_resource('static/js/complexhtml_lms_chunk_1.js')
 
         # Generate AJAX request for each element that will be tracked
         tracked = ""
@@ -192,51 +226,62 @@ class ComplexHTMLXBlock(XBlock):
                 tracked += ");\n"
 
         # Adding tracking calls
-        result += "/* Elements being recorded go here */\n" + tracked
+        body_js += "/* Elements being recorded go here */\n" + tracked
 
         # Add first staff entered chunk - ie the code running before the onLoad
-        result += "\n/* Staff entered JS code */\n"
+        body_js += "\n/* Staff entered JS code */\n"
 
-        # basic check for url
+        # If first four letters are "http", assume list of URLs
         if self.body_js_chunk_1[:4] == "http":
-            result += urllib.urlopen(self.body_js_chunk_1).read()
-        else:
-            result += self.body_js_chunk_1
+            body_js += url_loader(self.body_js_chunk_1, '\n')
 
-        result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        # Assume valid JS code
+        else:
+            body_js += self.body_js_chunk_1
+
+        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
 
         # Add second staff entered chunk - ie the code running on page load
-        result += "\n/* Staff entered JS code */\n"
+        body_js += "\n/* Staff entered JS code */\n"
 
-        # basic check for url
-        if self.body_js_chunk_1[:4] == "http":
-            result += urllib.urlopen(self.body_js_chunk_2).read()
+        # If first four letters are "http", assume list of URLs
+        if self.body_js_chunk_2[:4] == "http":
+            body_js += url_loader(self.body_js_chunk_2, '\n')
+
+        # Assume valid JS code
         else:
-            result += self.body_js_chunk_2
+            body_js += self.body_js_chunk_2
 
-        result += "\n})\n\n}"
+        body_js += "\n})\n\n}"
 
-        return result
+        return body_js
 
 
     @staticmethod
-    def generate_css(css, block):
-        """
-        Generate CSS text for block
-        """
-        # assuming course author places the opening accolade on the same line as the selectors
-        # ie the first line for each CSS element should be as follows ".this_is_a_selector {"
+    def generate_css(self):
 
-        result = ""
+        body_css = ""
+        body_css_tmp = ""
 
-        for i in css.split('\n'):
+        # If first four letters are "http", assume list of URLs
+        if self.body_css[:4] == "http":
+            body_css_tmp += url_loader(self.body_css, '\n')
+
+        # Assume valid CSS code
+        else:
+            body_css_tmp = self.body_css
+
+        # Prefix all CSS entries with XBlock div name to ensure they apply
+        for i in body_css_tmp.split('\n'):
             if i.find('{') != -1:
-                result += block + " " + i
+                body_css += ".complexhtml_xblock" + " " + i
             else:
-                result += i
-            result += '\n'
+                body_css += i
+            body_css += '\n'
 
-        return result
+        print (body_css)
+
+        return body_css
 
     @XBlock.json_handler
     def get_generated_css(self, data, suffix=''):
@@ -245,7 +290,7 @@ class ComplexHTMLXBlock(XBlock):
         """
         content = {"css": ""}
         if self.body_css != "" and data["block"] != "":
-            content["css"] = self.generate_css(data["css"], data["block"])
+            content["css"] = self.generate_css(self)
             return content
         return content
 
@@ -260,28 +305,9 @@ class ComplexHTMLXBlock(XBlock):
         if self.settings_student == "":
             self.settings_student = self.body_json
 
-        # Build page based on user input HTML, JS and CSS code
-
-        # basic check for url
-        if self.body_html[:4] == "http":
-            body_html = "<div class=\"complexhtml_xblock\">" + urllib.urlopen(self.body_html).read() + "</div>"
-        else:
-            body_html = "<div class=\"complexhtml_xblock\">" + self.body_html + "</div>"
-
-        # Build slide specific JavaScript code
-        body_js = self.generate_js(self)
-
-        # basic check for url
-        if self.body_css[:4] == "http":
-            body_css_tmp = urllib.urlopen(self.body_css).read()
-        else:
-            body_css_tmp = self.body_css
-
-        body_css = self.generate_css(body_css_tmp, ".complexhtml_xblock")
-
-        fragment.add_content(Template(unicode(body_html)).render(Context(content)))
-        fragment.add_javascript(unicode(body_js))
-        fragment.add_css(unicode(body_css))
+        fragment.add_content(Template(unicode(self.generate_html(self))).render(Context(content)))
+        fragment.add_javascript(unicode(self.generate_js(self)))
+        fragment.add_css(unicode(self.generate_css(self)))
         fragment.add_content(render_template('templates/complexhtml.html', content))
         fragment.add_css(load_resource('static/css/complexhtml.css'))
         fragment.initialize_js('ComplexHTMLXBlock')
