@@ -32,7 +32,7 @@ class ComplexHTMLXBlock(XBlock):
 
     body_js_chunk_1 = String(
         help="JavaScript code for the block",
-        default="console.log(\"Hello world.\");", scope=Scope.content
+        default="console.log(\"Code before onload.\");", scope=Scope.content
     )
 
     body_js_chunk_2 = String(
@@ -172,13 +172,11 @@ class ComplexHTMLXBlock(XBlock):
         """
         Load contents of all URLs from strin, separated by sep and return a compiled string
         """
-
         strout = ""
 
         for line in strin.split(sep):
-
             if line[:4] == "http":
-                strout += urllib.urlopen(line).read()
+                strout += urllib.urlopen(line).read().decode('utf-8')
             # else ignore line
 
         return strout
@@ -190,7 +188,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # If first four letters are "http", assume list of URLs
         if self.body_html[:4] == "http":
-            body_html += url_loader(self.body_html, '\n')
+            body_html += self.url_loader(self.body_html, '\n')
 
         # Assume valid HTML code
         else:
@@ -233,7 +231,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # If first four letters are "http", assume list of URLs
         if self.body_js_chunk_1[:4] == "http":
-            body_js += url_loader(self.body_js_chunk_1, '\n')
+            body_js += self.url_loader(self.body_js_chunk_1, '\n')
 
         # Assume valid JS code
         else:
@@ -246,7 +244,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # If first four letters are "http", assume list of URLs
         if self.body_js_chunk_2[:4] == "http":
-            body_js += url_loader(self.body_js_chunk_2, '\n')
+            body_js += self.url_loader(self.body_js_chunk_2, '\n')
 
         # Assume valid JS code
         else:
@@ -265,7 +263,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # If first four letters are "http", assume list of URLs
         if self.body_css[:4] == "http":
-            body_css_tmp += url_loader(self.body_css, '\n')
+            body_css_tmp += self.url_loader(self.body_css, '\n')
 
         # Assume valid CSS code
         else:
@@ -278,8 +276,6 @@ class ComplexHTMLXBlock(XBlock):
             else:
                 body_css += i
             body_css += '\n'
-
-        print (body_css)
 
         return body_css
 
