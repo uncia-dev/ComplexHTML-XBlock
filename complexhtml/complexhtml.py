@@ -289,7 +289,8 @@ class ComplexHTMLXBlock(XBlock):
         Generate HTML tags for JS and CSS dependencies
         """
 
-        result = ""
+        css_pile = ""
+        js_pile = ""
 
         # load JS and CSS dependencies
         for line in dependencies.split('\n'):
@@ -297,16 +298,16 @@ class ComplexHTMLXBlock(XBlock):
             if line[:4] == "http":
 
                 if line[-4:] == ".css":
-                    result += "<link rel=\"stylesheet\" href=\"" + line + "\" />"
+                    css_pile += "<link rel=\"stylesheet\" href=\"" + line + "\" />\n"
 
                 if line[-3:] == ".js":
-                    result += "<script src=\"" + line + "\"></script>"
+                    js_pile += "<script src=\"" + line + "\"></script>\n"
 
                 # else ignore; not a valid asset
 
             # else ignore; not a valid link
 
-        return result
+        return css_pile + js_pile
 
     @XBlock.json_handler
     def get_generated_dependencies(self, data, suffix=''):
