@@ -20,8 +20,8 @@ class ComplexHTMLXBlock(XBlock):
         default="ComplexHTML XBlock"
     )
 
-    record_clicks = Boolean(
-        help="Record student clicks?",
+    record_click = Boolean(
+        help="Record student click?",
         default=True, scope=Scope.content
     )
 
@@ -82,7 +82,6 @@ class ComplexHTMLXBlock(XBlock):
 
     has_score = True
     icon_class = 'other'
-    div_title = 'complexhtml_xblock'
 
     @XBlock.json_handler
     def get_dependencies(self, data, suffix=''):
@@ -191,80 +190,87 @@ class ComplexHTMLXBlock(XBlock):
         return strout
 
     @staticmethod
-    def generate_html(self):
+    def generate_html(html):
 
-        body_html = "<div class=\"" + self.div_title + "\">"
+        result = "<div class=\"ComplexHTML_XBlock\">"
         # Assume valid HTML code
-        body_html += self.body_html
-        body_html += "</div>"
+        result += html
+        result += "</div>"
 
-        return body_html
+        return result
 
     @staticmethod
-    def generate_js(self):
+    def generate_js(jsa, jsb, tracked="", record=[]):
 
         # Load first chunk of the JS script
-        body_js = load_resource('static/js/complexhtml_lms_chunk_1.js')
+        result = load_resource('static/js/complexhtml_lms_chunk_1.js')
 
         # Generate AJAX request for each element that will be tracked
-        tracked = ""
+        tracked_str = ""
 
-        for i in self.body_tracked.split("\n"):
+        for i in tracked.split("\n"):
 
-            if self.record_clicks:
+            if "click" in record:
                 e = i.split(", ")
-                tracked += "recordClick(\'" + e[0] + "\'"
+                tracked_str += "recordClick(\'" + e[0] + "\'"
                 if len(e) > 1:
-                    tracked += ", \'" + e[1] + "\'"
-                tracked += ");\n"
+                    tracked_str += ", \'" + e[1] + "\'"
+                tracked_str += ");\n"
 
-            if self.record_hover:
+            if "hover" in record:
                 e = i.split(", ")
-                tracked += "recordHover(\'" + e[0] + "\'"
+                tracked_str += "recordHover(\'" + e[0] + "\'"
                 if len(e) > 1:
-                    tracked += ", \'" + e[1] + "\'"
-                tracked += ");\n"
+                    tracked_str += ", \'" + e[1] + "\'"
+                tracked_str += ");\n"
 
         # Adding tracking calls
-        body_js += "/* Elements being recorded go here */\n" + tracked
+        result += "/* Elements being recorded go here */\n" + tracked_str
 
         # Add first staff entered chunk - ie the code running before the onLoad
-        body_js += "\n/* Staff entered JS code */\n"
-        body_js += "try {\n"
-        body_js += self.body_js_chunk_1
-        body_js += "} catch (err) {\n"
-        body_js += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
-        body_js += "};\n"
+        result += "\n/* Staff entered JS code */\n"
+        result += "try {\n"
+        result += jsa
+        result += "} catch (err) {\n"
+        result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
+        result += "    $(\'.chx_javascript_error\').show();'\n"
+        result += "};\n"
 
         # Add second JavaScript chunk
-        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
 
         # Add second staff entered chunk - ie the code running on page load
-        body_js += "\n/* Staff entered JS code */\n"
-        body_js += "try {\n"
-        body_js += self.body_js_chunk_2
-        body_js += "} catch (err) {\n"
-        body_js += "    console.log(\"ComplexHTML caught this error in the on-load JavaScript code: \" + err);\n"
-        body_js += "};\n"
-        body_js += "\n})\n\n}"
+        result += "\n/* Staff entered JS code */\n"
+        result += "try {\n"
+        result += jsb
+        result += "} catch (err) {\n"
+        result += "    console.log(\"ComplexHTML caught this error in the on-load JavaScript code: \" + err);\n"
+        result += "    $(\'.chx_javascript_error\').show();'\n"
+        result += "};\n"
+        result += "\n})\n\n}"
 
-        return body_js
+        return result
 
     @staticmethod
-    def generate_css(self):
+    def generate_css(css, preview=False):
 
-        body_css = ""
-        body_css_tmp = self.body_css
+        result = ""
+        tmp = css
+
+        if preview:
+            block_name = ".complexhtml_preview"
+        else:
+            block_name = ".complexhtml_xblock"
 
         # Prefix all CSS entries with XBlock div name to ensure they apply
-        for i in body_css_tmp.split('\n'):
+        for i in tmp.split('\n'):
             if i.find('{') != -1:
-                body_css += ".complexhtml_xblock" + " " + i
+                result += block_name + " " + i
             else:
-                body_css += i
-            body_css += '\n'
+                result += i
+            result += '\n'
 
-        return body_css
+        return result
 
     @XBlock.json_handler
     def get_generated_css(self, data, suffix=''):
@@ -273,34 +279,34 @@ class ComplexHTMLXBlock(XBlock):
         """
         content = {"css": ""}
         if self.body_css != "" and data["block"] != "":
-            content["css"] = self.generate_css(self)
+            content["css"] = self.generate_css(self.body_css, true)
             return content
         return content
 
     @staticmethod
-    def generate_dependencies(self):
+    def generate_dependencies(dependencies):
         """
         Generate HTML tags for JS and CSS dependencies
         """
 
-        body_html = ""
+        result = ""
 
         # load JS and CSS dependencies
-        for line in self.dependencies.split('\n'):
+        for line in dependencies.split('\n'):
 
             if line[:4] == "http":
 
                 if line[-4:] == ".css":
-                    body_html += "<link rel=\"stylesheet\" href=\"" + line + "\" />"
+                    result += "<link rel=\"stylesheet\" href=\"" + line + "\" />"
 
                 if line[-3:] == ".js":
-                    body_html += "<script src=\"" + line + "\"></script>"
+                    result += "<script src=\"" + line + "\"></script>"
 
                 # else ignore; not a valid asset
 
             # else ignore; not a valid link
 
-        return body_html
+        return result
 
     @XBlock.json_handler
     def get_generated_dependencies(self, data, suffix=''):
@@ -309,7 +315,7 @@ class ComplexHTMLXBlock(XBlock):
         """
         content = {"dependencies": ""}
         if self.dependencies != "":
-            content["dependencies"] = self.generate_dependencies(self)
+            content["dependencies"] = self.generate_dependencies(self.dependencies)
             return content
         return content
 
@@ -324,15 +330,29 @@ class ComplexHTMLXBlock(XBlock):
         if self.settings_student == "":
             self.settings_student = self.body_json
 
-        body_html = self.generate_dependencies(self) + unicode(self.generate_html(self))
+        body_html = self.generate_dependencies(self.dependencies) + unicode(self.generate_html(self.body_html))
 
-        fragment.add_css(unicode(self.generate_css(self)))
+        fragment.add_css(unicode(self.generate_css(self.body_css)))
         fragment.add_css(load_resource('static/css/complexhtml.css'))
 
         fragment.add_content(Template(body_html).render(Context(content)))
         fragment.add_content(render_template('templates/complexhtml.html', content))
 
-        fragment.add_javascript(unicode(self.generate_js(self)))
+        record = []
+
+        if self.record_click:
+            record.append("click")
+        if self.record_hover:
+            record.append("hover")
+
+        fragment.add_javascript(unicode(
+            self.generate_js(
+                self.body_js_chunk_1,
+                self.body_js_chunk_2,
+                self.body_tracked,
+                record
+            )
+        ))
         fragment.initialize_js('ComplexHTMLXBlock')
 
         return fragment
@@ -369,6 +389,39 @@ class ComplexHTMLXBlock(XBlock):
 
         return fragment
 
+    @staticmethod
+    def generate_preview(self, dependencies, html, json, jsa, jsb, css):
+
+        preview = ""
+
+        preview += self.generate_dependencies(dependencies)
+
+        # style tag
+
+        preview += self.generate_css(css, True)
+
+        # style tag
+
+        # script tag
+
+        # json_settings = { contents of json from arguments }
+
+        # jsa
+
+        # function preview_run() {
+        #   jsb
+        # };
+
+        # script tag
+
+        # ".complexhtml_preview" div
+
+        preview += self.generate_html(html)
+
+        # ".complexhtml_preview" div
+
+        return preview
+
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
         """
@@ -383,7 +436,7 @@ class ComplexHTMLXBlock(XBlock):
 
                 # NOTE: No validation going on here; be careful with your code
                 self.display_name = data["display_name"]
-                self.record_clicks = data["record_clicks"] == 1
+                self.record_click = data["record_click"] == 1
                 self.record_hover = data["record_hover"] == 1
                 self.dependencies = data["dependencies"]
                 self.body_html = data["body_html"]
@@ -398,12 +451,16 @@ class ComplexHTMLXBlock(XBlock):
 
             elif data["commit"] == "false":
 
-                preview = ""
-
-                # TODO: properly generate a Preview for the Studio view
-
                 result["submitted"] = "true"
-                result["preview"] = preview
+                result["preview"] = self.generate_preview(
+                    self,
+                    data["dependencies"],
+                    data["body_html"],
+                    data["body_json"],
+                    data["body_js_chunk_1"],
+                    data["body_js_chunk_2"],
+                    data["body_css"]
+                )
 
             else:
                 print("Invalid commit flag. Not doing anything.")

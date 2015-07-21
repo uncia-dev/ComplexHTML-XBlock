@@ -134,7 +134,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
             data: JSON.stringify({
                 "commit": commit.toString(),
                 "display_name": $('.chx_display_name').val(),
-                "record_clicks": ($('.chx_record_clicks').attr("checked") === "checked") ? 1 : 0,
+                "record_click": ($('.chx_record_click').attr("checked") === "checked") ? 1 : 0,
                 "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
                 "dependencies": $('.chx_dependencies').val(),
                 "body_html":
@@ -146,7 +146,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
                 "body_js_chunk_2": editor_js_chunk_2.getDoc().getValue(),
                 "body_json": editor_json.getDoc().getValue(),
                 "body_css": editor_css.getDoc().getValue()
-            })
+            }) // add success state that appends preview to the DOM
         });
 
     }
@@ -154,7 +154,9 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
     // Generate a preview of the slide based on the HTML, JS and CSS code written so far
     function preview_slide() {
 
-        console.log("Preview pane disabled.");
+        $(".chx_preview").empty();
+        studio_submit(false);
+        preview_run();
 
         /*
         var prev = "";
