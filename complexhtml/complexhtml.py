@@ -20,6 +20,21 @@ class ComplexHTMLXBlock(XBlock):
         default="ComplexHTML XBlock"
     )
 
+    record_clicks = Boolean(
+        help="Record student clicks?",
+        default=True, scope=Scope.content
+    )
+
+    record_hover = Boolean(
+        help="Record student hovers? (Note that this will flood the database; use with caution)",
+        default=False, scope=Scope.content
+    )
+
+    dependencies = String(
+        help="List of JS and CSS dependencies to be used in this XBlock",
+        default="", scope=Scope.content
+    )
+
     body_html = String(
         help="HTML code of the block",
         default="<p>Body of the block goes here...</p>", scope=Scope.content
@@ -65,19 +80,13 @@ class ComplexHTMLXBlock(XBlock):
         default=False, scope=Scope.user_state
     )
 
-    record_clicks = Boolean(
-        help="Record student clicks?",
-        default=True, scope=Scope.content
-    )
-
-    record_hover = Boolean(
-        help="Record student hovers? (Note that this will flood the database; use with caution)",
-        default=False, scope=Scope.content
-    )
-
     has_score = True
     icon_class = 'other'
     div_title = 'complexhtml_xblock'
+
+    @XBlock.json_handler
+    def get_dependencies(self, data, suffix=''):
+        return {"dependencies": self.dependencies}
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -185,15 +194,8 @@ class ComplexHTMLXBlock(XBlock):
     def generate_html(self):
 
         body_html = "<div class=\"" + self.div_title + "\">"
-
-        # If first four letters are "http", assume list of URLs
-        if self.body_html[:4] == "http":
-            body_html += self.url_loader(self.body_html, '\n')
-
         # Assume valid HTML code
-        else:
-            body_html += self.body_html
-
+        body_html += self.body_html
         body_html += "</div>"
 
         return body_html
@@ -226,30 +228,18 @@ class ComplexHTMLXBlock(XBlock):
         # Adding tracking calls
         body_js += "/* Elements being recorded go here */\n" + tracked
 
+        # add try and catch statements here
+
         # Add first staff entered chunk - ie the code running before the onLoad
         body_js += "\n/* Staff entered JS code */\n"
+        body_js += self.body_js_chunk_1
 
-        # If first four letters are "http", assume list of URLs
-        if self.body_js_chunk_1[:4] == "http":
-            body_js += self.url_loader(self.body_js_chunk_1, '\n')
-
-        # Assume valid JS code
-        else:
-            body_js += self.body_js_chunk_1
-
-        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        # add try and catch statements here
 
         # Add second staff entered chunk - ie the code running on page load
+        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
         body_js += "\n/* Staff entered JS code */\n"
-
-        # If first four letters are "http", assume list of URLs
-        if self.body_js_chunk_2[:4] == "http":
-            body_js += self.url_loader(self.body_js_chunk_2, '\n')
-
-        # Assume valid JS code
-        else:
-            body_js += self.body_js_chunk_2
-
+        body_js += self.body_js_chunk_2
         body_js += "\n})\n\n}"
 
         return body_js
@@ -259,15 +249,7 @@ class ComplexHTMLXBlock(XBlock):
     def generate_css(self):
 
         body_css = ""
-        body_css_tmp = ""
-
-        # If first four letters are "http", assume list of URLs
-        if self.body_css[:4] == "http":
-            body_css_tmp += self.url_loader(self.body_css, '\n')
-
-        # Assume valid CSS code
-        else:
-            body_css_tmp = self.body_css
+        body_css_tmp = self.body_css
 
         # Prefix all CSS entries with XBlock div name to ensure they apply
         for i in body_css_tmp.split('\n'):
@@ -290,6 +272,31 @@ class ComplexHTMLXBlock(XBlock):
             return content
         return content
 
+    @staticmethod
+    def generate_dependencies(self):
+        """
+        Generate HTML tags for JS and CSS dependencies
+        """
+
+        body_html = ""
+
+        # load JS and CSS dependencies
+        for line in self.dependencies.split('\n'):
+
+            if line[:4] == "http":
+
+                if line[-4:] == ".css":
+                    body_html += "<link rel=\"stylesheet\" href=\"" + line + "\" />"
+
+                if line[-3:] == ".js":
+                    body_html += "<script src=\"" + line + "\"></script>"
+
+                # else ignore; not a valid asset
+
+            # else ignore; not a valid link
+
+        return body_html
+
     def student_view(self, context=None):
         """
         The student view
@@ -301,11 +308,15 @@ class ComplexHTMLXBlock(XBlock):
         if self.settings_student == "":
             self.settings_student = self.body_json
 
-        fragment.add_content(Template(unicode(self.generate_html(self))).render(Context(content)))
-        fragment.add_javascript(unicode(self.generate_js(self)))
+        body_html = self.generate_dependencies(self) + unicode(self.generate_html(self))
+
         fragment.add_css(unicode(self.generate_css(self)))
-        fragment.add_content(render_template('templates/complexhtml.html', content))
         fragment.add_css(load_resource('static/css/complexhtml.css'))
+
+        fragment.add_content(Template(body_html).render(Context(content)))
+        fragment.add_content(render_template('templates/complexhtml.html', content))
+
+        fragment.add_javascript(unicode(self.generate_js(self)))
         fragment.initialize_js('ComplexHTMLXBlock')
 
         return fragment
@@ -354,6 +365,7 @@ class ComplexHTMLXBlock(XBlock):
             self.display_name = data["display_name"]
             self.record_clicks = data["record_clicks"] == 1
             self.record_hover = data["record_hover"] == 1
+            self.dependencies = data["dependencies"]
             self.body_html = data["body_html"]
             self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]

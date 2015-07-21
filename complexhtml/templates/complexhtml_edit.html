@@ -9,6 +9,9 @@
         <input type="checkbox" class="chx_record_clicks" {% if self.record_clicks %} checked {% endif %}>
         <p class="chx_desc">Record mouse hovering?</p>
         <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
+        <p class="chx_desc">Dependencies</p>
+        <textarea wrap="off" class="chx_dependencies" cols="80" rows="20">{{ self.dependencies }}</textarea>
+
     </div>
 
     <!-- Preview Pane -->
