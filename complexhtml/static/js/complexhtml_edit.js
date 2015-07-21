@@ -156,7 +156,12 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
         $(".chx_preview").empty();
         studio_submit(false);
-        preview_run();
+        try {
+            preview_run();
+        } catch (err) {
+            console.log("ComplexHTML caught this error in the on-load JavaScript code: " + err);
+            $('.chx_javascript_error').show();
+        }
 
         /*
         var prev = "";
