@@ -123,11 +123,57 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         xblock_refresh();
     }
 
+    // Send current code and settings to the backend
+    function studio_submit(commit) {
+
+        commit = (commit === true || commit === false) ? commit : false;
+
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'studio_submit'),
+            data: JSON.stringify({
+                "commit": commit.toString(),
+                "display_name": $('.chx_display_name').val(),
+                "record_clicks": ($('.chx_record_clicks').attr("checked") === "checked") ? 1 : 0,
+                "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
+                "dependencies": $('.chx_dependencies').val(),
+                "body_html":
+                    (ckeditor_html != "") ?
+                        ckeditor_html.getData() :
+                        editor_html.getDoc().getValue(),
+                "body_tracked": editor_tracked.getDoc().getValue(),
+                "body_js_chunk_1": editor_js_chunk_1.getDoc().getValue(),
+                "body_js_chunk_2": editor_js_chunk_2.getDoc().getValue(),
+                "body_json": editor_json.getDoc().getValue(),
+                "body_css": editor_css.getDoc().getValue()
+            })
+        });
+
+    }
 
     // Generate a preview of the slide based on the HTML, JS and CSS code written so far
     function preview_slide() {
 
+        console.log("Preview pane disabled.");
+
+        /*
         var prev = "";
+
+        // Generate list of dependencies for preview
+        $.ajax({
+
+            type: "POST",
+            url: runtime.handleUrl(xblock_element, 'get_generated_dependencies'),
+            data: JSON.stringify({
+                "dependencies": editor_dependencies.getDoc().getValue()
+            }),
+            success: function(result) {
+                console.log(result.dependencies);
+                prev += result.dependencies;
+            },
+            async: false
+
+        });
 
         // Generate CSS for the preview block and append it
         $.ajax({
@@ -168,6 +214,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
         // Run on_load code here
         preview_run();
+        */
 
     }
 
@@ -228,29 +275,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
         // Clicked Save button
         $('#chx_submit').click(function(eventObject) {
-
-            $.ajax({
-                type: "POST",
-                url: runtime.handlerUrl(xblock_element, 'studio_submit'),
-                data: JSON.stringify({
-                    "display_name": $('.chx_display_name').val(),
-                    "record_clicks": ($('.chx_record_clicks').attr("checked") === "checked") ? 1 : 0,
-                    "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
-                    "dependencies": $('.chx_dependencies').val(),
-                    "body_html":
-                        (ckeditor_html != "") ?
-                            ckeditor_html.getData() :
-                            editor_html.getDoc().getValue(),
-                    "body_tracked": editor_tracked.getDoc().getValue(),
-                    "body_js_chunk_1": editor_js_chunk_1.getDoc().getValue(),
-                    "body_js_chunk_2": editor_js_chunk_2.getDoc().getValue(),
-                    "body_json": editor_json.getDoc().getValue(),
-                    "body_css": editor_css.getDoc().getValue()
-                })
-            });
-
+            studio_submit(true);
             setTimeout(function(){location.reload();},200);
-
         });
 
     });

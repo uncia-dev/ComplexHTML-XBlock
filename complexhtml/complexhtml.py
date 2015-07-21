@@ -228,22 +228,27 @@ class ComplexHTMLXBlock(XBlock):
         # Adding tracking calls
         body_js += "/* Elements being recorded go here */\n" + tracked
 
-        # add try and catch statements here
-
         # Add first staff entered chunk - ie the code running before the onLoad
         body_js += "\n/* Staff entered JS code */\n"
+        body_js += "try {\n"
         body_js += self.body_js_chunk_1
+        body_js += "} catch (err) {\n"
+        body_js += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
+        body_js += "};\n"
 
-        # add try and catch statements here
+        # Add second JavaScript chunk
+        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
 
         # Add second staff entered chunk - ie the code running on page load
-        body_js += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
         body_js += "\n/* Staff entered JS code */\n"
+        body_js += "try {\n"
         body_js += self.body_js_chunk_2
+        body_js += "} catch (err) {\n"
+        body_js += "    console.log(\"ComplexHTML caught this error in the on-load JavaScript code: \" + err);\n"
+        body_js += "};\n"
         body_js += "\n})\n\n}"
 
         return body_js
-
 
     @staticmethod
     def generate_css(self):
@@ -296,6 +301,17 @@ class ComplexHTMLXBlock(XBlock):
             # else ignore; not a valid link
 
         return body_html
+
+    @XBlock.json_handler
+    def get_generated_dependencies(self, data, suffix=''):
+        """
+        Generate HTML tags for JS and CSS dependencies and return them via AJAX request
+        """
+        content = {"dependencies": ""}
+        if self.dependencies != "":
+            content["dependencies"] = self.generate_dependencies(self)
+            return content
+        return content
 
     def student_view(self, context=None):
         """
@@ -359,23 +375,40 @@ class ComplexHTMLXBlock(XBlock):
         Course author pressed the Save button in Studio
         """
 
+        result = {"submitted": "false", "saved": "false", "message": "", "preview": ""}
+
         if len(data) > 0:
 
-            # NOTE: No validation going on here; be careful with your code
-            self.display_name = data["display_name"]
-            self.record_clicks = data["record_clicks"] == 1
-            self.record_hover = data["record_hover"] == 1
-            self.dependencies = data["dependencies"]
-            self.body_html = data["body_html"]
-            self.body_tracked = data["body_tracked"]
-            self.body_json = data["body_json"]
-            self.body_js_chunk_1 = data["body_js_chunk_1"]
-            self.body_js_chunk_2 = data["body_js_chunk_2"]
-            self.body_css = data["body_css"]
+            if data["commit"] == "true":
 
-            return {"submitted": "true"}
+                # NOTE: No validation going on here; be careful with your code
+                self.display_name = data["display_name"]
+                self.record_clicks = data["record_clicks"] == 1
+                self.record_hover = data["record_hover"] == 1
+                self.dependencies = data["dependencies"]
+                self.body_html = data["body_html"]
+                self.body_tracked = data["body_tracked"]
+                self.body_json = data["body_json"]
+                self.body_js_chunk_1 = data["body_js_chunk_1"]
+                self.body_js_chunk_2 = data["body_js_chunk_2"]
+                self.body_css = data["body_css"]
 
-        return {"submitted": "false"}
+                result["submitted"] = "true"
+                result["saved"] = "true"
+
+            elif data["commit"] == "false":
+
+                preview = ""
+
+                # TODO: properly generate a Preview for the Studio view
+
+                result["submitted"] = "true"
+                result["preview"] = preview
+
+            else:
+                print("Invalid commit flag. Not doing anything.")
+
+        return result
 
     @staticmethod
     def workbench_scenarios():

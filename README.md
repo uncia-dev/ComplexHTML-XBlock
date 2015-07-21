@@ -1,5 +1,7 @@
 # ComplexHTML XBlock for the Open edX Platform
 
+### This XBlock is not yet ready for deployment. Use at your own risk.
+
 ### Description
 
 ComplexHTML is an XBlock module for edX that runs on the fullstack and devstack versions. It permits a course author to write HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. In addition, the course author can set this module to record student interactions.
