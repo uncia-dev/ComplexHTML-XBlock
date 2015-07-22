@@ -21,7 +21,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
     var studio_buttons = {
         "chx_options": "Options",
-        "chx_preview": "Preview",
+        //"chx_preview": "Preview",
         "chx_html": "HTML",
         "chx_javascript": "JavaScript",
         "chx_css": "CSS",

@@ -1,0 +1,1 @@
+try { console.log(Code before onload.); } catch (err) { console.log(err); }

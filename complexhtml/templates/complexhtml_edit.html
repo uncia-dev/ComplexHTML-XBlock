@@ -2,20 +2,22 @@
 
     <!-- XBlock options -->
     <div class="chx_options">
-        <p class="chx_desc">Display Name</p>
-        <input type="text" class="chx_display_name" value="{{ self.display_name }}">
-        <br/>
-        <p class="chx_desc">Record mouse click?</p>
-        <input type="checkbox" class="chx_record_click" {% if self.record_click %} checked {% endif %}>
-        <p class="chx_desc">Record mouse hovering?</p>
-        <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
+        <div class="chx_options_centered">
+            <p class="chx_desc">Display Name</p>
+            <input type="text" class="chx_display_name" value="{{ self.display_name }}">
+            <br/>
+            <p class="chx_desc">Record mouse click?</p>
+            <input type="checkbox" class="chx_record_click" {% if self.record_click %} checked {% endif %}>
+            <p class="chx_desc">Record mouse hovering?</p>
+            <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
+        </div>
         <p class="chx_desc">Dependencies</p>
         <textarea wrap="off" class="chx_dependencies" cols="80" rows="20">{{ self.dependencies }}</textarea>
 
     </div>
 
     <!-- Preview Pane -->
-    <div class="chx_preview">
+    <div class="chx_preview" hidden>
 
         <p>Preview Pane currently disabled.</p>
 

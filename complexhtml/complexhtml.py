@@ -192,7 +192,7 @@ class ComplexHTMLXBlock(XBlock):
     @staticmethod
     def generate_html(html):
 
-        result = "<div class=\"ComplexHTML_XBlock\">"
+        result = "<div class=\"complexhtml_xblock\">"
         # Assume valid HTML code
         result += html
         result += "</div>"
@@ -228,13 +228,18 @@ class ComplexHTMLXBlock(XBlock):
         result += "/* Elements being recorded go here */\n" + tracked_str
 
         # Add first staff entered chunk - ie the code running before the onLoad
-        result += "\n/* Staff entered JS code */\n"
+        result += "\n\n/* Staff entered JS code */\n"
         result += "try {\n"
-        result += jsa
-        result += "} catch (err) {\n"
+
+        # convert all
+
+        result += "eval(\"" +jsa.replace("\"", "\\\"").replace("\'", "\\\'") + "\");"
+
+        result += "\n\n} catch (err) {\n"
         result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
-        result += "    $(\'.chx_javascript_error\').show();'\n"
-        result += "};\n"
+        result += "    $(\'.chx_javascript_error\').show();\n"
+        result += "    $(\'.complexhtml_xblock\').hide();\n"
+        result += "}\n"
 
         # Add second JavaScript chunk
         result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
@@ -242,12 +247,17 @@ class ComplexHTMLXBlock(XBlock):
         # Add second staff entered chunk - ie the code running on page load
         result += "\n/* Staff entered JS code */\n"
         result += "try {\n"
-        result += jsb
-        result += "} catch (err) {\n"
-        result += "    console.log(\"ComplexHTML caught this error in the on-load JavaScript code: \" + err);\n"
-        result += "    $(\'.chx_javascript_error\').show();'\n"
-        result += "};\n"
+
+        result += "eval(\"" +jsb.replace("\"", "\\\"").replace("\'", "\\\'") + "\");"
+
+        result += "\n\n} catch (err) {\n"
+        result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
+        result += "    $(\'.chx_javascript_error\').show();\n"
+        result += "    $(\'.complexhtml_xblock\').hide();\n"
+        result += "}\n"
         result += "\n})\n\n}"
+
+        print(result)
 
         return result
 
