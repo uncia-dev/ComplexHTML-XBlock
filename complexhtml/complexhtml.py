@@ -233,7 +233,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # convert all
 
-        result += "eval(\"" +jsa.replace("\"", "\\\"").replace("\'", "\\\'") + "\");"
+        result += "eval(\"" +jsa.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n") + "\");"
 
         result += "\n\n} catch (err) {\n"
         result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
@@ -248,7 +248,7 @@ class ComplexHTMLXBlock(XBlock):
         result += "\n/* Staff entered JS code */\n"
         result += "try {\n"
 
-        result += "eval(\"" +jsb.replace("\"", "\\\"").replace("\'", "\\\'") + "\");"
+        result += "eval(\"" +jsb.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n") + "\");"
 
         result += "\n\n} catch (err) {\n"
         result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
