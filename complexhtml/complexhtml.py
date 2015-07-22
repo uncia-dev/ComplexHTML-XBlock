@@ -230,11 +230,7 @@ class ComplexHTMLXBlock(XBlock):
         # Add first staff entered chunk - ie the code running before the onLoad
         result += "\n\n/* Staff entered JS code */\n"
         result += "try {\n"
-
-        # convert all
-
-        result += "eval(\"" +jsa.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n") + "\");"
-
+        result += "eval(\"" + jsa.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n\" + \n\"") + "\"\n);"
         result += "\n\n} catch (err) {\n"
         result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
         result += "    $(\'.chx_javascript_error\').show();\n"
@@ -247,9 +243,7 @@ class ComplexHTMLXBlock(XBlock):
         # Add second staff entered chunk - ie the code running on page load
         result += "\n/* Staff entered JS code */\n"
         result += "try {\n"
-
-        result += "eval(\"" +jsb.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n") + "\");"
-
+        result += "eval(\"" + jsb.replace("\"", "\\\"").replace("\'", "\\\'").replace("\n", "\\n\" + \n\"") + "\"\n);"
         result += "\n\n} catch (err) {\n"
         result += "    console.log(\"ComplexHTML caught this error in pre-run JavaScript code: \" + err);\n"
         result += "    $(\'.chx_javascript_error\').show();\n"

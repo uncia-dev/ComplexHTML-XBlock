@@ -75,7 +75,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         isFullscreen = true;
         $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
         $('.modal-content').css({"height": 0.865 * $(window).height()});
-        editor_dependencies.setSize("100%", 0.25 * $(window).height());
+        editor_dependencies.setSize("100%", 0.29 * $(window).height());
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.83 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.83 * $(window).height());
         editor_tracked.setSize("100%", 120);
@@ -91,7 +91,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         isFullscreen = false;
         $('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
         $('.modal-content').css({"height": 0.6 * $(window).height()});
-        editor_dependencies.setSize("100%", 0.25 * $(window).height());
+        editor_dependencies.setSize("100%", 0.29 * $(window).height());
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.82 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.82 * $(window).height());
         editor_tracked.setSize("100%", 120);
