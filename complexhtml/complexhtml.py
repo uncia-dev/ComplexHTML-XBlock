@@ -257,8 +257,6 @@ class ComplexHTMLXBlock(XBlock):
         result += "}\n"
         result += "\n})\n\n}"
 
-        print(result)
-
         return result
 
     @staticmethod
