@@ -10,12 +10,16 @@ form {
     text-align: center;
 }
 
-.chx_options_centered {
+.chx_tab_options {
     text-align: center;
 }
 
 .chx_display_name {
     width: 80%;
+}
+
+.chx_dependencies {
+    width: 100%;
 }
 
 .chx_body_html {

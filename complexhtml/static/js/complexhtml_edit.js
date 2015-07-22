@@ -21,10 +21,14 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
     var studio_buttons = {
         "chx_options": "Options",
+        "chx_tab_dependencies": "Dependencies",
+        "chx_tab_html": "HTML",
+        "chx_tab_tracked": "Tracking",
+        "chx_tab_js_chunk_1": "JS (Global)",
+        "chx_tab_js_chunk_2": "JS (Onload)",
+        "chx_tab_json": "JSON",
+        "chx_tab_css": "CSS",
         //"chx_preview": "Preview",
-        "chx_html": "HTML",
-        "chx_javascript": "JavaScript",
-        "chx_css": "CSS",
         "chx_fullscreen": "Fullscreen"
     };
 
@@ -75,7 +79,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         isFullscreen = true;
         $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
         $('.modal-content').css({"height": 0.865 * $(window).height()});
-        editor_dependencies.setSize("100%", 0.29 * $(window).height());
+        editor_dependencies.setSize("100%", 0.83 * $(window).height());
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.83 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.83 * $(window).height());
         editor_tracked.setSize("100%", 120);
@@ -95,10 +99,10 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
         if (ckeditor_html != "") ckeditor_html.resize("100%", 0.82 * $(window).height());
         if (editor_html != "") editor_html.setSize("100%", 0.82 * $(window).height());
         editor_tracked.setSize("100%", 120);
-        editor_js_chunk_1.setSize("100%", $(window).height() * 0.55);
-        editor_js_chunk_2.setSize("100%", $(window).height() * 0.55);
-        editor_json.setSize("100%", $(window).height() * 0.55);
-        editor_css.setSize("100%", $(window).height() * 0.55);
+        editor_js_chunk_1.setSize("100%", 0.55 * $(window).height());
+        editor_js_chunk_2.setSize("100%", 0.55 * $(window).height());
+        editor_json.setSize("100%", 0.55 * $(window).height());
+        editor_css.setSize("100%", 0.55 * $(window).height());
         $('#chx_fullscreen').css({"color": csxColor[0]});
     }
 
@@ -255,26 +259,44 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
             xblock_refresh()
         });
 
-        $('#chx_options').click(function() {
-            tab_switch("chx_options");
+        $('#chx_tab_options').click(function() {
+            tab_switch("chx_tab_options");
         });
 
-        $('#chx_preview').click(function() {
-            tab_switch("chx_preview");
+        $('#chx_tab_dependencies').click(function() {
+            tab_switch("chx_tab_dependencies");
+        });
+
+        $('#chx_tab_html').click(function() {
+            tab_switch("chx_tab_html");
+        });
+
+        $('#chx_tab_tracked').click(function() {
+            tab_switch("chx_tab_tracked");
+        });
+
+        $('#chx_tab_js_chunk_1').click(function() {
+            tab_switch("chx_tab_js_chunk_1");
+        });
+
+        $('#chx_tab_js_chunk_2').click(function() {
+            tab_switch("chx_tab_js_chunk_2");
+        });
+
+        $('#chx_tab_json').click(function() {
+            tab_switch("chx_tab_json");
+        });
+
+        $('#chx_tab_css').click(function() {
+            tab_switch("chx_tab_css");
+        });
+
+        /*
+        $('#chx_tab_preview').click(function() {
+            tab_switch("chx_tab_preview");
             preview_slide();
         });
-
-        $('#chx_html').click(function() {
-            tab_switch("chx_html");
-        });
-
-        $('#chx_javascript').click(function() {
-            tab_switch("chx_javascript");
-        });
-
-        $('#chx_css').click(function() {
-            tab_switch("chx_css");
-        });
+        */
 
         // Fill the window with the Editor view
         $('#chx_fullscreen').click(function() {
