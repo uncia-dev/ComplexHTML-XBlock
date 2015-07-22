@@ -11,19 +11,19 @@
         <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
     </div>
 
-    <!-- Dependencies pane -->
+    <!-- Dependencies tab -->
     <div class="chx_tab_dependencies">
         <p class="chx_desc">Dependencies</p>
         <textarea wrap="off" class="chx_dependencies" cols="80" rows="20">{{ self.dependencies }}</textarea>
     </div>
 
-    <!-- HTML editor pane -->
+    <!-- HTML editor tab -->
     <div class="chx_tab_html">
         <p class="chx_desc">HTML</p>
         <textarea name="chx_body_html" wrap="off" class="chx_body_html" cols="80" rows="20">{{ self.body_html }}</textarea>
     </div>
 
-    <!-- Tracked elements pane -->
+    <!-- Tracked elements tab -->
     <div class="chx_tab_tracked">
         <p class="chx_desc">Tracked Elements</p>
         <textarea wrap="off" class="chx_body_tracked" cols="80" rows="20">{{ self.body_tracked }}</textarea>
@@ -41,7 +41,7 @@
         <textarea wrap="off" class="chx_body_js_chunk_2" cols="80" rows="20">{{ self.body_js_chunk_2 }}</textarea>
     </div>
 
-    <!-- JSON settings pane -->
+    <!-- JSON settings tab -->
     <div class="chx_tab_json">
         <p class="chx_desc">JSON Settings</p>
         <textarea wrap="off" class="chx_body_json" cols="80" rows="20">{{ self.body_json }}</textarea>
@@ -53,9 +53,9 @@
         <textarea wrap="off" class="chx_body_css" cols="80" rows="20">{{ self.body_css }}</textarea>
     </div>
 
-    <!-- Preview Pane -->
+    <!-- Preview tab -->
     <div class="chx_tab_preview" hidden>
-        <p>Preview Pane currently disabled.</p>
+        <p>Preview tab currently disabled.</p>
         <div class="chx_javascript_error" hidden>
             <p>There is a problem in this XBlock's JavaScript code. Please check your console log.</p>
         </div>
