@@ -154,6 +154,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
     // Generate a preview of the slide based on the HTML, JS and CSS code written so far
     function preview_slide() {
 
+        /* // Untested Preview pane code
         $(".chx_preview").empty();
         studio_submit(false);
         try {
@@ -162,8 +163,9 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
             console.log("ComplexHTML caught this error in the on-load JavaScript code: " + err);
             $('.chx_javascript_error').show();
         }
+        */
 
-        /*
+        /* // Old Preview pane code
         var prev = "";
 
         // Generate list of dependencies for preview

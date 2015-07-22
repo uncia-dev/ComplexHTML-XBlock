@@ -395,11 +395,13 @@ class ComplexHTMLXBlock(XBlock):
 
         preview = ""
 
-        preview += self.generate_dependencies(dependencies)
+        # disabled for now due to time constraints
+
+        #preview += self.generate_dependencies(dependencies)
 
         # style tag
 
-        preview += self.generate_css(css, True)
+        #preview += self.generate_css(css, True)
 
         # style tag
 
@@ -417,7 +419,7 @@ class ComplexHTMLXBlock(XBlock):
 
         # ".complexhtml_preview" div
 
-        preview += self.generate_html(html)
+        #preview += self.generate_html(html)
 
         # ".complexhtml_preview" div
 
