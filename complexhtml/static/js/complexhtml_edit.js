@@ -136,7 +136,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
                 "display_name": $('.chx_display_name').val(),
                 "record_click": ($('.chx_record_click').attr("checked") === "checked") ? 1 : 0,
                 "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
-                "dependencies": $('.chx_dependencies').val(),
+                "dependencies": editor_dependencies.getDoc().getValue(),
                 "body_html":
                     (ckeditor_html != "") ?
                         ckeditor_html.getData() :
