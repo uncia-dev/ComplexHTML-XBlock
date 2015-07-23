@@ -143,9 +143,9 @@ class ComplexHTMLXBlock(XBlock):
             self.grabbed.append((content["time"], "crickets"))
             content["data"] = None
 
-        print "Grabbed data on " + self.grabbed[-1][0]
+        print ("Grabbed data on " + self.grabbed[-1][0])
         for i in self.grabbed[-1][1]:
-            print "+--" + str(i)
+            print ("+--" + str(i))
 
         return content
 
@@ -468,7 +468,7 @@ class ComplexHTMLXBlock(XBlock):
                 )
 
             else:
-                print("Invalid commit flag. Not doing anything.")
+                print ("Invalid commit flag. Not doing anything.")
 
         return result
 
