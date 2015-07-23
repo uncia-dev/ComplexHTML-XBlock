@@ -154,7 +154,7 @@ class ComplexHTMLXBlock(XBlock):
         """
         Clear data grabbed from student
         """
-        self.grabbed = []
+        del self.grabbed[:]
         return {"cleared": "yes"}
 
     @XBlock.json_handler
