@@ -400,6 +400,8 @@ class ComplexHTMLXBlock(XBlock):
         fragment = Fragment()
         content = {'self': self}
 
+        self.session_start(self)
+
         if self.settings_student == "":
             self.settings_student = self.body_json
 
@@ -428,8 +430,6 @@ class ComplexHTMLXBlock(XBlock):
             )
         ))
         fragment.initialize_js('ComplexHTMLXBlock')
-
-        self.session_start(self)
 
         return fragment
 
