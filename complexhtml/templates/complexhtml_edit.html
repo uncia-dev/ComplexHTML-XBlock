@@ -9,6 +9,10 @@
         <input type="checkbox" class="chx_record_click" {% if self.record_click %} checked {% endif %}>
         <p class="chx_desc">Record mouse hovering?</p>
         <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
+        <p class="chx_desc">Student ping interval (ms)</p>
+        <input type="text" class="chx_tick_interval" value="{{ self.tick_interval }}">
+        <p class="chx_desc">Show development info in LMS?</p>
+        <input type="checkbox" class="chx_dev_stuff_studio" {% if self.dev_stuff %} checked {% endif %}>
     </div>
 
     <!-- Dependencies tab -->

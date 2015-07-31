@@ -3,11 +3,18 @@ This XBlock does not have its own HTML page, as it is generated from the course 
 This page was used only during development, but its contents can be shown via your browser's console.
 -->
 
+<!-- Hidden area for extra controls -->
+<div class="chx_hidden_area" hidden>
+    <p>You should not be seeing this div.</p>
+    <a class="chx_end_session">End Session</a>
+</div>
+
+<!-- Show only if there is an issue with the JavaScript code written by the course author-->
 <div class="chx_javascript_error" hidden>
     <p>There is a problem in this XBlock's JavaScript code. Please check your console log.</p>
 </div>
 
-<div class="dev_stuff" hidden>
+<div class="chx_dev_stuff" {% if not self.dev_stuff %} hidden {% endif %}>
 
     <hr/>
 
@@ -15,24 +22,55 @@ This page was used only during development, but its contents can be shown via yo
 
     <h4>Display Name</h4>
     <p>{{self.display_name}}</p>
+    <br/>
+
     <h4>Record clicks?</h4>
     <p>{{self.record_clicks}}</p>
+    <br/>
+
     <h4>Record hovers?</h4>
     <p>{{self.record_hover}}</p>
+    <br/>
+
+    <h4>Student tick interval</h4>
+    <p>{{self.tick_interval}}</p>
+    <br/>
+
+    <h4>Show dev stuff</h4>
+    <p>{{self.dev_stuff}}</p>
+    <br/>
+
     <h4>Dependencies</h4>
     <p>{{self.dependencies}}</p>
+    <br/>
+
     <h4>HTML Code</h4>
+    <p>{{self.body_html}}</p>
+    <br/>
+
     <h4>Tracked Elements</h4>
     <p>{{self.body_tracked}}</p>
-    <p>{{self.body_html}}</p>
+    <br/>
+
     <h4>JavaScript Code</h4>
     <p>{{self.body_js_chunk_1}}</p>
+    <br/>
     <p>{{self.body_js_chunk_2}}</p>
+    <br/>
+
     <h4>JSON Code</h4>
     <p>{{self.body_json}}</p>
+    <br/>
+
     <h4>CSS Code</h4>
     <p>{{self.body_css}}</p>
+    <br/>
+
     <h4>XBlock completed by student?</h4>
     <p>{{self.completed}}</p>
+    <br/>
+    
+    <h4>Student Sessions</h4>
+    <p>{{self.sessions}}</p>
 
 </div>

@@ -139,7 +139,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
     // Send current code and settings to the backend
     function studio_submit(commit) {
 
-        commit = (commit === true || commit === false) ? commit : false;
+        commit = commit === undefined ? false : commit;
 
         $.ajax({
             type: "POST",
@@ -147,8 +147,10 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
             data: JSON.stringify({
                 "commit": commit.toString(),
                 "display_name": $('.chx_display_name').val(),
-                "record_click": ($('.chx_record_click').attr("checked") === "checked") ? 1 : 0,
-                "record_hover": ($('.chx_record_hover').attr("checked") === "checked") ? 1 : 0,
+                "record_click": $('.chx_record_click').prop('checked') ? 1 : 0,
+                "record_hover": $('.chx_record_hover').prop('checked') ? 1 : 0,
+                "tick_interval": $('.chx_tick_interval').val(),
+                "dev_stuff": $('.chx_dev_stuff_studio').prop('checked') ? 1 : 0,
                 "dependencies": editor_dependencies.getDoc().getValue(),
                 "body_html":
                     (ckeditor_html != "") ?

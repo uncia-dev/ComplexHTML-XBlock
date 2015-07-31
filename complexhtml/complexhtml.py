@@ -30,6 +30,17 @@ class ComplexHTMLXBlock(XBlock):
         default=False, scope=Scope.content
     )
 
+    tick_interval = Integer(
+        default=60000,
+        help="The time (in ms) between pings sent to the server (tied to sessions above)",
+        scope=Scope.content
+    )
+
+    dev_stuff = Boolean(
+        help="Show chx_dev_stuff div in LMS?",
+        default=False, scope=Scope.content
+    )
+
     dependencies = String(
         help="List of JS and CSS dependencies to be used in this XBlock",
         default="", scope=Scope.content
@@ -73,6 +84,18 @@ class ComplexHTMLXBlock(XBlock):
     grabbed = List(
         help="Student interaction that was grabbed from XBlock.",
         default=[], scope=Scope.user_state
+    )
+
+    sessions = List(
+        default=[],
+        help="List containing data on each session (ie, start time, end time)",
+        scope=Scope.user_state
+    )
+
+    session_ended = Boolean(
+        default=False,
+        help="Has the student ended the current session yet?",
+        scope=Scope.user_state
     )
 
     completed = Boolean(
@@ -167,6 +190,51 @@ class ComplexHTMLXBlock(XBlock):
             return {"updated": "true"}
         return {"updated": "false"}
 
+    @staticmethod
+    def session_start(self):
+        """
+        Start a new student session and record the time when it happens
+        """
+        self.session_ended = False
+        print ("===== Session started at: " + str(datetime.datetime.now()))
+        self.sessions.append([str(datetime.datetime.now()), "", ""])
+
+    @XBlock.json_handler
+    def session_tick(self, data, suffix=''):
+        """
+        Record a periodic tick while the student views this XBlock.
+        A safety measure in case their browser or tab crashes.
+        """
+
+        if len(self.sessions) > 0:
+
+            if not self.session_ended:
+
+                print ("===== Session tick at: " + str(datetime.datetime.now()))
+                self.sessions[-1][1] = str(datetime.datetime.now())
+
+        return {}
+
+    @XBlock.json_handler
+    def session_end(self, data, suffix=''):
+        """
+        End a student session and record the time when it happens
+        """
+
+        if len(self.sessions) > 0:
+
+            if not self.session_ended:
+
+                print ("===== Session ended at: " + str(datetime.datetime.now()))
+                self.sessions[-1][2] = str(datetime.datetime.now())
+                self.session_ended = True
+
+        return {}
+
+    @staticmethod
+    def get_num_sessions(self):
+        return len(self.sessions)
+
     @XBlock.json_handler
     def complete_block(self, data, suffix=''):
         """
@@ -200,10 +268,11 @@ class ComplexHTMLXBlock(XBlock):
         return result
 
     @staticmethod
-    def generate_js(jsa, jsb, tracked="", record=[]):
+    def generate_js(self, jsa, jsb, tracked="", record=[]):
 
         # Load first chunk of the JS script
-        result = load_resource('static/js/complexhtml_lms_chunk_1.js')
+        #result = load_resource('static/js/complexhtml_lms_chunk_1.js')
+        result = render_template('static/js/complexhtml_lms_chunk_1.js', {'self': self})
 
         # Generate AJAX request for each element that will be tracked
         tracked_str = ""
@@ -238,7 +307,8 @@ class ComplexHTMLXBlock(XBlock):
         result += "}\n"
 
         # Add second JavaScript chunk
-        result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        #result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        result += "\n" + render_template('static/js/complexhtml_lms_chunk_2.js', {'self': self})
 
         # Add second staff entered chunk - ie the code running on page load
         result += "\n/* Staff entered JS code */\n"
@@ -329,7 +399,7 @@ class ComplexHTMLXBlock(XBlock):
 
         fragment = Fragment()
         content = {'self': self}
-        
+
         if self.settings_student == "":
             self.settings_student = self.body_json
 
@@ -350,6 +420,7 @@ class ComplexHTMLXBlock(XBlock):
 
         fragment.add_javascript(unicode(
             self.generate_js(
+                self,
                 self.body_js_chunk_1,
                 self.body_js_chunk_2,
                 self.body_tracked,
@@ -357,6 +428,8 @@ class ComplexHTMLXBlock(XBlock):
             )
         ))
         fragment.initialize_js('ComplexHTMLXBlock')
+
+        self.session_start(self)
 
         return fragment
 
@@ -366,6 +439,10 @@ class ComplexHTMLXBlock(XBlock):
         """
 
         fragment = Fragment()
+        content = {'self': self}
+
+        if self.tick_interval < 1000:
+            self.tick_interval = 86400000  # 24 hrs
 
         # Load CodeMirror
         fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
@@ -385,7 +462,7 @@ class ComplexHTMLXBlock(XBlock):
         fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
 
         # Load Studio View
-        fragment.add_content(render_template('templates/complexhtml_edit.html', {'self': self}))
+        fragment.add_content(render_template('templates/complexhtml_edit.html', content))
         fragment.add_css(load_resource('static/css/complexhtml_edit.css'))
         fragment.add_javascript(load_resource('static/js/complexhtml_edit.js'))
         fragment.initialize_js('ComplexHTMLXBlockStudio')
@@ -437,23 +514,33 @@ class ComplexHTMLXBlock(XBlock):
 
         if len(data) > 0:
 
-            if data["commit"] == "true":
+            # Used for the preview feature
+            # if data["commit"] == "true":
 
-                # NOTE: No validation going on here; be careful with your code
-                self.display_name = data["display_name"]
-                self.record_click = data["record_click"] == 1
-                self.record_hover = data["record_hover"] == 1
-                self.dependencies = data["dependencies"]
-                self.body_html = data["body_html"]
-                self.body_tracked = data["body_tracked"]
-                self.body_json = data["body_json"]
-                self.body_js_chunk_1 = data["body_js_chunk_1"]
-                self.body_js_chunk_2 = data["body_js_chunk_2"]
-                self.body_css = data["body_css"]
+            print ("=====================")
+            print(data["dev_stuff"])
 
-                result["submitted"] = "true"
-                result["saved"] = "true"
+            # NOTE: No validation going on here; be careful with your code
+            self.display_name = data["display_name"]
+            self.record_click = data["record_click"] == 1
+            self.record_hover = data["record_hover"] == 1
+            self.tick_interval = int(data["tick_interval"])
+            self.dev_stuff = data["dev_stuff"] == 1
+            self.dependencies = data["dependencies"]
+            self.body_html = data["body_html"]
+            self.body_tracked = data["body_tracked"]
+            self.body_json = data["body_json"]
+            self.body_js_chunk_1 = data["body_js_chunk_1"]
+            self.body_js_chunk_2 = data["body_js_chunk_2"]
+            self.body_css = data["body_css"]
 
+            if self.tick_interval < 1000:
+                self.tick_interval = 86400000  # 24 hrs
+
+            result["submitted"] = "true"
+            result["saved"] = "true"
+
+            ''' # Used for previewing feature
             elif data["commit"] == "false":
 
                 result["submitted"] = "true"
@@ -469,6 +556,8 @@ class ComplexHTMLXBlock(XBlock):
 
             else:
                 print ("Invalid commit flag. Not doing anything.")
+
+            '''
 
         return result
 

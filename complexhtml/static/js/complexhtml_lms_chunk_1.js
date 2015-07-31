@@ -2,6 +2,8 @@
 function ComplexHTMLXBlock(runtime, xblock_element) {
 
 var json_settings = {};
+var session_tick = parseInt("{{ self.tick_interval }}");
+var tick_timer = "";
 
 // Load JSON settings from database
 $.ajax({
@@ -82,3 +84,15 @@ function updateSettings(json_settings) {
     }
 }
 
+// Send the server the end of session message
+function session_end() {
+
+    clearInterval(tick_timer);
+
+    $.ajax({
+        type: "POST",
+        url: runtime.handlerUrl(xblock_element, 'session_end'),
+        data: JSON.stringify({}),
+        async: false
+    });
+}
