@@ -271,7 +271,7 @@ class ComplexHTMLXBlock(XBlock):
     def generate_js(self, jsa, jsb, tracked="", record=[]):
 
         # Load first chunk of the JS script
-        #result = load_resource('static/js/complexhtml_lms_chunk_1.js')
+        # result = load_resource('static/js/complexhtml_lms_chunk_1.js')
         result = render_template('static/js/complexhtml_lms_chunk_1.js', {'self': self})
 
         # Generate AJAX request for each element that will be tracked
@@ -307,7 +307,7 @@ class ComplexHTMLXBlock(XBlock):
         result += "}\n"
 
         # Add second JavaScript chunk
-        #result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
+        # result += "\n" + load_resource('static/js/complexhtml_lms_chunk_2.js')
         result += "\n" + render_template('static/js/complexhtml_lms_chunk_2.js', {'self': self})
 
         # Add second staff entered chunk - ie the code running on page load
@@ -516,9 +516,6 @@ class ComplexHTMLXBlock(XBlock):
 
             # Used for the preview feature
             # if data["commit"] == "true":
-
-            print ("=====================")
-            print(data["dev_stuff"])
 
             # NOTE: No validation going on here; be careful with your code
             self.display_name = data["display_name"]
