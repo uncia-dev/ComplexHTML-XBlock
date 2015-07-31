@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b417752b-fcfd-4a03-be67-b7b579e18adb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/static/css/complexhtml_edit.css" afterPath="$PROJECT_DIR$/complexhtml/static/css/complexhtml_edit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" afterPath="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
     </list>
     <ignored path="cdotgrabber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="complexhtml.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="complexhtml.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/complexhtml.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50878906">
-              <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+            <state vertical-scroll-proportion="-17.321428">
+              <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
               <folding>
                 <element signature="e#187#216#0" expanded="true" />
               </folding>
@@ -61,8 +61,8 @@
       <file leaf-file-name="complexhtml.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4545455">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="40" selection-end-column="9" />
+            <state vertical-scroll-proportion="-3.1636364">
+              <caret line="16" column="73" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="complexhtml_edit.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="complexhtml_edit.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9454546">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.36108324">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,13 +147,13 @@
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk2.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/test.js" />
-        <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_edit.js" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_2.js" />
         <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml.html" />
         <option value="$PROJECT_DIR$/complexhtml/static/js/complexhtml_lms_chunk_1.js" />
         <option value="$PROJECT_DIR$/complexhtml/static/css/complexhtml_edit.css" />
         <option value="$PROJECT_DIR$/complexhtml/complexhtml.py" />
+        <option value="$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html" />
       </list>
     </option>
   </component>
@@ -951,14 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9454546">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39498433">
@@ -993,14 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4545455">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="40" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/complexhtml/static/css/complexhtml_edit.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1011,11 +995,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/complexhtml/complexhtml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50878906">
-          <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+        <state vertical-scroll-proportion="-17.321428">
+          <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
           <folding>
             <element signature="e#187#216#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1636364">
+          <caret line="16" column="73" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/complexhtml/templates/complexhtml_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36108324">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
