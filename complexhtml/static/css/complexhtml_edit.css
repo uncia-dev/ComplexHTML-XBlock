@@ -15,11 +15,11 @@ form {
 }
 
 .chx_display_name {
-    width: 80%;
+    width: 400px;
 }
 
 .chx_tick_interval {
-    width: 72px;
+    width: 80px;
 }
 
 .chx_dependencies {
