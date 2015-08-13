@@ -4,14 +4,29 @@ Author: Raymond Lucian Blaga
 Description: An HTML, JavaScript and CSS Editing XBlock that records student interactions if the course author wishes it.
 """
 
-import urllib, datetime, json
+import urllib, datetime, json, smtplib
+#import plotly.plotly as py
+#import plotly.tools as tls
+#from plotly.graph_objs import *
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from email.MIMEImage import MIMEImage
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, List, String, Boolean
+from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
 
+
 class ComplexHTMLXBlock(XBlock):
+
+    #trace1 = Bar(x=['hers', 'dogs', 'monkeys'],y=[20, 14, 23])
+    #data = Data([trace1])
+    #image = py.image.save_as(data, filename='test.png')
+    #py.plot(data)
+    mysql_database  = 'edxapp'
+    mysql_user      = 'root'
+    mysql_pwd       = ''
 
     display_name = String(
         display_name="ComplexHTML XBlock",
@@ -103,6 +118,12 @@ class ComplexHTMLXBlock(XBlock):
         default=False, scope=Scope.user_state
     )
 
+
+    qz_attempted = Dict(
+        help="Record how many attempts student have made", 
+        default={}, scope=Scope.user_state
+    )
+       
     has_score = True
     icon_class = 'other'
 
@@ -166,11 +187,76 @@ class ComplexHTMLXBlock(XBlock):
             self.grabbed.append((content["time"], "crickets"))
             content["data"] = None
 
-        print ("Grabbed data on " + self.grabbed[-1][0])
+        print ("= ComplexHTML: Grabbed data on " + self.grabbed[-1][0])
         for i in self.grabbed[-1][1]:
-            print ("+--" + str(i))
+            print ("= ComplexHTML: +--" + str(i))
 
         return content
+
+    @XBlock.json_handler   
+    def get_user_data(self, data, suffix=''):
+        """
+        Get student data from the DB
+        """
+        import dbconnection
+        
+        # init default data
+        user_id    = "None"
+        course_id  = "None"
+        user_name  = "None"
+        user_email = "None"
+
+        user_score = "0"
+        # user and course
+        db = dbconnection.mysql('localhost', 3306, self.mysql_database, self.mysql_user, '')
+        q = "SELECT id, user_id, course_id FROM student_anonymoususerid "
+        db.query(q)
+        res = db.fetchall()
+        for row in res:
+            user_id   = row[1]
+            course_id = row[2]
+        print user_id
+        # username
+        q = "SELECT name FROM auth_userprofile WHERE user_id='%s' " % (user_id)
+        db.query(q)
+        res = db.fetchall()
+        for row in res:
+            print row
+            user_name = row[3]
+        print user_name
+        # email
+        q = "SELECT email FROM auth_user WHERE id='%s' " % (user_id)
+        db.query(q)
+        res = db.fetchall()
+        for row in res:
+            user_email   = row[0]
+        strFrom = 'from@example.com'
+        strTo = 'to@example.com'
+        msgRoot = MIMEMultipart('related')
+        msgRoot['Subject'] = 'test message'
+        msgRoot['From'] = strFrom
+        msgRoot['To'] = strTo
+        msgRoot.preamble = 'This is a multi-part message in MIME format.'
+        msgAlternative = MIMEMultipart('alternative')
+        msgRoot.attach(msgAlternative)
+        message = MIMEText('<b>Some <i>HTML</i> text</b> and an image.<br><img src="cid:image1"><br>Nifty!', 'html')
+        msgAlternative.attach(message)
+        msgRoot.attach(msgAlternative)
+        fp = open('test.png', 'rb')
+        msgImage = MIMEImage(fp.read())
+        fp.close()
+        msgImage.add_header('Content-ID', '<image1>')
+        msgRoot.attach(msgImage)
+        try:
+            print ("INside")
+            smtpObj = smtplib.SMTP('localhost', 1025)
+            smtpObj.ehlo()
+            smtpObj.sendmail(strFrom, strTo, msgRoot.as_string())
+            smtpObj.quit()
+            print ("Success")
+        except:
+            print ("Error")
+        return {'user': user_email}
 
     @XBlock.json_handler
     def clear_data(self, data, suffix=''):
@@ -196,7 +282,7 @@ class ComplexHTMLXBlock(XBlock):
         Start a new student session and record the time when it happens
         """
         self.session_ended = False
-        print ("===== Session started at: " + str(datetime.datetime.now()))
+        print ("= ComplexHTML: Session started at: " + str(datetime.datetime.now()))
         self.sessions.append([str(datetime.datetime.now()), "", ""])
 
     @XBlock.json_handler
@@ -210,7 +296,7 @@ class ComplexHTMLXBlock(XBlock):
 
             if not self.session_ended:
 
-                print ("===== Session tick at: " + str(datetime.datetime.now()))
+                print ("= ComplexHTML: Session tick at: " + str(datetime.datetime.now()))
                 self.sessions[-1][1] = str(datetime.datetime.now())
 
         return {}
@@ -225,7 +311,7 @@ class ComplexHTMLXBlock(XBlock):
 
             if not self.session_ended:
 
-                print ("===== Session ended at: " + str(datetime.datetime.now()))
+                print ("= ComplexHTML: Session ended at: " + str(datetime.datetime.now()))
                 self.sessions[-1][2] = str(datetime.datetime.now())
                 self.session_ended = True
 
@@ -391,6 +477,24 @@ class ComplexHTMLXBlock(XBlock):
             content["dependencies"] = self.generate_dependencies(self.dependencies)
             return content
         return content
+
+    @XBlock.json_handler
+    def get_clean_body_json(self, data, suffix=''):
+        body_json = json.loads(self.settings_student)
+        return {"body_json_clean": body_json}
+
+    @XBlock.json_handler
+    def get_quiz_attempts(self, data, suffix=''):
+        correct_and_reason = {}
+        body_json = json.loads(self.body_json)
+        if data['ch_question']:
+            self.qz_attempted = data['ch_question'].copy()
+        for quiz in body_json["quizzes"]:
+            for answer in quiz["json"]["questions"]:
+                for index, value in enumerate(answer["a"]): 
+                    if index == int(self.qz_attempted['selected']):  
+                        correct_and_reason.update({'correct': value['correct'], 'reason': value["reason"]})
+        return {"quiz_result_id": correct_and_reason}
 
     def student_view(self, context=None):
         """
