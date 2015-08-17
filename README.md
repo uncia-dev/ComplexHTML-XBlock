@@ -1,6 +1,6 @@
 # ComplexHTML XBlock for the Open edX Platform
 
-### This XBlock is not yet ready for deployment. Use at your own risk.
+Please note that this XBlock is still not finalized, and the documentation below may be outdated. It works however and it will likely get more features soon.
 
 ### Description
 
