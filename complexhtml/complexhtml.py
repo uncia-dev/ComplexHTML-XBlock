@@ -166,9 +166,9 @@ class ComplexHTMLXBlock(XBlock):
             self.grabbed.append((content["time"], "crickets"))
             content["data"] = None
 
-        print ("Grabbed data on " + self.grabbed[-1][0])
+        print ("= ComplexHTML: Grabbed data on " + self.grabbed[-1][0])
         for i in self.grabbed[-1][1]:
-            print ("+--" + str(i))
+            print ("= ComplexHTML: +--" + str(i))
 
         return content
 
@@ -196,7 +196,7 @@ class ComplexHTMLXBlock(XBlock):
         Start a new student session and record the time when it happens
         """
         self.session_ended = False
-        print ("===== Session started at: " + str(datetime.datetime.now()))
+        print ("= ComplexHTML: Session started at: " + str(datetime.datetime.now()))
         self.sessions.append([str(datetime.datetime.now()), "", ""])
 
     @XBlock.json_handler
@@ -210,7 +210,7 @@ class ComplexHTMLXBlock(XBlock):
 
             if not self.session_ended:
 
-                print ("===== Session tick at: " + str(datetime.datetime.now()))
+                print ("= ComplexHTML: Session tick at: " + str(datetime.datetime.now()))
                 self.sessions[-1][1] = str(datetime.datetime.now())
 
         return {}
@@ -225,7 +225,7 @@ class ComplexHTMLXBlock(XBlock):
 
             if not self.session_ended:
 
-                print ("===== Session ended at: " + str(datetime.datetime.now()))
+                print ("= ComplexHTML: Session ended at: " + str(datetime.datetime.now()))
                 self.sessions[-1][2] = str(datetime.datetime.now())
                 self.session_ended = True
 
