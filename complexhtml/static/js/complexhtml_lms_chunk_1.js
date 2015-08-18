@@ -6,23 +6,34 @@ var session_tick = parseInt("{{ self.tick_interval }}");
 var tick_timer = "";
 
 // Load JSON settings from database
-$.ajax({
-    type: "POST",
-    url: runtime.handlerUrl(xblock_element, 'get_settings_student'),
-    data: JSON.stringify({}),
-    success: function(result) {
-        if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
-    },
-    async: false
-});
-
-// Mark this block as completed for the student
-function markCompleted() {
+function loadSettings() {
     $.ajax({
         type: "POST",
-        url: runtime.handlerUrl(xblock_element, 'complete_block'),
-        data: JSON.stringify({})
-    })
+        url: runtime.handlerUrl(xblock_element, 'get_settings_student'),
+        data: JSON.stringify({}),
+        success: function(result) {
+            if (result.json_settings != "") json_settings = JSON.parse(result.json_settings);
+        },
+        async: false
+    });
+}
+
+// Update student settings with the contents of json_settings
+function updateSettings(settings) {
+    if (settings) {
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'update_student_settings'),
+            data: JSON.stringify({"json_settings": settings})
+        });
+    } else {
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'update_student_settings'),
+            data: JSON.stringify({"json_settings": json_settings})
+        });
+    }
+}
 }
 
 // Record an element click to the student's database entry
@@ -73,20 +84,19 @@ function recordHover(rec, type) {
 
 }
 
-// Update student settings with the contents of json_settings
-function updateSettings(json_settings) {
-    if (json_settings) {
-        $.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(xblock_element, 'update_student_settings'),
-            data: JSON.stringify({"json_settings": json_settings})
-        });
-    }
+// Mark this block as completed for the student
+function markCompleted() {
+    $.ajax({
+        type: "POST",
+        url: runtime.handlerUrl(xblock_element, 'complete_block'),
+        data: JSON.stringify({})
+    })
 }
 
 // Send the server the start of session message
 function session_start() {
 
+    loadSettings();
     clearInterval(tick_timer);
 
     if ($(".action-publish") === undefined) {
