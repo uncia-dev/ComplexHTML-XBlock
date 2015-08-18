@@ -89,7 +89,7 @@ function session_start() {
 
     clearInterval(tick_timer);
 
-    if ($(".action-publish") == undefined) {
+    if ($(".action-publish") === undefined) {
 
         $.ajax({
             type: "POST",
@@ -107,7 +107,7 @@ function session_end() {
 
     clearInterval(tick_timer);
 
-    if ($(".action-publish") == undefined) {
+    if ($(".action-publish") === undefined) {
 
         $.ajax({
             type: "POST",
