@@ -4,7 +4,7 @@ Author: Raymond Lucian Blaga
 Description: An HTML, JavaScript and CSS Editing XBlock that records student interactions if the course author wishes it.
 """
 
-import urllib, datetime, json
+import urllib, datetime, json, urllib2
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 from xblock.core import XBlock
@@ -479,7 +479,15 @@ class ComplexHTMLXBlock(XBlock):
         """
 
         fragment = Fragment()
-        content = {'self': self}
+        content = json.loads(load_resource("static/studio_settings.json"))
+        content['self'] = self
+
+        try:
+            urllib2.urlopen(content["CKEDITOR_URL"])
+        except urllib2.HTTPError, e:
+            content["CKEDITOR_URL"] = ""
+        except urllib2.URLError, e:
+            content["CKEDITOR_URL"] = ""
 
         if self.tick_interval < 1000:
             self.tick_interval = 86400000  # 24 hrs
@@ -504,7 +512,7 @@ class ComplexHTMLXBlock(XBlock):
         # Load Studio View
         fragment.add_content(render_template('templates/complexhtml_edit.html', content))
         fragment.add_css(load_resource('static/css/complexhtml_edit.css'))
-        fragment.add_javascript(load_resource('static/js/complexhtml_edit.js'))
+        fragment.add_javascript(unicode(render_template('static/js/complexhtml_edit.js', content)))
         fragment.initialize_js('ComplexHTMLXBlockStudio')
 
         return fragment

@@ -34,7 +34,6 @@ function updateSettings(settings) {
         });
     }
 }
-}
 
 // Record an element click to the student's database entry
 function recordClick(rec, type) {
@@ -47,6 +46,10 @@ function recordClick(rec, type) {
             if (this.type != undefined) id = this.type;
             if (this.id != "") id = this.id;
             if (this.className != "" ) id = this.className;
+
+            if ("{{ self.dev_stuff }}" == "True") {
+                console.log("Student clicked on: " + id + ", of type " + this.type + ".");
+            }
 
             if (this.type === type || type === undefined) {
                 $.ajax({

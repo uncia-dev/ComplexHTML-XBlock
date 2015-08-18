@@ -35,5 +35,5 @@ setup(
             'complexhtml = complexhtml:ComplexHTMLXBlock',
         ]
     },
-    package_data=package_data("complexhtml", ["static", "templates", "public"]),
+    package_data=package_data("complexhtml", ["static", "templates"]),
 )

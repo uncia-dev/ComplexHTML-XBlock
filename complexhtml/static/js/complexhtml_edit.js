@@ -9,7 +9,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
     var csxColor = ["#009FE6", "black"];
 
     // Manually set this to where you store CKEditor
-    var CKEditor_URL = "";
+    var CKEditor_URL = "{{ CKEDITOR_URL }}";
 
     var codemirror_settings = {
         lineNumbers: true,
@@ -35,21 +35,23 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
     var ckeditor_html = "";
     var editor_html = "";
 
-    // Attach CKEditor or CodeMirror (as fallback) to HTML input textarea
+    // Attach CKEditor to HTML input textarea
     if (CKEditor_URL.endsWith("ckeditor.js")) {
         $.getScript(CKEditor_URL, function () {
             ckeditor_html = CKEDITOR.replace('chx_body_html');
             ckeditor_html.config.height = "auto";
             ckeditor_html.config.width = "auto";
         });
-    } else {
+    }
+
+    // Use CodeMirror as a fallback
+    if (ckeditor_html === "") {
         editor_html = CodeMirror.fromTextArea($('.chx_body_html')[0],
             jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
         );
     }
 
     // Attach CodeMirror where required
-
     var editor_dependencies = CodeMirror.fromTextArea($('.chx_dependencies')[0],
         codemirror_settings
     );
@@ -166,6 +168,7 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
     }
 
+    /*
     // Generate a preview of the slide based on the HTML, JS and CSS code written so far
     function preview_slide() {
 
@@ -238,9 +241,8 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
 
         // Run on_load code here
         preview_run();
-        */
 
-    }
+    }*/
 
     $(function($) {
 
@@ -302,12 +304,11 @@ function ComplexHTMLXBlockStudio(runtime, xblock_element) {
             tab_switch("chx_tab_css");
         });
 
-        /*
-        $('#chx_tab_preview').click(function() {
-            tab_switch("chx_tab_preview");
-            preview_slide();
-        });
-        */
+
+        //$('#chx_tab_preview').click(function() {
+            //tab_switch("chx_tab_preview");
+            //preview_slide();
+        //});
 
         // Fill the window with the Editor view
         $('#chx_fullscreen').click(function() {
