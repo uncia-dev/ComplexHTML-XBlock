@@ -89,10 +89,15 @@ function session_end() {
 
     clearInterval(tick_timer);
 
-    $.ajax({
-        type: "POST",
-        url: runtime.handlerUrl(xblock_element, 'session_end'),
-        data: JSON.stringify({}),
-        async: false
-    });
+    if ($(".action-publish") != undefined) {
+
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'session_end'),
+            data: JSON.stringify({}),
+            async: false
+        });
+
+    }
+
 }
