@@ -8,7 +8,7 @@ import urllib, datetime, json
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, List, String, Boolean
+from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
 
 class ComplexHTMLXBlock(XBlock):
@@ -68,17 +68,32 @@ class ComplexHTMLXBlock(XBlock):
 
     body_json = String(
         help="JSON container that can be used by the JavaScript code above",
-        default="{\"sample\": { \"subsample\": \"true\" }}", scope=Scope.content
+        default="{\"sample\": { \"subsample\": \"true\" }}",
+        scope=Scope.content
+    )
+
+    body_json_timestamp = String(
+        help="Timestamp from the last update made to body_json",
+        default="",
+        scope=Scope.content
     )
 
     body_css = String(
         help="CSS code for the block",
-        default="p { color: red }", scope=Scope.content
+        default="p { color: red }",
+        scope=Scope.content
     )
 
     settings_student = String(
         help="Student-specific settings for student view in JSON form; initially a copy of body_json",
-        default="", scope=Scope.user_state
+        default="",
+        scope=Scope.user_state
+    )
+
+    settings_student_timestamp = String(
+        help="Timestamp from the last update made to settings_student",
+        default="",
+        scope=Scope.user_state
     )
 
     grabbed = List(
@@ -186,8 +201,9 @@ class ComplexHTMLXBlock(XBlock):
         Update student settings from AJAX request
         """
         if self.settings_student != data["json_settings"]:
-            self.settings_student = data["json_settings"]
+            self.settings_student = json.dumps(data["json_settings"])
             return {"updated": "true"}
+
         return {"updated": "false"}
 
     @XBlock.json_handler
@@ -395,6 +411,15 @@ class ComplexHTMLXBlock(XBlock):
             return content
         return content
 
+    @staticmethod
+    def update_student_settings_backend(source, settings):
+        """
+        Returns dictionary that is source merged with settings
+        """
+        result = json.loads(source)
+        result.update(json.loads(settings))
+        return json.dumps(result)
+
     def student_view(self, context=None):
         """
         The student view
@@ -403,8 +428,22 @@ class ComplexHTMLXBlock(XBlock):
         fragment = Fragment()
         content = {'self': self}
 
+        # copy over body_json to settings_student if the latter is blank
         if self.settings_student == "":
+            self.settings_student_timestamp = self.body_json_timestamp
             self.settings_student = self.body_json
+
+        # settings_student isn't blank
+        else:
+
+            # compare timestamps
+            if self.settings_student_timestamp != self.body_json_timestamp:
+
+                # settings_student is outdated in this case, it must be updated
+                self.settings_student = self.update_student_settings_backend(self.settings_student, self.body_json)
+                self.settings_student_timestamp = self.body_json_timestamp
+
+            # else all is in order, keep going
 
         body_html = self.generate_dependencies(self.dependencies) + unicode(self.generate_html(self.body_html))
 
@@ -528,6 +567,7 @@ class ComplexHTMLXBlock(XBlock):
             self.body_html = data["body_html"]
             self.body_tracked = data["body_tracked"]
             self.body_json = data["body_json"]
+            self.body_json_timestamp = str(datetime.datetime.now())
             self.body_js_chunk_1 = data["body_js_chunk_1"]
             self.body_js_chunk_2 = data["body_js_chunk_2"]
             self.body_css = data["body_css"]
