@@ -2,6 +2,18 @@
 
 Please note that this XBlock is still not finalized, and the documentation below may be outdated. It works however and it will likely get more features soon.
 
+### TO DO
+
+Add notes on JS commands and JSON files:
+
+json_settings = {}
+loadSettings()
+updateSettings(<optional>settings)
+markCompleted()
+
+Add a few methods that allow communication with LMS Manipulator?
+
+
 ### Description
 
 ComplexHTML is an XBlock module for edX that runs on the fullstack and devstack versions. It permits a course author to write HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. In addition, the course author can set this module to record student interactions.
