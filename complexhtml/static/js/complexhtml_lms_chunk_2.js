@@ -4,7 +4,7 @@ $(function ($) {
 
 tick_timer = setInterval(function() {
 
-    if ($(".action-publish") != undefined) {
+    if ($(".action-publish") == undefined) {
 
         $.ajax({
                 type: "POST",
