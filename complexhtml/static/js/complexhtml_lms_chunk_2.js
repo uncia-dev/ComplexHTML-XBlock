@@ -2,6 +2,8 @@
 /* Page is loaded. Do something. */
 $(function ($) {
 
+session_start();
+
 tick_timer = setInterval(function() {
 
     if ($(".action-publish") == undefined) {

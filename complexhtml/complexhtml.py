@@ -190,14 +190,17 @@ class ComplexHTMLXBlock(XBlock):
             return {"updated": "true"}
         return {"updated": "false"}
 
-    @staticmethod
-    def session_start(self):
+    @XBlock.json_handler
+    def session_start(self, data, suffix=''):
         """
         Start a new student session and record the time when it happens
         """
+
         self.session_ended = False
         print ("= ComplexHTML: Session started at: " + str(datetime.datetime.now()))
         self.sessions.append([str(datetime.datetime.now()), "", ""])
+
+        return {}
 
     @XBlock.json_handler
     def session_tick(self, data, suffix=''):
@@ -399,8 +402,6 @@ class ComplexHTMLXBlock(XBlock):
 
         fragment = Fragment()
         content = {'self': self}
-
-        self.session_start(self)
 
         if self.settings_student == "":
             self.settings_student = self.body_json

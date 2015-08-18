@@ -84,6 +84,24 @@ function updateSettings(json_settings) {
     }
 }
 
+// Send the server the start of session message
+function session_start() {
+
+    clearInterval(tick_timer);
+
+    if ($(".action-publish") == undefined) {
+
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(xblock_element, 'session_start'),
+            data: JSON.stringify({}),
+            async: false
+        });
+
+    }
+
+}
+
 // Send the server the end of session message
 function session_end() {
 
