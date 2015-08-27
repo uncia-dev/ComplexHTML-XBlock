@@ -2,9 +2,9 @@
 /* Page is loaded. Do something. */
 $(function ($) {
 
-session_start();
-
 if ($(".action-publish") === undefined) {
+
+    session_start();
 
     tick_timer = setInterval(function () {
 
