@@ -30,7 +30,7 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
     `git clone https://github.com/uw-ray/ComplexHTML-XBlock.git`
 
-* (Optional) Enable CKEditor support. Edit "complexhtml/complexhtml/static/js/complexhtml_edit.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js", either hosted by your web server (ie Apache) or CKEditor's CDN.
+* (Optional) Enable CKEditor support. Edit "ComplexHTML-XBlock/complexhtml/static/js/complexhtml_edit.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js", either hosted by your web server (ie Apache) or CKEditor's CDN.
 
 ![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_01.jpg)
   
