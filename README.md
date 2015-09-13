@@ -31,40 +31,24 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
     `git clone https://github.com/uw-ray/ComplexHTML-XBlock.git`
 
 * (Optional) Enable CKEditor support. Edit "complexhtml/complexhtml/static/js/complexhtml_edit.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js", either hosted by your web server (ie Apache) or CKEditor's CDN.
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_01.jpg)
-  
+ 
 * Install the XBlock:
 
     `sudo -u edxapp /edx/bin/pip.edxapp install <path to XBlock parent directory>/ComplexHTML-XBlock/`
 
 * In the edX Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "complexhtml" to the list. Click on "Save Changes". 
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_03.jpg)
-
 * Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen:
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_04.jpg)
 
 * In the menu, click on "ComplexHTML XBlock":
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_05.jpg)
-
 * By default, the XBlock only has a sample paragraph, so you will have to click the Edit button:
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_06.jpg)
 
 * There are five tabs for this module: Options, Preview, HTML, JavaScript, CSS. In Options, you can set the title of the slide, which will be seen by the students in the LMS. You can also choose what events to record. For now, only clicks and hover are implement. Be cautious with hover, as it can potentially throw massive amounts of data at the database server.
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_07.jpg)
-
 * The second tab allows you to create a web page within Studio. The example below show CKEditor in action:
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_08.jpg)
-
 * You can also write a list of HTML elements that you wish to track, when the student clicks on them; other events might be implemented in the future. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_09.jpg)
 
 * A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
 
@@ -72,15 +56,9 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 In the back end, messages will also be displayed for every interaction.
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_15.jpg)
-
 * The third tab is the JavaScript Editor. The code that you type in here will run when a student views the module in LMS:
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_10.jpg)
-
 * Optionally, there is also a JSON editor that will store whatever default settings you wish to attach to your JavaScript code above. This JSON code will be stored for every student as well, in case you wish to have student-specific settings. To access these settings in your JavaScript code, simply call "json_settings". It is parsed and ready for use:
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_11.jpg)
 
 * Lastly there is the CSS editor. Make sure selector is on the same line as the opening accolade. For example:
 
@@ -90,15 +68,9 @@ In the back end, messages will also be displayed for every interaction.
     }
     ```
     
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_12.jpg)
-
 * Now you can either save your work, or check it out in the Preview pane. Note that tracking features are disabled in the preview mode:
 
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_13.jpg)
-
 * There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
-
-![Image](https://raw.githubusercontent.com/uw-ray/ComplexHTML-XBlock/master/docs/chx_14.jpg)
 
 * (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
 
