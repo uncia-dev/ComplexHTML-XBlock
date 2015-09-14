@@ -48,7 +48,6 @@ ComplexHTML features nine tabs for options and editing:
 Below is a separate section for each tab.
 
 #### Options Tab
--
 
 This tab contains the settings for this specific XBlock.
 
@@ -59,17 +58,14 @@ This tab contains the settings for this specific XBlock.
 - Show Development Info in LMS - Show useful data for development purposes (for now, just the raw fields from the XBlock); note that the page will be huge because of this
 
 #### Dependencies Tab
--
 
 This tab contains the list of dependencies that the course author wishes to add to their slide. Only URLs to CSS and JS files are accepted; everything else will be discarded.
 
 #### HTML Editor Tab
--
 
 This tab contains the HTML editor for a slide. By default it is a CodeMirror text field, however, if CKEditor is enabled, the course author will have access to a WYSIWYG interface.
 
 #### Tracked Elements Tab
--
 
 This tab contains the list of elements that the course author wishes to track when a student clicks on or hover over them. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
 
@@ -80,17 +76,14 @@ This tab contains the list of elements that the course author wishes to track wh
 In the back end, messages will also be displayed for every interaction.
 
 #### JavaScript (Global) Tab
--
 
 Here, the course author can enter JavaScript code that is executed before the on-load event occurs in LMS for this XBlock (ie the page is fully loaded). This tab is best used for global variables and function declarations. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
 #### JavaScript (Load) Tab
--
 
 Here, the course author can enter JavaScript code that is executed once the XBlock is fully loaded in LMS. This tab is best used for running the slide JavaScript code. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
 #### JSON Settings Tab
--
 
 In this tab, the course author can add JSON key and value pairs of data that can be accessed by the JavaScript code in the previous two tabs. The purpose of this feature is to store each student's progress and settings for a slide in an easily accessible object. Each student will have a copy of this object, and it will be changed as the student interacts with the XBlock, and the JavaScript code that the course author wrote.
 
@@ -99,7 +92,6 @@ To access the JSON object from the previous two tabs, use the variable 'json_set
 This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
 #### CSS Tab
--
 
 Here, the course author can customize their slide's style with CSS. Make sure selector is on the same line as the opening accolade. For example:
 
@@ -110,7 +102,6 @@ Here, the course author can customize their slide's style with CSS. Make sure se
     ```
 
 #### Preview Tab
--
 
 This is an experimental feature that is currently disabled. If anyone is interesting in further expanding it, there is a lot of partially functional code; it may not currently worked as it was written for an older version of this XBlock.
 
