@@ -71,17 +71,23 @@ This tab contains the list of elements that the course author wishes to track wh
 
 A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
 
-    `(time, [id, recorded_action])`
+`
+(time, [id, recorded_action])
+`
 
 In the back end, messages will also be displayed for every interaction.
 
 #### JavaScript (Global) Tab
 
-Here, the course author can enter JavaScript code that is executed before the on-load event occurs in LMS for this XBlock (ie the page is fully loaded). This tab is best used for global variables and function declarations. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
+Here, the course author can enter JavaScript code that is executed before the on-load event occurs in LMS for this XBlock (ie the page is fully loaded). This tab is best used for global variables and function declarations. 
+
+This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
 #### JavaScript (Load) Tab
 
-Here, the course author can enter JavaScript code that is executed once the XBlock is fully loaded in LMS. This tab is best used for running the slide JavaScript code. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
+Here, the course author can enter JavaScript code that is executed once the XBlock is fully loaded in LMS. This tab is best used for running the slide JavaScript code. 
+
+This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
 #### JSON Settings Tab
 
