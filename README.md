@@ -1,20 +1,7 @@
 # ComplexHTML XBlock for the Open edX Platform
 
-Please note that this XBlock is still not finalized, and the documentation below may be outdated. It works however and it will likely get more features soon.
-
-### TO DO
-
-Add notes on JS commands and JSON files:
-
-json_settings = {}
-loadSettings()
-updateSettings(<optional>settings)
-markCompleted()
-
-Add a few methods that allow communication with LMS Manipulator?
-
-
 ### Description
+---------------
 
 ComplexHTML is an XBlock module for edX that runs on the fullstack and devstack versions. It permits a course author to write HTML, CSS, JavaScript and JSON code in the Studio view, all of which is compiled into a slide for student viewing. In addition, the course author can set this module to record student interactions.
 
@@ -22,15 +9,16 @@ This module was meant to be used in conjunction with a JavaScript library for a 
 
 ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology. Licensing wise, feel free to use and change this code as you wish.
 
-### Installation & Usage Guide
+### Installation Guide
+----------------------
 
 * First ensure that advanced modules are enabled on your edX server. See here: http://edx-developer-guide.readthedocs.org/en/latest/extending_platform/xblocks.html#testing
 
-* SSH into your edX server and enter the following commands, and download the module from GitHub:
+* SSH into your edX server, and download this module from GitHub:
 
     `git clone https://github.com/uw-ray/ComplexHTML-XBlock.git`
 
-* (Optional) Enable CKEditor support. Edit "complexhtml/complexhtml/static/js/complexhtml_edit.js" and search for "CKEditor_URL". Set the field to the location of "ckeditor.js", either hosted by your web server (ie Apache) or CKEditor's CDN.
+* (Optional) Enable CKEditor support by editing "complexhtml/static/studio_settings.json". Set the "CKEditor_URL" value to the location of "ckeditor.js", either hosted by your web server (ie Apache) or CKEditor's CDN.
  
 * Install the XBlock:
 
@@ -38,17 +26,49 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 * In the edX Studio, open your course and navigate to Settings -> Advanced Settings. Look at the "Advanced Module List" and add "complexhtml" to the list. Click on "Save Changes". 
 
-* Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen:
+* Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen. From the pop-up menu, select ComplexHTML XBlock"
 
-* In the menu, click on "ComplexHTML XBlock":
+### Usage Guide
+---------------
 
-* By default, the XBlock only has a sample paragraph, so you will have to click the Edit button:
+* ComplexHTML features nine tabs for options and editing:
+`
+Options
+Dependencies
+HTML Editor
+Tracked Elements
+JavaScript (Global)
+JavaScript (Load)
+JSON Settings
+CSS
+Preview
+`
 
-* There are five tabs for this module: Options, Preview, HTML, JavaScript, CSS. In Options, you can set the title of the slide, which will be seen by the students in the LMS. You can also choose what events to record. For now, only clicks and hover are implement. Be cautious with hover, as it can potentially throw massive amounts of data at the database server.
+Below is a separate section for each tab.
 
-* The second tab allows you to create a web page within Studio. The example below show CKEditor in action:
+## Options Tab
 
-* You can also write a list of HTML elements that you wish to track, when the student clicks on them; other events might be implemented in the future. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
+This tab contains the settings for this specific XBlock.
+
+`
+Display Name - Set the display name for the XBlock, which will be seen in the LMS unit navigation bar
+Record Mouse Click? - Set whether or not to record every student click on trackable elements
+Record Mouse Hover? - Set whether or not to record whenever the student moves the cursor over trackable elements; use with caution, as this will flood the database with data
+Student Ping Interval (ms) - Set, in miliseconds, the interval at which the XBlock tells the server if the student if still viewing the XBlock
+Show Development Info in LMS - Show useful data for development purposes (for now, just the raw fields from the XBlock); note that the page will be huge because of this
+`
+
+## Dependencies Tab
+
+This tab contains the list of dependencies that the course author wishes to add to their slide. Only URLs to CSS and JS files are accepted; everything else will be discarded.
+
+## HTML Editor Tab
+
+This tab contains the HTML editor for a slide. By default it is a CodeMirror text field, however, if CKEditor is enabled, the course author will have access to a WYSIWYG interface.
+
+## Tracked Elements Tab
+
+This tab contains the list of elements that the course author wishes to track when a student clicks on or hover over them. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
 
 * A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
 
@@ -56,24 +76,59 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 
 In the back end, messages will also be displayed for every interaction.
 
-* The third tab is the JavaScript Editor. The code that you type in here will run when a student views the module in LMS:
+## JavaScript (Global) Tab
 
-* Optionally, there is also a JSON editor that will store whatever default settings you wish to attach to your JavaScript code above. This JSON code will be stored for every student as well, in case you wish to have student-specific settings. To access these settings in your JavaScript code, simply call "json_settings". It is parsed and ready for use:
+Here, the course author can enter JavaScript code that is executed before the on-load event occurs in LMS for this XBlock (ie the page is fully loaded). This tab is best used for global variables and function declarations. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
-* Lastly there is the CSS editor. Make sure selector is on the same line as the opening accolade. For example:
+## JavaScript (Load) Tab
+
+Here, the course author can enter JavaScript code that is executed once the XBlock is fully loaded in LMS. This tab is best used for running the slide JavaScript code. This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
+
+## JSON Settings Tab
+
+In this tab, the course author can add JSON key and value pairs of data that can be accessed by the JavaScript code in the previous two tabs. The purpose of this feature is to store each student's progress and settings for a slide in an easily accessible object. Each student will have a copy of this object, and it will be changed as the student interacts with the XBlock, and the JavaScript code that the course author wrote.
+
+To access the JSON object from the previous two tabs, use the variable 'json_settings'. In other words, you can do 'json_settings['setting_name']'.
+
+This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
+
+## CSS Tab
+
+Here, the course author can customize their slide's style with CSS. Make sure selector is on the same line as the opening accolade. For example:
 
     ```
     .this_is_a_selector {
         color: red;
     }
     ```
-    
-* Now you can either save your work, or check it out in the Preview pane. Note that tracking features are disabled in the preview mode:
+
+## Preview Tab
+
+This is an experimental feature that is currently disabled. If anyone is interesting in further expanding it, there is a lot of partially functional code; it may not currently worked as it was written for an older version of this XBlock.
+
+
+
+Once all, or some of the tabs are filled up, just press on Save.
+
+
+
+### Other Features & Notes
+------------------
 
 * There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
-* (Optional) If you want to see some useful debug code in the Student view, open your browser's console and type: 
+* Here are a few more JavaScript functions that may come in handy
 
-    `$(".dev_stuff").show()`
+```js
+loadSettings()				- Force reload student version of json_settings to json_settings
+updateSettings(settings)	- Inject new JSON object to the student settings (ie student-specific copy of json_settings); if settings is blank, just update student settings with json_settings
+markCompleted()				- Tell the server that this XBlock was completed by the student
+session_start()				- This starts a new student session for this XBlock. Do not call, as it executes on page load.
+session_end()				- This ends the current student session for this XBlock. Do not  call, as it executes when the student leaves the page.
 
-* (Optional) There is also a hidden method in the JavaScript code loaded in LMS called markCompleted(). Calling this function will mark an XBlock as completed for a student.
+```
+* To see the development info even if it is hidden, type in the following in the JavaScript console:
+
+`$(".dev_stuff").show()`
+
+* The session system is disabled while running edX Studio, to keep the database clean for the course author

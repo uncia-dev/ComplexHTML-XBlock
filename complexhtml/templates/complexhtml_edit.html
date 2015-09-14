@@ -7,20 +7,20 @@
         <input type="text" class="chx_display_name" value="{{ self.display_name }}">
         <br/>
 
-        <p class="chx_desc">Record mouse click?</p>
+        <p class="chx_desc">Record Mouse Click?</p>
         <input type="checkbox" class="chx_record_click" {% if self.record_click %} checked {% endif %}>
         <br/>
 
-        <p class="chx_desc">Record mouse hovering?</p>
+        <p class="chx_desc">Record Mouse Hovering?</p>
         <input type="checkbox" class="chx_record_hover" {% if self.record_hover %} checked {% endif %}>
         <br/>
 
-        <p class="chx_desc">Student ping interval (ms)</p>
+        <p class="chx_desc">Student Ping Interval (ms)</p>
         <input type="text" class="chx_tick_interval" value="{{ self.tick_interval }}">
         <br/>
 
         <hr/>
-        <p class="chx_desc">Show development info in LMS?</p>
+        <p class="chx_desc">Show Development Info in LMS?</p>
         <input type="checkbox" class="chx_dev_stuff_studio" {% if self.dev_stuff %} checked {% endif %}>
 
     </div>
