@@ -112,9 +112,6 @@ Here, the course author can customize their slide's style with CSS. Make sure se
 This is an experimental feature that is currently disabled. If anyone is interesting in further expanding it, there is a lot of partially functioning code; it may not currently work as it was written for an older version of this XBlock.
 
 
-
-Once all, or some of the tabs are filled up, just press on Save.
-
 ### Other Features & Notes
 ------
 
