@@ -115,16 +115,16 @@ This is an experimental feature that is currently disabled. If anyone is interes
 ### Other Features & Notes
 ------
 
-There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
+There is also a Fullscreen button in the top right corner of the XBlock studio view, which allows you to fill up the entire browser window with the studio view. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
 Here are a few more JavaScript functions that may come in handy
 
 ```js
-loadSettings()				- Force reload student version of json_settings to json_settings
-updateSettings(settings)	- Inject new JSON object to the student settings (ie student-specific copy of json_settings); if settings is blank, just update student settings with json_settings
-markCompleted()				- Tell the server that this XBlock was completed by the student
-session_start()				- This starts a new student session for this XBlock. Do not call, as it executes on page load.
-session_end()				- This ends the current student session for this XBlock. Do not  call, as it executes when the student leaves the page.
+loadSettings()				// Force reload student version of json_settings to json_settings
+updateSettings(settings)	// Inject new JSON object to the student settings (ie student-specific copy of json_settings); if settings is blank, just update student settings with json_settings
+markCompleted()				// Tell the server that this XBlock was completed by the student
+session_start()				// This starts a new student session for this XBlock. Do not call, as it executes on page load.
+session_end()				// This ends the current student session for this XBlock. Do not  call, as it executes when the student leaves the page.
 
 ```
 To see the development info even if it is hidden, type in the following in the JavaScript console:
