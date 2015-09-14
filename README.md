@@ -11,7 +11,7 @@ This module was meant to be used in conjunction with a JavaScript library for a 
 ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca College's Centre for Development of Open Technology. Licensing wise, feel free to use and change this code as you wish.
 
 ### Installation Guide
---
+------
 
 1. First ensure that advanced modules are enabled on your edX server. See here: http://edx-developer-guide.readthedocs.org/en/latest/extending_platform/xblocks.html#testing
 
@@ -30,7 +30,7 @@ ComplexHTML was created by Raymond Blaga for the edX Aviation Project at Seneca 
 5. Open your course as you would when adding units and click on the "Advanced" button at the bottom of the screen. From the pop-up menu, select ComplexHTML XBlock"
 
 ### Usage Guide
---
+------
 
 ComplexHTML features nine tabs for options and editing:
 
@@ -121,7 +121,7 @@ Once all, or some of the tabs are filled up, just press on Save.
 
 
 ### Other Features & Notes
---
+------
 
 * There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
