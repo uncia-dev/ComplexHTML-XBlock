@@ -67,9 +67,9 @@ This tab contains the HTML editor for a slide. By default it is a CodeMirror tex
 
 #### Tracked Elements Tab
 
-This tab contains the list of elements that the course author wishes to track when a student clicks on or hover over them. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#"):
+This tab contains the list of elements that the course author wishes to track when a student clicks on or hover over them. In this list, either type in the tagname without brackets (ie "p"; optionally there is a second parameter for type, in case you deal with input tags; ie "input, button"), or a class or id (preceded by "." or "#").
 
-* A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
+A note on the recorded interaction: element clicks will be placed in a student-specific field called grabbed_data, with the following pattern: 
 
     `(time, [id, recorded_action])`
 
