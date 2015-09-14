@@ -93,7 +93,7 @@ This code is validated, and in case it is incorrect, an error message will repla
 
 In this tab, the course author can add JSON key and value pairs of data that can be accessed by the JavaScript code in the previous two tabs. The purpose of this feature is to store each student's progress and settings for a slide in an easily accessible object. Each student will have a copy of this object, and it will be changed as the student interacts with the XBlock, and the JavaScript code that the course author wrote.
 
-To access the JSON object from the previous two tabs, use the variable 'json_settings'. In other words, you can do 'json_settings['setting_name']'.
+To access the JSON object in the previous two tabs, use the variable *json_settings*. In other words, you could try *json_settings['setting_name']*.
 
 This code is validated, and in case it is incorrect, an error message will replace the XBlock's viewing area.
 
