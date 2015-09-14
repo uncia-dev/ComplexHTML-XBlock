@@ -115,9 +115,9 @@ This is an experimental feature that is currently disabled. If anyone is interes
 ### Other Features & Notes
 ------
 
-* There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
+There is also a Fullscreen button, which fills up the entire browser window with the Studio View. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
-* Here are a few more JavaScript functions that may come in handy
+Here are a few more JavaScript functions that may come in handy
 
 ```js
 loadSettings()				- Force reload student version of json_settings to json_settings
@@ -127,8 +127,8 @@ session_start()				- This starts a new student session for this XBlock. Do not c
 session_end()				- This ends the current student session for this XBlock. Do not  call, as it executes when the student leaves the page.
 
 ```
-* To see the development info even if it is hidden, type in the following in the JavaScript console:
+To see the development info even if it is hidden, type in the following in the JavaScript console:
 
 `$(".dev_stuff").show()`
 
-* The session system is disabled while running edX Studio, to keep the database clean for the course author
+The session system is disabled while running edX Studio, to keep the database clean for the course author
