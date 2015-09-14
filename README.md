@@ -117,7 +117,7 @@ This is an experimental feature that is currently disabled. If anyone is interes
 
 There is also a Fullscreen button in the top right corner of the XBlock studio view, which allows you to fill up the entire browser window with the studio view. Note that the implementation is a bit troublesome on screens smaller than 1920x1080.
 
-Here are a few more JavaScript functions that may come in handy
+Here are a few more JavaScript functions that may come in handy:
 
 ```js
 loadSettings()				// Force reload student version of json_settings to json_settings
@@ -131,4 +131,4 @@ To see the development info even if it is hidden, type in the following in the J
 
 `$(".dev_stuff").show()`
 
-The session system is disabled while running edX Studio, to keep the database clean for the course author
+The session system is disabled while running edX Studio, to keep the database clean for the course author.
