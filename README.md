@@ -101,21 +101,19 @@ This code is validated, and in case it is incorrect, an error message will repla
 
 Here, the course author can customize their slide's style with CSS. Make sure selector is on the same line as the opening accolade. For example:
 
-    ```
-    .this_is_a_selector {
-        color: red;
-    }
-    ```
+```
+.this_is_a_selector {
+    color: red;
+}
+```
 
 #### Preview Tab
 
-This is an experimental feature that is currently disabled. If anyone is interesting in further expanding it, there is a lot of partially functional code; it may not currently worked as it was written for an older version of this XBlock.
+This is an experimental feature that is currently disabled. If anyone is interesting in further expanding it, there is a lot of partially functioning code; it may not currently work as it was written for an older version of this XBlock.
 
 
 
 Once all, or some of the tabs are filled up, just press on Save.
-
-
 
 ### Other Features & Notes
 ------
